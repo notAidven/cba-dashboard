@@ -1,0 +1,42 @@
+.app { min-height: 100vh; background: var(--white); }
+
+.stepsSection {
+  padding: 64px 0 72px;
+  background: var(--surface);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mit-blue);
+  margin-bottom: 8px;
+}
+
+.sectionHeading {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.sectionSubtext {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+.stepList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

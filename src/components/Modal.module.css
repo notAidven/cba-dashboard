@@ -1,0 +1,130 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20,20,24,.55);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 24px;
+  overflow-y: auto;
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 640px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.18);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 64px);
+  overflow: hidden;
+  margin: auto;
+  animation: modalIn .2s ease-out;
+  border-top: 3px solid var(--mit-blue);
+}
+
+.modalWide { max-width: 880px; }
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(-10px) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -.01em;
+  margin-bottom: 3px;
+}
+
+.modalSubtitle {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.closeBtn {
+  background: var(--surface);
+  color: var(--slate);
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.closeBtn:hover { background: var(--border); }
+
+.modalSearch {
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.search {
+  width: 100%;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .15s;
+  color: var(--navy);
+}
+.search:focus { border-color: var(--mit-blue); }
+
+.modalBody {
+  overflow-y: auto;
+  padding: 20px 24px 28px;
+  flex: 1;
+}
+
+.glossaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.glossaryItem {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
+}
+.glossaryItem:last-child { border-bottom: none; }
+
+.glossaryTerm {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+
+.glossaryDef {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.65;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 24px;
+  font-size: 14px;
+}

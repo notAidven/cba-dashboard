@@ -1,0 +1,139 @@
+.footer {
+  background: var(--navy);
+  color: #9ca3af;
+  padding: 48px 40px 28px;
+  border-top: 3px solid var(--mit-blue);
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.topRow {
+  display: flex;
+  gap: 48px;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.brand { max-width: 380px; }
+
+.brandName {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+  color: #f9fafb;
+  letter-spacing: -.01em;
+  margin-bottom: 2px;
+}
+
+.brandSub {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.brandDesc {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.65;
+}
+
+.links { display: flex; gap: 48px; }
+
+.linkGroup { display: flex; flex-direction: column; gap: 9px; }
+
+.linkGroupLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #4b5563;
+  margin-bottom: 2px;
+}
+
+.footerLink {
+  font-size: 13.5px;
+  color: #9ca3af;
+  text-align: left;
+  transition: color .15s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+.footerLink:hover { color: #f3f4f6; }
+
+.bibliography {
+  border-top: 1px solid #374151;
+  padding-top: 28px;
+  margin-bottom: 28px;
+  animation: slideDown .2s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.bibTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f3f4f6;
+  margin-bottom: 6px;
+}
+
+.bibNote {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 18px;
+  line-height: 1.55;
+}
+
+.bibList {
+  list-style: decimal;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.bibItem {
+  font-size: 12.5px;
+  color: #9ca3af;
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bibUrl {
+  font-size: 11.5px;
+  color: #93c5fd;
+  word-break: break-all;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.bibUrl:hover { color: #bfdbfe; }
+
+.bottomRow {
+  border-top: 1px solid #2d3748;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.copyright { font-size: 12px; color: #4b5563; }
+.version { font-size: 12px; color: #374151; }
