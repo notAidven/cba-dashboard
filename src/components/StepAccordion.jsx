@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { IconDoc } from './Icons';
 import styles from './StepAccordion.module.css';
 
 const ROLE_LABELS = {
@@ -47,7 +48,7 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
                   style={{ borderColor: step.color, color: step.color }}
                   onClick={() => onOpenTemplate(tid)}
                 >
-                  📄 {formatTemplateName(tid)}
+                  <IconDoc /> {formatTemplateName(tid)}
                 </button>
               ))}
             </div>
@@ -98,7 +99,7 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
                         style={{ borderColor: step.color, color: step.color }}
                         onClick={() => onOpenTemplate(g.templateId)}
                       >
-                        📄 Open {formatTemplateName(g.templateId)}
+                        <IconDoc /> Open {formatTemplateName(g.templateId)}
                       </button>
                     )}
 

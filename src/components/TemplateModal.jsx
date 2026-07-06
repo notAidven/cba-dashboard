@@ -1,4 +1,5 @@
 import { templates, steps } from '../data/dashboardContent';
+import { IconClose } from './Icons';
 import styles from './Modal.module.css';
 import tStyles from './TemplateModal.module.css';
 
@@ -20,7 +21,7 @@ export default function TemplateModal({ templateId, onClose }) {
             <h2 className={styles.modalTitle}>{tmpl.title}</h2>
             <p className={styles.modalSubtitle}>{tmpl.description}</p>
           </div>
-          <button className={styles.closeBtn} onClick={onClose} aria-label="Close">✕</button>
+          <button className={styles.closeBtn} onClick={onClose} aria-label="Close"><IconClose size={18} /></button>
         </div>
 
         <div className={styles.modalBody}>

@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { resources, steps } from '../data/dashboardContent';
+import { IconArrowRight, IconExternal } from './Icons';
 import styles from './ResourceLibrary.module.css';
 
 const TYPE_LABELS = { template: 'Template', external: 'External Resource', 'case-study': 'Case Study' };
@@ -90,7 +91,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
                   <h4 className={styles.cardTitle}>{r.title}</h4>
                   <p className={styles.cardDesc}>{r.description}</p>
                   <button className={styles.openBtn} style={{ color: TYPE_COLORS.template, borderColor: TYPE_COLORS.template }} onClick={() => onOpenTemplate(r.templateId)}>
-                    Open Template →
+                    Open Template <IconArrowRight size={13} />
                   </button>
                 </div>
               ))}
@@ -113,7 +114,19 @@ export default function ResourceLibrary({ onOpenTemplate }) {
                   <h4 className={styles.cardTitle}>{r.title}</h4>
                   {r.organization && <p className={styles.cardOrg}>{r.organization}</p>}
                   <p className={styles.cardDesc}>{r.description}</p>
-                  <span className={styles.externalNote}>Link pending — source referenced in dashboard</span>
+                  {r.url && r.url !== '#' ? (
+                    <a
+                      className={styles.openBtn}
+                      style={{ color: TYPE_COLORS.external, borderColor: TYPE_COLORS.external }}
+                      href={r.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit resource <IconExternal size={12} />
+                    </a>
+                  ) : (
+                    <span className={styles.externalNote}>Link pending — source referenced in dashboard</span>
+                  )}
                 </div>
               ))}
             </div>
@@ -145,18 +158,6 @@ export default function ResourceLibrary({ onOpenTemplate }) {
         {filtered.length === 0 && (
           <div className={styles.empty}>No resources match your filters. Try clearing the search or changing the filter.</div>
         )}
-
-        <div className={styles.databasePlaceholder}>
-          <div className={styles.dbIcon}>🗄</div>
-          <div>
-            <h3 className={styles.dbTitle}>CBA Database</h3>
-            <p className={styles.dbDesc}>
-              A searchable database of real Community Benefits Agreements from across the United States.
-              Browse, compare, and search CBAs by sector, location, benefit type, and outcome.
-            </p>
-          </div>
-          <span className={styles.comingSoonBig}>Coming Soon</span>
-        </div>
       </div>
     </section>
   );
