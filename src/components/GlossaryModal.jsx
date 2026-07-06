@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { glossary } from '../data/dashboardContent';
+import { IconClose } from './Icons';
 import styles from './Modal.module.css';
 
 export default function GlossaryModal({ onClose }) {
@@ -19,7 +20,7 @@ export default function GlossaryModal({ onClose }) {
             <h2 className={styles.modalTitle}>Glossary</h2>
             <p className={styles.modalSubtitle}>{glossary.length} terms defined</p>
           </div>
-          <button className={styles.closeBtn} onClick={onClose} aria-label="Close">✕</button>
+          <button className={styles.closeBtn} onClick={onClose} aria-label="Close"><IconClose size={18} /></button>
         </div>
 
         <div className={styles.modalSearch}>
