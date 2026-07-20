@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { bibliography } from '../data/dashboardContent';
+import GlossaryText from './GlossaryText';
 import styles from './Footer.module.css';
 
 export default function Footer({ onGlossaryOpen }) {
@@ -13,8 +14,8 @@ export default function Footer({ onGlossaryOpen }) {
             <span className={styles.brandName}>CBA Dashboard</span>
             <span className={styles.brandSub}>MIT Renewable Energy Clinic</span>
             <p className={styles.brandDesc}>
-              A step-by-step toolkit for negotiating, drafting, and enforcing Community Benefits Agreements.
-              Built for community organizers, municipal officials, and local advocates.
+              <GlossaryText>A step-by-step toolkit for negotiating, drafting, and enforcing Community Benefits Agreements.</GlossaryText>{' '}
+              <GlossaryText>Built for community organizers, municipal officials, and local advocates.</GlossaryText>
             </p>
           </div>
           <div className={styles.links}>
@@ -42,7 +43,7 @@ export default function Footer({ onGlossaryOpen }) {
             <ol className={styles.bibList}>
               {bibliography.map((entry, i) => (
                 <li key={i} className={styles.bibItem}>
-                  <span>{entry.citation}</span>
+                  <span><GlossaryText>{entry.citation}</GlossaryText></span>
                   {entry.url && (
                     <a
                       href={entry.url}

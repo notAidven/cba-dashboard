@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
 import { resources, steps } from '../data/dashboardContent';
 import { IconArrowRight, IconExternal } from './Icons';
+import GlossaryText from './GlossaryText';
 import styles from './ResourceLibrary.module.css';
 
 const TYPE_LABELS = { template: 'Template', external: 'External Resource', 'case-study': 'Case Study' };
-const TYPE_COLORS = { template: '#7C3AED', external: '#059669', 'case-study': '#D97706' };
+const TYPE_COLORS = { template: '#9580B8', external: '#6B9B7A', 'case-study': '#C97B54' };
 
 export default function ResourceLibrary({ onOpenTemplate }) {
   const [search, setSearch] = useState('');
@@ -37,6 +38,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
             className={styles.search}
             type="text"
             placeholder="Search resources..."
+            aria-label="Search resources"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -88,8 +90,8 @@ export default function ResourceLibrary({ onOpenTemplate }) {
                     <span className={styles.typeBadge} style={{ background: TYPE_COLORS.template }}>Template</span>
                     {r.step && <span className={styles.stepBadge} style={{ background: steps.find(s=>s.id===r.step)?.color || '#888' }}>{steps.find(s=>s.id===r.step)?.title}</span>}
                   </div>
-                  <h4 className={styles.cardTitle}>{r.title}</h4>
-                  <p className={styles.cardDesc}>{r.description}</p>
+                  <h4 className={styles.cardTitle}><GlossaryText>{r.title}</GlossaryText></h4>
+                  <p className={styles.cardDesc}><GlossaryText>{r.description}</GlossaryText></p>
                   <button className={styles.openBtn} style={{ color: TYPE_COLORS.template, borderColor: TYPE_COLORS.template }} onClick={() => onOpenTemplate(r.templateId)}>
                     Open Template <IconArrowRight size={13} />
                   </button>
@@ -111,9 +113,9 @@ export default function ResourceLibrary({ onOpenTemplate }) {
                     <span className={styles.typeBadge} style={{ background: TYPE_COLORS.external }}>External</span>
                     {r.topic && <span className={styles.topicBadge}>{r.topic}</span>}
                   </div>
-                  <h4 className={styles.cardTitle}>{r.title}</h4>
-                  {r.organization && <p className={styles.cardOrg}>{r.organization}</p>}
-                  <p className={styles.cardDesc}>{r.description}</p>
+                  <h4 className={styles.cardTitle}><GlossaryText>{r.title}</GlossaryText></h4>
+                  {r.organization && <p className={styles.cardOrg}><GlossaryText>{r.organization}</GlossaryText></p>}
+                  <p className={styles.cardDesc}><GlossaryText>{r.description}</GlossaryText></p>
                   {r.url && r.url !== '#' ? (
                     <a
                       className={styles.openBtn}
@@ -145,10 +147,10 @@ export default function ResourceLibrary({ onOpenTemplate }) {
                     <span className={styles.typeBadge} style={{ background: TYPE_COLORS['case-study'] }}>Case Study</span>
                     <span className={styles.comingSoon}>Coming Soon</span>
                   </div>
-                  <h4 className={styles.cardTitle}>{r.title}</h4>
+                  <h4 className={styles.cardTitle}><GlossaryText>{r.title}</GlossaryText></h4>
                   {r.location && <p className={styles.cardOrg}>{r.location} · {r.sector}</p>}
-                  <p className={styles.cardDesc}>{r.description}</p>
-                  {r.outcome && <div className={styles.outcomeTag}>Outcome: {r.outcome}</div>}
+                  <p className={styles.cardDesc}><GlossaryText>{r.description}</GlossaryText></p>
+                  {r.outcome && <div className={styles.outcomeTag}>Outcome: <GlossaryText>{r.outcome}</GlossaryText></div>}
                 </div>
               ))}
             </div>

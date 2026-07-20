@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IconDoc } from './Icons';
+import GlossaryText from './GlossaryText';
 import styles from './StepAccordion.module.css';
 
 const ROLE_LABELS = {
@@ -15,7 +16,7 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
   const toggleCheck = (key) => setCheckedItems(prev => ({ ...prev, [key]: !prev[key] }));
 
   return (
-    <div className={styles.accordion}>
+    <div className={styles.accordion} style={{ '--step-color': step.color }}>
       <button
         className={`${styles.header} ${isOpen ? styles.headerOpen : ''}`}
         onClick={onToggle}
@@ -36,7 +37,7 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
 
       {isOpen && (
         <div className={styles.body}>
-          <p className={styles.description}>{step.description}</p>
+          <p className={styles.description}><GlossaryText>{step.description}</GlossaryText></p>
 
           {step.templates?.length > 0 && (
             <div className={styles.templateRow}>
@@ -68,7 +69,7 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
 
                 {expandedGuidance === gi && (
                   <div className={styles.guidanceBody}>
-                    <p className={styles.guidanceDesc}>{g.body}</p>
+                    <p className={styles.guidanceDesc}><GlossaryText>{g.body}</GlossaryText></p>
 
                     {g.phases && Array.isArray(g.phases) && g.phases[0]?.duration && (
                       <div className={styles.phasesTable}>
@@ -76,7 +77,7 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
                           <div key={pi} className={styles.phaseRow}>
                             <div className={styles.phaseLabel}>{ph.phase}</div>
                             <div className={styles.phaseDuration}>{ph.duration}</div>
-                            <div className={styles.phaseDesc}>{ph.description}</div>
+                            <div className={styles.phaseDesc}><GlossaryText>{ph.description}</GlossaryText></div>
                           </div>
                         ))}
                       </div>
@@ -87,7 +88,7 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
                         {g.phases.map((ph, pi) => (
                           <div key={pi} className={styles.meetingPhase}>
                             <strong>{ph.phase}</strong>
-                            <ul>{ph.items.map((item, ii) => <li key={ii}>{item}</li>)}</ul>
+                            <ul>{ph.items.map((item) => <li key={item}><GlossaryText>{item}</GlossaryText></li>)}</ul>
                           </div>
                         ))}
                       </div>
@@ -114,18 +115,23 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
                         <ul className={styles.checklist}>
                           {g.checklist[role].map((item, ci) => {
                             const key = `${gi}-${ci}`;
+                            const textId = `check-${step.id}-${gi}-${ci}`;
                             return (
-                              <li key={ci} className={styles.checkItem}>
+                              <li key={item} className={styles.checkItem}>
                                 <input
                                   type="checkbox"
                                   id={key}
                                   checked={!!checkedItems[key]}
                                   onChange={() => toggleCheck(key)}
                                   className={styles.checkbox}
+                                  aria-labelledby={textId}
                                 />
-                                <label htmlFor={key} className={checkedItems[key] ? styles.checkedLabel : styles.checkLabel}>
-                                  {item}
-                                </label>
+                                <div
+                                  id={textId}
+                                  className={checkedItems[key] ? styles.checkedLabel : styles.checkLabel}
+                                >
+                                  <GlossaryText>{item}</GlossaryText>
+                                </div>
                               </li>
                             );
                           })}

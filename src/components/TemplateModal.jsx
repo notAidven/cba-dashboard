@@ -1,16 +1,24 @@
+import { useEffect } from 'react';
 import { templates, steps } from '../data/dashboardContent';
 import { IconClose } from './Icons';
+import GlossaryText from './GlossaryText';
 import styles from './Modal.module.css';
 import tStyles from './TemplateModal.module.css';
 
 export default function TemplateModal({ templateId, onClose }) {
   const tmpl = templates[templateId];
+  useEffect(() => {
+    const handleKeyDown = (event) => event.key === 'Escape' && onClose();
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   if (!tmpl) return null;
   const step = steps.find((s) => s.id === tmpl.step);
 
   return (
     <div className={styles.overlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <div className={`${styles.modal} ${styles.modalWide}`}>
+      <div className={`${styles.modal} ${styles.modalWide}`} role="dialog" aria-modal="true" aria-labelledby="template-title">
         <div className={styles.modalHeader}>
           <div>
             {step && (
@@ -18,8 +26,8 @@ export default function TemplateModal({ templateId, onClose }) {
                 Step {step.number}: {step.title}
               </span>
             )}
-            <h2 className={styles.modalTitle}>{tmpl.title}</h2>
-            <p className={styles.modalSubtitle}>{tmpl.description}</p>
+            <h2 className={styles.modalTitle} id="template-title"><GlossaryText>{tmpl.title}</GlossaryText></h2>
+            <p className={styles.modalSubtitle}><GlossaryText>{tmpl.description}</GlossaryText></p>
           </div>
           <button className={styles.closeBtn} onClick={onClose} aria-label="Close"><IconClose size={18} /></button>
         </div>
@@ -31,9 +39,9 @@ export default function TemplateModal({ templateId, onClose }) {
 
           {tmpl.sections.map((section, si) => (
             <div key={si} className={tStyles.section}>
-              <h3 className={tStyles.sectionTitle}>{section.title}</h3>
+              <h3 className={tStyles.sectionTitle}><GlossaryText>{section.title}</GlossaryText></h3>
               {section.description && (
-                <p className={tStyles.sectionDesc}>{section.description}</p>
+                <p className={tStyles.sectionDesc}><GlossaryText>{section.description}</GlossaryText></p>
               )}
 
               {/* Fields */}
@@ -55,7 +63,7 @@ export default function TemplateModal({ templateId, onClose }) {
                     </select>
                   )}
                   {field.type === 'certification' && (
-                    <div className={tStyles.certBox}>{field.label}</div>
+                    <div className={tStyles.certBox}><GlossaryText>{field.label}</GlossaryText></div>
                   )}
                   {field.type === 'signature' && (
                     <div className={tStyles.signatureLine} />
@@ -69,7 +77,7 @@ export default function TemplateModal({ templateId, onClose }) {
                   {section.items.map((item, ii) => (
                     <li key={ii} className={tStyles.checkItem}>
                       <input type="checkbox" className={tStyles.checkbox} />
-                      <span>{item}</span>
+                      <span><GlossaryText>{item}</GlossaryText></span>
                     </li>
                   ))}
                 </ul>
@@ -82,7 +90,7 @@ export default function TemplateModal({ templateId, onClose }) {
                     {section.items.map((item, ii) => (
                       <li key={ii} className={tStyles.checkItem}>
                         <input type="checkbox" className={tStyles.checkbox} />
-                        <span>{item}</span>
+                        <span><GlossaryText>{item}</GlossaryText></span>
                       </li>
                     ))}
                   </ul>
@@ -117,7 +125,7 @@ export default function TemplateModal({ templateId, onClose }) {
                           {section.columns.map((col, ci) => (
                             <td key={ci}>
                               {typeof row[ci] === 'string' && row[ci]
-                                ? <span className={tStyles.exampleText}>{row[ci]}</span>
+                                ? <span className={tStyles.exampleText}><GlossaryText>{row[ci]}</GlossaryText></span>
                                 : <input className={tStyles.tableInput} type="text" placeholder="..." />
                               }
                             </td>
@@ -134,7 +142,7 @@ export default function TemplateModal({ templateId, onClose }) {
                 <div className={tStyles.definitionsList}>
                   {section.exampleTerms.map((term, ti) => (
                     <div key={ti} className={tStyles.definitionRow}>
-                      <span className={tStyles.definitionText}>{term}</span>
+                      <span className={tStyles.definitionText}><GlossaryText>{term}</GlossaryText></span>
                     </div>
                   ))}
                   <div className={tStyles.addMore}>+ Add additional definitions as needed</div>
@@ -154,7 +162,7 @@ export default function TemplateModal({ templateId, onClose }) {
                       {section.exampleRows.map((row, ri) => (
                         <tr key={ri}>
                           {row.map((cell, ci) => (
-                            <td key={ci}><span className={tStyles.exampleText}>{cell}</span></td>
+                            <td key={ci}><span className={tStyles.exampleText}><GlossaryText>{cell}</GlossaryText></span></td>
                           ))}
                         </tr>
                       ))}
@@ -173,8 +181,8 @@ export default function TemplateModal({ templateId, onClose }) {
               {/* Stages */}
               {section.stages && (
                 <ol className={tStyles.stageList}>
-                  {section.stages.map((s, si) => (
-                    <li key={si}>{s}</li>
+                  {section.stages.map((stage) => (
+                    <li key={stage}><GlossaryText>{stage}</GlossaryText></li>
                   ))}
                 </ol>
               )}
@@ -197,7 +205,7 @@ export default function TemplateModal({ templateId, onClose }) {
                   {section.items.map((item, ii) => (
                     <li key={ii} className={tStyles.checkItem}>
                       <input type="checkbox" className={tStyles.checkbox} />
-                      <span>{item}</span>
+                      <span><GlossaryText>{item}</GlossaryText></span>
                     </li>
                   ))}
                 </ul>
@@ -217,7 +225,7 @@ export default function TemplateModal({ templateId, onClose }) {
                     <tbody>
                       {section.exampleRows.map((row, ri) => (
                         <tr key={ri}>
-                          <td><span className={tStyles.exampleText}>{row}</span></td>
+                          <td><span className={tStyles.exampleText}><GlossaryText>{row}</GlossaryText></span></td>
                           {section.dimensions.map((_, di) => (
                             <td key={di}><input className={tStyles.tableInput} type="number" min="1" max="5" placeholder="1-5" /></td>
                           ))}
