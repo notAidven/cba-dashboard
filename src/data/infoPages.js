@@ -1,0 +1,62 @@
+export const infoPages = [
+  {
+    id: 'what-is',
+    number: '01',
+    title: 'What is a CBA?',
+    summary: 'Understand what makes a Community Benefits Agreement legally meaningful and how it differs from an informal promise.',
+    color: '#C97B54',
+    tint: '#FDF5EE',
+  },
+  {
+    id: 'can-do',
+    number: '02',
+    title: 'What a CBA Can Do',
+    summary: 'Review the practical outcomes a well-drafted agreement can create for communities and project partners.',
+    color: '#6B9B7A',
+    tint: '#EFF6F1',
+  },
+  {
+    id: 'cannot-do',
+    number: '03',
+    title: 'What a CBA Cannot Do',
+    summary: 'Set realistic expectations about the limits of an agreement and the process needed to support it.',
+    color: '#C0676B',
+    tint: '#FBF0F0',
+  },
+  {
+    id: 'why-want',
+    number: '04',
+    title: 'Why Might You Want One?',
+    summary: 'Explore five reasons communities, municipalities, and developers may choose a formal agreement.',
+    color: '#D4A843',
+    tint: '#FDF9EE',
+    wide: true,
+  },
+  {
+    id: 'benefit-categories',
+    number: '05',
+    title: 'Common Benefit Categories',
+    summary: 'Browse the types of commitments that can respond to local priorities and project impacts.',
+    color: '#9580B8',
+    tint: '#F5F2FB',
+    wide: true,
+  },
+  {
+    id: 'who-for',
+    number: '06',
+    title: 'Who This Dashboard Is For',
+    summary: 'See how community advocates, municipal officials, boards, and project partners can use the toolkit.',
+    color: '#4E8FA0',
+    tint: '#EEF6F9',
+  },
+  {
+    id: 'how-to',
+    number: '07',
+    title: 'How to Use the Dashboard',
+    summary: 'Get a short orientation to the six-step process, role filters, templates, resources, and glossary.',
+    color: '#5B7EBD',
+    tint: '#EEF3FB',
+  },
+];
+
+export const getInfoPage = (pageId) => infoPages.find((page) => page.id === pageId);

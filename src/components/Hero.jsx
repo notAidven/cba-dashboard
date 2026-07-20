@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { landingPage } from '../data/dashboardContent';
-import { IconCheck, IconCross, IconArrowDown } from './Icons';
-import Disclosure from './Disclosure';
+import { infoPages } from '../data/infoPages';
+import { IconArrowDown } from './Icons';
+import GlossaryText from './GlossaryText';
 import styles from './Hero.module.css';
 
 const ROLES = [
@@ -10,150 +10,117 @@ const ROLES = [
   { id: 'developer', label: 'Developer' },
 ];
 
-export default function Hero({ role, onRoleChange, onGlossaryOpen }) {
-  const [tooltipId, setTooltipId] = useState(null);
-
+export default function Hero({ role, onRoleChange, onGlossaryOpen, onOpenInfoPage }) {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <header className={styles.hero}>
-      {/* ── Sticky navbar ── */}
-      <nav className={styles.navbar}>
-        <div className={styles.navBrand}>
-          <span className={styles.navLogo}>CBA Dashboard</span>
-          <span className={styles.navDivider} />
-          <span className={styles.navLogoSub}>MIT Renewable Energy Clinic</span>
-        </div>
+    <header className={styles.hero} id="home">
+      <nav className={styles.navbar} aria-label="Primary navigation">
+        <button className={styles.navBrand} type="button" onClick={() => scrollTo('home')}>
+          <span className={styles.navMark}>CBA</span>
+          <span className={styles.navBrandText}>
+            <span className={styles.navLogo}>CBA Dashboard</span>
+            <span className={styles.navLogoSub}>MIT Renewable Energy Clinic</span>
+          </span>
+        </button>
         <div className={styles.navLinks}>
-          <button className={styles.navLink} onClick={() => scrollTo('steps')}>Steps</button>
+          <button className={styles.navLink} onClick={() => scrollTo('steps')}>Six steps</button>
           <button className={styles.navLink} onClick={() => scrollTo('resources')}>Resources</button>
           <button className={styles.navLink} onClick={onGlossaryOpen}>Glossary</button>
         </div>
       </nav>
 
-      {/* ── Photo / title strip ── */}
-      <div className={styles.photoStrip}>
-        <div className={styles.photoStripInner}>
-          <div className={styles.photoStripText}>
-            <span className={styles.photoStripLabel}>MIT Renewable Energy Clinic · CBA Toolkit</span>
-            <h1 className={styles.photoStripTitle}>{landingPage.title}</h1>
-            <p className={styles.photoStripSub}>{landingPage.subtitle}</p>
+      <section className={styles.heroBanner} aria-labelledby="page-title">
+        <div className={styles.heroBannerInner}>
+          <div className={styles.heroCopy}>
+            <span className={styles.heroKicker}>MIT Renewable Energy Clinic · Community development toolkit</span>
+            <h1 className={styles.heroTitle} id="page-title">
+              <GlossaryText>Community Benefits Agreement</GlossaryText><br />
+              Dashboard
+            </h1>
+            <p className={styles.heroSubtitle}>
+              <GlossaryText>{landingPage.subtitle}</GlossaryText>
+            </p>
+            <div className={styles.heroActions}>
+              <button className={styles.btnPrimary} onClick={() => scrollTo('overview-topics')}>
+                Explore the overview <IconArrowDown />
+              </button>
+              <button className={styles.btnSecondary} onClick={() => scrollTo('steps')}>
+                Begin the six steps
+              </button>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* ── Content ── */}
+          <aside className={styles.heroNote}>
+            <span className={styles.heroNoteLabel}>Choose your starting point</span>
+            <p>Select an overview card for focused guidance, or move directly into the working six-step process.</p>
+          </aside>
+        </div>
+      </section>
+
       <div className={styles.content}>
+        <section className={styles.directory} id="overview-topics" aria-labelledby="directory-heading">
+          <div className={styles.sectionIntro}>
+            <p className={styles.sectionLabel}>Dashboard orientation</p>
+            <h2 className={styles.sectionHeading} id="directory-heading">Start with the question you need answered</h2>
+            <p className={styles.sectionDescription}>
+              Each topic opens a focused page, so you can understand the fundamentals without searching through the full dashboard.
+            </p>
+          </div>
 
-        {/* Lead — the one thing a newcomer needs first (always visible) */}
-        <div className={styles.introLead}>
-          <p className={styles.sectionLabel}>Start Here</p>
-          <h2 className={styles.leadHeading}>{landingPage.whatIsACBA.heading}</h2>
-          {landingPage.whatIsACBA.body.split('\n\n').map((para, i) => (
-            <p key={i} className={styles.leadBody}>{para}</p>
-          ))}
-        </div>
-
-        {/* Pick a role, then start (always visible) */}
-        <div className={styles.roleBlock}>
-          <p className={styles.sectionLabel}>Your Role</p>
-          <h2 className={styles.sectionTitle}>Select Your Role</h2>
-          <p className={styles.sectionDesc}>
-            Checklist items in each step are filtered to your role. Switch at any time — your selections are preserved.
-          </p>
-          <div className={styles.roleToggle}>
-            {ROLES.map((r) => (
+          <div className={styles.cardGrid}>
+            {infoPages.map((page) => (
               <button
-                key={r.id}
-                className={role === r.id ? styles.roleActive : styles.roleBtn}
-                onClick={() => onRoleChange(r.id)}
+                type="button"
+                key={page.id}
+                className={`${styles.overviewCard} ${page.wide ? styles.wideCard : ''}`}
+                style={{ '--card-color': page.color, '--card-tint': page.tint }}
+                onClick={() => onOpenInfoPage(page.id)}
               >
-                {r.label}
+                <span className={styles.cardTopline}>
+                  <span>Orientation {page.number}</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+                <span className={styles.cardTitle}>{page.title}</span>
+                <span className={styles.cardSummary}>{page.summary}</span>
+                <span className={styles.cardAction}>Open topic <span aria-hidden="true">→</span></span>
               </button>
             ))}
           </div>
-          <div className={styles.heroActions}>
-            <button className={styles.btnPrimary} onClick={() => scrollTo('steps')}>
-              Start with Step 1: Prepare <IconArrowDown />
-            </button>
-            <button className={styles.btnOutline} onClick={onGlossaryOpen}>
-              Open Glossary
-            </button>
+        </section>
+
+        <section className={styles.workSetup} aria-labelledby="role-heading">
+          <div className={styles.roleIntro}>
+            <p className={styles.sectionLabel}>Configure your workflow</p>
+            <h2 className={styles.sectionHeading}>Set the dashboard to your role</h2>
+            <p className={styles.sectionDescription}>
+              Your selection changes the suggested checklist inside every step while keeping the shared guidance and resources visible.
+            </p>
+            <p className={styles.glossaryNote}>
+              Blue terms such as <GlossaryText>Community Benefits Agreement</GlossaryText> open a definition when selected.
+            </p>
           </div>
-        </div>
 
-        {/* Reference material — collapsed by default so the page reads clean */}
-        <div className={styles.learnMore}>
-          <p className={styles.sectionLabel}>Learn More About CBAs</p>
-          <div className={styles.panelStack}>
-
-            <Disclosure title="What a CBA can — and can't — do">
-              <div className={styles.twoCol}>
-                <div>
-                  <h4 className={styles.panelHeading}>{landingPage.whatCBACanDo.heading}</h4>
-                  <ul className={styles.checkList}>
-                    {landingPage.whatCBACanDo.items.map((item, i) => (
-                      <li key={i}><span className={styles.check}><IconCheck /></span>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h4 className={styles.panelHeading}>{landingPage.whatCBACannotDo.heading}</h4>
-                  <ul className={styles.crossList}>
-                    {landingPage.whatCBACannotDo.items.map((item, i) => (
-                      <li key={i}><span className={styles.cross}><IconCross /></span>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Disclosure>
-
-            <Disclosure title="Common benefit categories">
-              <p className={styles.sectionDesc}>Hover any category to see examples of what communities have negotiated.</p>
-              <div className={styles.chips}>
-                {landingPage.benefitCategories.map((cat) => (
-                  <div
-                    key={cat.label}
-                    className={styles.chipWrapper}
-                    onMouseEnter={() => setTooltipId(cat.label)}
-                    onMouseLeave={() => setTooltipId(null)}
-                  >
-                    <span className={styles.chip}>{cat.label}</span>
-                    {tooltipId === cat.label && (
-                      <div className={styles.tooltip}>{cat.tooltip}</div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </Disclosure>
-
-            <Disclosure title="Who this dashboard is for">
-              <p className={styles.sectionDesc}>{landingPage.whoThisIsFor.body}</p>
-              <div className={styles.audienceCards}>
-                {landingPage.whoThisIsFor.primary.map((a) => (
-                  <div key={a.role} className={styles.audienceCard}>
-                    <strong>{a.role}</strong>
-                    <p>{a.description}</p>
-                  </div>
-                ))}
-              </div>
-              <p className={styles.secondaryAudience}>
-                <strong>Also useful for: </strong>{landingPage.whoThisIsFor.secondary.join(' · ')}.
-              </p>
-            </Disclosure>
-
-            <Disclosure title="How to use this dashboard">
-              <p className={styles.sectionDesc}>{landingPage.howToUse.body}</p>
-              <ol className={styles.howToList}>
-                {landingPage.howToUse.steps.map((s, i) => (
-                  <li key={i}>{s}</li>
-                ))}
-              </ol>
-            </Disclosure>
-
-          </div>
-        </div>
-
+          <aside className={styles.roleBlock} aria-labelledby="role-heading">
+            <p className={styles.roleLabel}>Personalize your checklist</p>
+            <h2 className={styles.roleHeading} id="role-heading">Select your role</h2>
+            <div className={styles.roleToggle} aria-label="Dashboard role">
+              {ROLES.map((roleOption) => (
+                <button
+                  key={roleOption.id}
+                  className={role === roleOption.id ? styles.roleActive : styles.roleBtn}
+                  onClick={() => onRoleChange(roleOption.id)}
+                  aria-pressed={role === roleOption.id}
+                >
+                  {roleOption.label}
+                </button>
+              ))}
+            </div>
+            <button className={styles.roleStart} onClick={() => scrollTo('steps')}>
+              Start with Step 1: Prepare <span aria-hidden="true">→</span>
+            </button>
+          </aside>
+        </section>
       </div>
     </header>
   );

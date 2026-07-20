@@ -178,7 +178,7 @@ export const steps = [
     id: "prepare",
     number: 1,
     title: "Prepare",
-    color: "#2563EB", // blue
+    color: "#A95F42", // terra
     subtitle: "What communities and municipalities should do before any negotiation begins",
     description:
       "Strong CBAs begin before the negotiation table. This step helps you understand the project context, identify community priorities, assess your capacity, and decide whether to bring in outside support.",
@@ -293,7 +293,7 @@ export const steps = [
     id: "engage",
     number: 2,
     title: "Engage",
-    color: "#059669", // green
+    color: "#527A60", // sage
     subtitle: "How to build meaningful, inclusive, and effective community engagement before negotiations begin",
     description:
       "Engagement is not a checkbox — it is the foundation of a legitimate CBA. This step guides you through building continuous, inclusive, and documented community engagement that shapes the negotiation.",
@@ -415,7 +415,7 @@ export const steps = [
     id: "negotiate",
     number: 3,
     title: "Negotiate",
-    color: "#D97706", // amber
+    color: "#806B9F", // lavender
     subtitle: "Designing a fair, transparent, and enforceable negotiation process",
     description:
       "Good negotiation is structured, documented, and fair. This step provides timelines, facilitation guidance, power-dynamics tools, and a preparation worksheet to help all parties negotiate effectively.",
@@ -567,7 +567,7 @@ export const steps = [
     id: "draft",
     number: 4,
     title: "Draft",
-    color: "#7C3AED", // purple
+    color: "#3F7583", // teal
     subtitle: "Translate negotiated commitments into clear, enforceable, durable language",
     description:
       "A CBA is only as strong as its language. This step provides a structure template, model clauses, an example benefits menu, and a guide to the most common drafting mistakes.",
@@ -806,7 +806,7 @@ export const steps = [
     id: "monitor",
     number: 5,
     title: "Monitor",
-    color: "#DC2626", // red
+    color: "#9A7626", // gold
     subtitle: "Ensure commitments are implemented, tracked, and publicly accountable",
     description:
       "A signed CBA is not the finish line — it is the beginning. This step establishes monitoring frameworks, committee structures, and reporting tools to ensure every commitment is tracked and enforced.",
@@ -915,7 +915,7 @@ export const steps = [
     id: "enforce",
     number: 6,
     title: "Enforce",
-    color: "#0891B2", // cyan
+    color: "#A65057", // rose
     subtitle: "Activate the tools that ensure commitments are delivered and know when to escalate",
     description:
       "Enforcement is the test of whether a CBA was real or just paper. This step walks through the enforcement pathway, real case examples of successful enforcement, and guidance on when and how to seek legal support.",
@@ -1683,10 +1683,10 @@ export const bibliography = [
 // ---------- STEP COLOR MAP ----------
 
 export const stepColors = {
-  prepare: "#2563EB",
-  engage: "#059669",
-  negotiate: "#D97706",
-  draft: "#7C3AED",
-  monitor: "#DC2626",
-  enforce: "#0891B2",
+  prepare: "#A95F42",
+  engage: "#527A60",
+  negotiate: "#806B9F",
+  draft: "#3F7583",
+  monitor: "#9A7626",
+  enforce: "#A65057",
 };
