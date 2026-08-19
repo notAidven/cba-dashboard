@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper: #FAF7F0;
+  --paper-deep: #EDE8DF;
+  --ink: #3D2B1F;
+  --terra: #C97B54;
+  --terra-dark: #9F5D3F;
+  --civic-blue: #5B7EBD;
+  --civic-blue-dark: #45649D;
+  --sage: #6B9B7A;
+  --sage-dark: #4F765B;
+  --rose: #C0676B;
+  --lavender: #9580B8;
+  --teal: #4E8FA0;
+  --gold: #D4A843;
+  --glossary-blue: #456CAD;
+  --glossary-blue-dark: #34558D;
+  --font-display: 'IBM Plex Serif', Georgia, serif;
+  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-utility: 'IBM Plex Mono', ui-monospace, monospace;
+  --mit-blue: var(--terra);
+  --mit-blue-light: #FDF0E8;
+  --mit-green: var(--sage);
+  --mit-green-light: #EFF6F1;
+  --navy: var(--ink);
+  --slate: #5E4D42;
+  --muted: #8B7355;
+  --border: rgba(61, 43, 31, .15);
+  --border-light: rgba(61, 43, 31, .09);
+  --surface: #F1ECE3;
+  --white: #FFFFFF;
+  --radius: 12px;
+  --shadow-sm: 0 2px 8px rgba(61, 43, 31, .06);
+  --shadow: 0 10px 28px rgba(61, 43, 31, .1);
+  --shadow-md: 0 18px 44px rgba(61, 43, 31, .16);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--navy);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  color: var(--navy);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--glossary-blue);
+  outline-offset: 3px;
+}
+
+#root { min-height: 100vh; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C9BDAE; border-radius: 3px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }

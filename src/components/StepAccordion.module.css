@@ -1,0 +1,424 @@
+.accordion {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--step-color) 28%, var(--border));
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: transform .18s, box-shadow .18s;
+}
+
+.accordion:hover { box-shadow: var(--shadow); }
+
+.header {
+  width: 100%;
+  min-height: 82px;
+  padding: 15px 20px 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--white);
+  text-align: left;
+  transition: background .18s;
+}
+
+.header:hover { background: color-mix(in srgb, var(--step-color) 7%, var(--white)); }
+.headerOpen { background: var(--step-color); }
+.headerOpen:hover { background: var(--step-color); }
+
+.headerLeft {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.accentBar {
+  width: 6px;
+  align-self: stretch;
+  flex-shrink: 0;
+  margin-right: 17px;
+  border-radius: 0 5px 5px 0;
+}
+
+.headerOpen .accentBar { background: rgba(255, 255, 255, .34) !important; }
+
+.stepBadge {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  margin-right: 15px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, .55);
+  border-radius: 50%;
+  color: #fff;
+  font-family: var(--font-utility);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.headerOpen .stepBadge { background: rgba(255, 255, 255, .18) !important; }
+
+.headerText {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stepTitle {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.stepSubtitle {
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.headerOpen .stepTitle { color: #fff; }
+.headerOpen .stepSubtitle { color: rgba(255, 255, 255, .78); }
+
+.chevron {
+  margin-right: 7px;
+  flex-shrink: 0;
+  color: var(--step-color);
+  font-size: 20px;
+  transition: transform .2s;
+}
+
+.headerOpen .chevron { color: #fff; }
+.chevronOpen { transform: rotate(180deg); }
+
+.body {
+  padding: 28px 30px 34px;
+  border-top: 1px solid color-mix(in srgb, var(--step-color) 18%, var(--border));
+  background: color-mix(in srgb, var(--step-color) 5%, var(--white));
+  animation: slideDown .2s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.description {
+  max-width: 800px;
+  margin-bottom: 20px;
+  color: var(--slate);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.templateRow {
+  margin-bottom: 22px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .7);
+}
+
+.templateLabel,
+.checklistLabel {
+  color: var(--muted);
+  font-family: var(--font-utility);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.templateBtn,
+.inlineTemplateBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid;
+  border-radius: 9px;
+  background: var(--white);
+  font-size: 12px;
+  font-weight: 800;
+  transition: transform .15s, box-shadow .15s;
+}
+
+.templateBtn { padding: 6px 10px; }
+.inlineTemplateBtn { margin-bottom: 16px; padding: 7px 12px; }
+.templateBtn:hover,
+.inlineTemplateBtn:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+
+.guidanceList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.guidanceItem {
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  border-radius: 13px;
+  background: var(--white);
+}
+
+.guidanceHeader {
+  width: 100%;
+  padding: 13px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 800;
+  text-align: left;
+  transition: background .15s;
+}
+
+.guidanceHeader:hover { background: var(--paper); }
+
+.guidanceChevron {
+  flex-shrink: 0;
+  color: var(--step-color);
+  font-size: 17px;
+  transition: transform .2s;
+}
+
+.guidanceChevron.open { transform: rotate(90deg); }
+
+.guidanceBody {
+  padding: 19px 20px 21px;
+  border-top: 1px solid var(--border-light);
+  background: #fffefc;
+  animation: slideDown .15s ease-out;
+}
+
+.guidanceDesc {
+  max-width: 830px;
+  margin-bottom: 16px;
+  color: var(--slate);
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+.phasesTable {
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.phaseRow {
+  display: grid;
+  grid-template-columns: 200px 110px 1fr;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.phaseRow:last-child { border-bottom: 0; }
+
+.phaseLabel,
+.phaseDuration,
+.phaseDesc { padding: 10px 13px; }
+
+.phaseLabel {
+  border-right: 1px solid var(--border-light);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 800;
+}
+
+.phaseDuration {
+  border-right: 1px solid var(--border-light);
+  color: var(--muted);
+  font-family: var(--font-utility);
+  font-size: 10px;
+}
+
+.phaseDesc {
+  color: var(--slate);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.meetingPhases {
+  margin-bottom: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+
+.meetingPhase {
+  padding: 13px;
+  border: 1px solid var(--border-light);
+  border-radius: 11px;
+  background: var(--paper);
+}
+
+.meetingPhase strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--ink);
+  font-family: var(--font-utility);
+  font-size: 9px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.meetingPhase ul { display: flex; flex-direction: column; gap: 5px; list-style: none; }
+.meetingPhase li { position: relative; padding-left: 11px; color: var(--slate); font-size: 12.5px; line-height: 1.5; }
+.meetingPhase li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
+
+.checklistSection {
+  margin-top: 4px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-light);
+}
+
+.checklistHeader { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+
+.checklistRoleTag {
+  padding: 3px 9px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* ---- Things to pin down early / in-practice lists ---- */
+.pinDown {
+  margin-bottom: 16px;
+  padding: 15px 17px;
+  border-left: 3px solid var(--step-color);
+  border-radius: 0 11px 11px 0;
+  background: color-mix(in srgb, var(--step-color) 7%, var(--white));
+}
+
+.pinDownHeading {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--step-color);
+  font-family: var(--font-utility);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.pinDownList { padding-left: 17px; display: flex; flex-direction: column; gap: 7px; }
+.pinDownList li { color: var(--slate); font-size: 13px; line-height: 1.62; }
+.pinDownList li::marker { color: var(--step-color); }
+
+/* ---- Callout notes (costs, legal protections, facilitation) ---- */
+.note {
+  margin-bottom: 16px;
+  padding: 17px 19px;
+  border: 1px solid color-mix(in srgb, var(--step-color) 26%, var(--border));
+  border-radius: 13px;
+  background: var(--white);
+}
+
+.noteTitle {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.noteBody { color: var(--slate); font-size: 13px; line-height: 1.68; }
+
+.noteList { margin-top: 10px; padding-left: 17px; display: flex; flex-direction: column; gap: 6px; }
+.noteList li { color: var(--slate); font-size: 12.5px; line-height: 1.6; }
+.noteList li::marker { color: var(--step-color); }
+
+.noteLinks { margin-top: 12px; display: flex; flex-direction: column; gap: 9px; list-style: none; }
+.noteLinks li { display: flex; flex-direction: column; gap: 2px; }
+.noteLinks a { color: var(--glossary-blue); font-size: 12.5px; font-weight: 700; }
+.noteLinks a:hover { color: var(--glossary-blue-dark); text-decoration: underline; }
+.noteLinks li span { color: var(--muted); font-size: 12px; line-height: 1.55; }
+
+.noteExample {
+  margin-top: 13px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  background: var(--paper-deep);
+}
+
+.noteExampleLabel {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--step-color);
+  font-family: var(--font-utility);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.noteExample p { color: var(--slate); font-size: 12.5px; line-height: 1.65; }
+.noteExample a { display: inline-block; margin-top: 8px; color: var(--glossary-blue); font-size: 12px; font-weight: 700; }
+.noteExample a:hover { text-decoration: underline; }
+
+.noteCaveat {
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px solid var(--border-light);
+  color: var(--muted);
+  font-size: 11.5px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.phaseDetail { margin-top: 9px; padding-left: 16px; display: flex; flex-direction: column; gap: 5px; }
+.phaseDetail li { color: var(--muted); font-size: 12px; line-height: 1.55; }
+.phaseDetail li::marker { color: var(--step-color); }
+
+.checklist { display: flex; flex-direction: column; gap: 9px; list-style: none; }
+.checkItem { display: flex; align-items: flex-start; gap: 10px; }
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--step-color);
+  cursor: pointer;
+}
+
+.checkLabel,
+.checkedLabel { color: var(--slate); font-size: 13px; line-height: 1.62; }
+.checkedLabel { color: #aaa097; text-decoration: line-through; }
+
+@media (max-width: 680px) {
+  .header { min-height: 76px; padding-right: 12px; }
+  .accentBar { margin-right: 11px; }
+  .stepBadge { width: 36px; height: 36px; margin-right: 11px; }
+  .stepTitle { font-size: 17px; }
+  .stepSubtitle { display: none; }
+  .body { padding: 21px 16px 25px; }
+  .guidanceBody { padding: 17px 15px; }
+  .phaseRow { grid-template-columns: 1fr; }
+  .phaseLabel,
+  .phaseDuration { border-right: 0; border-bottom: 1px solid var(--border-light); }
+  .meetingPhases { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .body,
+  .guidanceBody { animation: none; }
+}
