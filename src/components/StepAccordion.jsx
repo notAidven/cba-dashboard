@@ -3,12 +3,6 @@ import { IconDoc } from './Icons';
 import GlossaryText from './GlossaryText';
 import styles from './StepAccordion.module.css';
 
-const ROLE_LABELS = {
-  community: 'Community / EJ',
-  municipal: 'Municipal',
-  developer: 'Developer',
-};
-
 export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemplate }) {
   const [checkedItems, setCheckedItems] = useState({});
   const [expandedGuidance, setExpandedGuidance] = useState(null);
@@ -71,13 +65,75 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
                   <div className={styles.guidanceBody}>
                     <p className={styles.guidanceDesc}><GlossaryText>{g.body}</GlossaryText></p>
 
+                    {g.pinDown && (
+                      <div className={styles.pinDown}>
+                        <span className={styles.pinDownHeading}>{g.pinDown.heading}</span>
+                        <ul className={styles.pinDownList}>
+                          {g.pinDown.items.map((item) => (
+                            <li key={item}><GlossaryText>{item}</GlossaryText></li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {g.notes?.map((note) => (
+                      <aside key={note.title} className={styles.note}>
+                        <strong className={styles.noteTitle}>{note.title}</strong>
+                        <p className={styles.noteBody}><GlossaryText>{note.body}</GlossaryText></p>
+
+                        {note.items && (
+                          <ul className={styles.noteList}>
+                            {note.items.map((item) => (
+                              <li key={item}><GlossaryText>{item}</GlossaryText></li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {note.links && (
+                          <ul className={styles.noteLinks}>
+                            {note.links.map((link) => (
+                              <li key={link.label}>
+                                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                  {link.label} <span aria-hidden="true">↗</span>
+                                </a>
+                                {link.description && <span>{link.description}</span>}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {note.example && (
+                          <div className={styles.noteExample}>
+                            <span className={styles.noteExampleLabel}>{note.example.label}</span>
+                            <p><GlossaryText>{note.example.body}</GlossaryText></p>
+                            {note.example.url && (
+                              <a href={note.example.url} target="_blank" rel="noopener noreferrer">
+                                {note.example.linkLabel || 'Read the statute'} <span aria-hidden="true">↗</span>
+                              </a>
+                            )}
+                          </div>
+                        )}
+
+                        {note.caveat && <p className={styles.noteCaveat}>{note.caveat}</p>}
+                      </aside>
+                    ))}
+
                     {g.phases && Array.isArray(g.phases) && g.phases[0]?.duration && (
                       <div className={styles.phasesTable}>
                         {g.phases.map((ph, pi) => (
                           <div key={pi} className={styles.phaseRow}>
                             <div className={styles.phaseLabel}>{ph.phase}</div>
                             <div className={styles.phaseDuration}>{ph.duration}</div>
-                            <div className={styles.phaseDesc}><GlossaryText>{ph.description}</GlossaryText></div>
+                            <div className={styles.phaseDesc}>
+                              <GlossaryText>{ph.description}</GlossaryText>
+                              {ph.detail && (
+                                <ul className={styles.phaseDetail}>
+                                  {ph.detail.map((d) => (
+                                    <li key={d}><GlossaryText>{d}</GlossaryText></li>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -107,9 +163,6 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
                     {g.checklist?.[role] && (
                       <div className={styles.checklistSection}>
                         <div className={styles.checklistHeader}>
-                          <span className={styles.checklistRoleTag} style={{ background: step.color }}>
-                            {ROLE_LABELS[role]}
-                          </span>
                           <span className={styles.checklistLabel}>Suggested Checklist</span>
                         </div>
                         <ul className={styles.checklist}>

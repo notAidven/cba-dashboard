@@ -29,7 +29,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
         <p className={styles.sectionLabel}>Resources</p>
         <h2 className={styles.title}>Resource Library</h2>
         <p className={styles.subtitle}>
-          A searchable appendix for all templates, examples, and external references used throughout the dashboard.
+          A searchable appendix for all templates, examples, and external references used throughout the toolkit.
           Filter, sort, and search to find relevant materials.
         </p>
 
@@ -127,7 +127,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
                       Visit resource <IconExternal size={12} />
                     </a>
                   ) : (
-                    <span className={styles.externalNote}>Link pending — source referenced in dashboard</span>
+                    <span className={styles.externalNote}>Link pending — source referenced in toolkit</span>
                   )}
                 </div>
               ))}

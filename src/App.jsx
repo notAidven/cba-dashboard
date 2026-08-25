@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import Hero from './components/Hero';
+import BeforeYouBegin from './components/BeforeYouBegin';
 import StepAccordion from './components/StepAccordion';
 import ResourceLibrary from './components/ResourceLibrary';
 import Footer from './components/Footer';
 import GlossaryModal from './components/GlossaryModal';
 import TemplateModal from './components/TemplateModal';
-import GlossaryText from './components/GlossaryText';
+import GlossaryText, { GlossaryLinkScope } from './components/GlossaryText';
 import InfoPage from './components/InfoPage';
 import { steps } from './data/dashboardContent';
 import styles from './App.module.css';
 
+// The dashboard→toolkit review asked us to stop offering Municipal/Developer role
+// personalization and stick to a single audience, so this is fixed rather than user-selectable.
+const ROLE = 'community';
+
 export default function App() {
-  const [role, setRole] = useState('community');
   const [glossaryOpen, setGlossaryOpen] = useState(false);
   const [activeTemplate, setActiveTemplate] = useState(null);
   const [openStep, setOpenStep] = useState(null);
@@ -39,21 +43,23 @@ export default function App() {
   return (
     <div className={styles.app}>
       {activeInfoPage ? (
-        <InfoPage
-          pageId={activeInfoPage}
-          onBack={returnToDashboard}
-          onGlossaryOpen={() => setGlossaryOpen(true)}
-          onGoToSteps={() => returnToSection('steps')}
-          onGoToResources={() => returnToSection('resources')}
-        />
+        <GlossaryLinkScope scopeKey={activeInfoPage}>
+          <InfoPage
+            pageId={activeInfoPage}
+            onBack={returnToDashboard}
+            onGlossaryOpen={() => setGlossaryOpen(true)}
+            onGoToSteps={() => returnToSection('steps')}
+            onGoToResources={() => returnToSection('resources')}
+          />
+        </GlossaryLinkScope>
       ) : (
-        <>
+        <GlossaryLinkScope scopeKey="landing">
           <Hero
-            role={role}
-            onRoleChange={setRole}
             onGlossaryOpen={() => setGlossaryOpen(true)}
             onOpenInfoPage={openInfoPage}
           />
+
+          <BeforeYouBegin />
 
           <section className={styles.stepsSection} id="steps">
             <div className={styles.container}>
@@ -62,7 +68,7 @@ export default function App() {
                   <p className={styles.sectionLabel}><GlossaryText>The CBA process</GlossaryText></p>
                   <h2 className={styles.sectionHeading}>Six steps to a strong agreement</h2>
                   <p className={styles.sectionSubtext}>
-                    <GlossaryText>Work through each step in order. Expand a step to access professional guidance, role-specific checklists, and working templates.</GlossaryText>
+                    <GlossaryText>Work through each step in order. Expand a step to access professional guidance, a suggested checklist, and working templates.</GlossaryText>
                   </p>
                 </div>
                 <aside className={styles.glossaryHint}>
@@ -85,7 +91,7 @@ export default function App() {
                   <StepAccordion
                     key={step.id}
                     step={step}
-                    role={role}
+                    role={ROLE}
                     isOpen={openStep === step.id}
                     onToggle={() => setOpenStep(openStep === step.id ? null : step.id)}
                     onOpenTemplate={setActiveTemplate}
@@ -98,7 +104,7 @@ export default function App() {
           <ResourceLibrary onOpenTemplate={setActiveTemplate} />
 
           <Footer onGlossaryOpen={() => setGlossaryOpen(true)} />
-        </>
+        </GlossaryLinkScope>
       )}
 
       {glossaryOpen && (

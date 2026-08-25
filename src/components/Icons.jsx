@@ -69,6 +69,15 @@ export function IconArrowDown({ size = 14, className }) {
   );
 }
 
+export function IconDownload({ size = 14, className }) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24" {...base} aria-hidden="true">
+      <path d="M12 3v12M7 10l5 5 5-5" />
+      <path d="M5 19h14" />
+    </svg>
+  );
+}
+
 export function IconExternal({ size = 12, className }) {
   return (
     <svg className={className} width={size} height={size} viewBox="0 0 24 24" {...base} aria-hidden="true">
