@@ -3,12 +3,6 @@ import { IconDoc } from './Icons';
 import GlossaryText from './GlossaryText';
 import styles from './StepAccordion.module.css';
 
-const ROLE_LABELS = {
-  community: 'Community / EJ',
-  municipal: 'Municipal',
-  developer: 'Developer',
-};
-
 export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemplate }) {
   const [checkedItems, setCheckedItems] = useState({});
   const [expandedGuidance, setExpandedGuidance] = useState(null);
@@ -169,9 +163,6 @@ export default function StepAccordion({ step, role, isOpen, onToggle, onOpenTemp
                     {g.checklist?.[role] && (
                       <div className={styles.checklistSection}>
                         <div className={styles.checklistHeader}>
-                          <span className={styles.checklistRoleTag} style={{ background: step.color }}>
-                            {ROLE_LABELS[role]}
-                          </span>
                           <span className={styles.checklistLabel}>Suggested Checklist</span>
                         </div>
                         <ul className={styles.checklist}>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { templates, steps } from '../data/dashboardContent';
-import { IconClose } from './Icons';
+import { IconClose, IconDownload } from './Icons';
 import GlossaryText from './GlossaryText';
 import styles from './Modal.module.css';
 import tStyles from './TemplateModal.module.css';
@@ -18,7 +18,7 @@ export default function TemplateModal({ templateId, onClose }) {
 
   return (
     <div className={styles.overlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <div className={`${styles.modal} ${styles.modalWide}`} role="dialog" aria-modal="true" aria-labelledby="template-title">
+      <div className={`${styles.modal} ${styles.modalWide} ${tStyles.printArea}`} role="dialog" aria-modal="true" aria-labelledby="template-title">
         <div className={styles.modalHeader}>
           <div>
             {step && (
@@ -26,20 +26,26 @@ export default function TemplateModal({ templateId, onClose }) {
                 Step {step.number}: {step.title}
               </span>
             )}
-            <h2 className={styles.modalTitle} id="template-title"><GlossaryText>{tmpl.title}</GlossaryText></h2>
+            <h2 className={styles.modalTitle} id="template-title">{tmpl.title}</h2>
             <p className={styles.modalSubtitle}><GlossaryText>{tmpl.description}</GlossaryText></p>
           </div>
-          <button className={styles.closeBtn} onClick={onClose} aria-label="Close"><IconClose size={18} /></button>
+          <div className={tStyles.headerActions}>
+            <button className={tStyles.downloadBtn} onClick={() => window.print()}>
+              <IconDownload size={13} /> Download as PDF
+            </button>
+            <button className={styles.closeBtn} onClick={onClose} aria-label="Close"><IconClose size={18} /></button>
+          </div>
         </div>
 
         <div className={styles.modalBody}>
           <div className={tStyles.note}>
-            This template is for planning and reference. Fill it in digitally or print for workshops.
+            Fill this template in on screen, then use "Download as PDF" to save what you've entered — it opens your
+            browser's print dialog; choose "Save as PDF" as the destination. You can also print it blank for workshops.
           </div>
 
           {tmpl.sections.map((section, si) => (
             <div key={si} className={tStyles.section}>
-              <h3 className={tStyles.sectionTitle}><GlossaryText>{section.title}</GlossaryText></h3>
+              <h3 className={tStyles.sectionTitle}>{section.title}</h3>
               {section.description && (
                 <p className={tStyles.sectionDesc}><GlossaryText>{section.description}</GlossaryText></p>
               )}

@@ -4,13 +4,7 @@ import { IconArrowDown } from './Icons';
 import GlossaryText from './GlossaryText';
 import styles from './Hero.module.css';
 
-const ROLES = [
-  { id: 'community', label: 'Community / EJ Advocate' },
-  { id: 'municipal', label: 'Municipal Official' },
-  { id: 'developer', label: 'Developer' },
-];
-
-export default function Hero({ role, onRoleChange, onGlossaryOpen, onOpenInfoPage }) {
+export default function Hero({ onGlossaryOpen, onOpenInfoPage }) {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
@@ -19,7 +13,7 @@ export default function Hero({ role, onRoleChange, onGlossaryOpen, onOpenInfoPag
         <button className={styles.navBrand} type="button" onClick={() => scrollTo('home')}>
           <span className={styles.navMark}>CBA</span>
           <span className={styles.navBrandText}>
-            <span className={styles.navLogo}>CBA Dashboard</span>
+            <span className={styles.navLogo}>CBA Toolkit</span>
             <span className={styles.navLogoSub}>MIT Renewable Energy Clinic</span>
           </span>
         </button>
@@ -36,8 +30,8 @@ export default function Hero({ role, onRoleChange, onGlossaryOpen, onOpenInfoPag
           <div className={styles.heroCopy}>
             <span className={styles.heroKicker}>MIT Renewable Energy Clinic · Community development toolkit</span>
             <h1 className={styles.heroTitle} id="page-title">
-              <GlossaryText>Community Benefits Agreement</GlossaryText><br />
-              Dashboard
+              Community Benefits Agreement<br />
+              Toolkit
             </h1>
             <p className={styles.heroTagline}>{landingPage.tagline}</p>
             <p className={styles.heroSubtitle}>
@@ -89,65 +83,40 @@ export default function Hero({ role, onRoleChange, onGlossaryOpen, onOpenInfoPag
       <div className={styles.content}>
         <section className={styles.directory} id="overview-topics" aria-labelledby="directory-heading">
           <div className={styles.sectionIntro}>
-            <p className={styles.sectionLabel}>Dashboard orientation</p>
+            <p className={styles.sectionLabel}>Toolkit orientation</p>
             <h2 className={styles.sectionHeading} id="directory-heading">Start with the question you need answered</h2>
             <p className={styles.sectionDescription}>
-              Each topic opens a focused page, so you can understand the fundamentals without searching through the full dashboard.
-            </p>
-          </div>
-
-          <div className={styles.cardGrid}>
-            {infoPages.map((page) => (
-              <button
-                type="button"
-                key={page.id}
-                className={`${styles.overviewCard} ${page.wide ? styles.wideCard : ''}`}
-                style={{ '--card-color': page.color, '--card-tint': page.tint }}
-                onClick={() => onOpenInfoPage(page.id)}
-              >
-                <span className={styles.cardTopline}>
-                  <span>Orientation {page.number}</span>
-                  <span aria-hidden="true">↗</span>
-                </span>
-                <span className={styles.cardTitle}>{page.title}</span>
-                <span className={styles.cardSummary}>{page.summary}</span>
-                <span className={styles.cardAction}>Open topic <span aria-hidden="true">→</span></span>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.workSetup} aria-labelledby="role-heading">
-          <div className={styles.roleIntro}>
-            <p className={styles.sectionLabel}>Configure your workflow</p>
-            <h2 className={styles.sectionHeading}>Set the dashboard to your role</h2>
-            <p className={styles.sectionDescription}>
-              Your selection changes the suggested checklist inside every step while keeping the shared guidance and resources visible.
+              Seven short topics, in order. Each one opens a focused page — read straight through, or jump to the one you need.
             </p>
             <p className={styles.glossaryNote}>
               Blue terms such as <GlossaryText>Community Benefits Agreement</GlossaryText> open a definition when selected.
             </p>
           </div>
 
-          <aside className={styles.roleBlock} aria-labelledby="role-heading">
-            <p className={styles.roleLabel}>Personalize your checklist</p>
-            <h2 className={styles.roleHeading} id="role-heading">Select your role</h2>
-            <div className={styles.roleToggle} aria-label="Dashboard role">
-              {ROLES.map((roleOption) => (
-                <button
-                  key={roleOption.id}
-                  className={role === roleOption.id ? styles.roleActive : styles.roleBtn}
-                  onClick={() => onRoleChange(roleOption.id)}
-                  aria-pressed={role === roleOption.id}
-                >
-                  {roleOption.label}
-                </button>
-              ))}
-            </div>
-            <button className={styles.roleStart} onClick={() => scrollTo('steps')}>
-              Start with Step 1: Prepare <span aria-hidden="true">→</span>
-            </button>
-          </aside>
+          <ol className={styles.orientationList}>
+            {infoPages.map((page) => (
+              <li key={page.id} className={styles.orientationRow} style={{ '--card-color': page.color }}>
+                <span className={styles.orientationNumber}>{page.number}</span>
+                <div className={styles.orientationBody}>
+                  <button
+                    type="button"
+                    className={styles.orientationTitle}
+                    onClick={() => onOpenInfoPage(page.id)}
+                  >
+                    {page.title}
+                  </button>
+                  <p className={styles.orientationSummary}>{page.summary}</p>
+                  <button
+                    type="button"
+                    className={styles.orientationAction}
+                    onClick={() => onOpenInfoPage(page.id)}
+                  >
+                    Read this topic <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ol>
         </section>
       </div>
     </header>

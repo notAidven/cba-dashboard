@@ -11,7 +11,7 @@ export default function Footer({ onGlossaryOpen }) {
       <div className={styles.container}>
         <div className={styles.topRow}>
           <div className={styles.brand}>
-            <span className={styles.brandName}>CBA Dashboard</span>
+            <span className={styles.brandName}>CBA Toolkit</span>
             <span className={styles.brandSub}>MIT Renewable Energy Clinic</span>
             <p className={styles.brandDesc}>
               <GlossaryText>A step-by-step toolkit for negotiating, drafting, and enforcing Community Benefits Agreements.</GlossaryText>{' '}
@@ -38,7 +38,7 @@ export default function Footer({ onGlossaryOpen }) {
           <div className={styles.bibliography}>
             <h3 className={styles.bibTitle}>Bibliography & Sources</h3>
             <p className={styles.bibNote}>
-              This dashboard draws on the following sources. All content has been synthesized and adapted for practical use.
+              This toolkit draws on the following sources. All content has been synthesized and adapted for practical use.
             </p>
             <ol className={styles.bibList}>
               {bibliography.map((entry, i) => (
@@ -61,7 +61,7 @@ export default function Footer({ onGlossaryOpen }) {
         )}
 
         <div className={styles.bottomRow}>
-          <span className={styles.copyright}>© 2025 MIT Renewable Energy Clinic · CBA Dashboard. Not legal advice.</span>
+          <span className={styles.copyright}>© 2025 MIT Renewable Energy Clinic · CBA Toolkit. Not legal advice.</span>
           <span className={styles.version}>v0.1 — Design review prototype</span>
         </div>
       </div>

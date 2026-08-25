@@ -14,6 +14,24 @@ import { IconClose } from './Icons';
 import styles from './GlossaryText.module.css';
 
 const GlossaryContext = createContext(null);
+const LinkedTermsContext = createContext(null);
+
+// Tracks which glossary terms have already been linked within the current "page" (the
+// landing view, or a single info page) so a term is only ever linked once per page, as
+// requested. Re-mounting with a new `scopeKey` (e.g. when navigating to a different info
+// page) starts a fresh set.
+function ScopedLinkTracker({ children }) {
+  const seenRef = useRef(new Set());
+  return (
+    <LinkedTermsContext.Provider value={seenRef}>
+      {children}
+    </LinkedTermsContext.Provider>
+  );
+}
+
+export function GlossaryLinkScope({ scopeKey, children }) {
+  return <ScopedLinkTracker key={scopeKey}>{children}</ScopedLinkTracker>;
+}
 
 const EXPLICIT_ALIASES = {
   'Community Benefits Agreement (CBA)': [
@@ -243,6 +261,8 @@ function GlossaryTerm({ children, entry }) {
 }
 
 export default function GlossaryText({ children }) {
+  const seenRef = useContext(LinkedTermsContext);
+
   if (typeof children !== 'string' || !children) return children;
 
   const parts = [];
@@ -251,9 +271,11 @@ export default function GlossaryText({ children }) {
   for (const match of children.matchAll(GLOSSARY_MATCHER)) {
     const matchIndex = match.index ?? 0;
     const entry = GLOSSARY_ALIASES.get(match[0].toLowerCase());
+    const alreadyLinkedOnThisPage = entry && seenRef?.current?.has(entry.term);
 
     if (matchIndex > lastIndex) parts.push(children.slice(lastIndex, matchIndex));
-    if (entry) {
+    if (entry && !alreadyLinkedOnThisPage) {
+      seenRef?.current?.add(entry.term);
       parts.push(
         <GlossaryTerm key={`${matchIndex}-${match[0]}`} entry={entry}>
           {match[0]}
