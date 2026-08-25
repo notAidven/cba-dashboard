@@ -1,41 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --paper: #FAF7F0;
-  --paper-deep: #EDE8DF;
-  --ink: #3D2B1F;
-  --terra: #C97B54;
-  --terra-dark: #9F5D3F;
-  --civic-blue: #5B7EBD;
-  --civic-blue-dark: #45649D;
-  --sage: #6B9B7A;
-  --sage-dark: #4F765B;
-  --rose: #C0676B;
-  --lavender: #9580B8;
-  --teal: #4E8FA0;
-  --gold: #D4A843;
-  --glossary-blue: #456CAD;
-  --glossary-blue-dark: #34558D;
-  --font-display: 'IBM Plex Serif', Georgia, serif;
-  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-utility: 'IBM Plex Mono', ui-monospace, monospace;
+  /* Palette aligned to the MIT Science Impact Collaborative site (scienceimpact.mit.edu):
+     institutional red, near-black ink, and neutral grays in place of the prior warm/terracotta
+     palette. Category accent hues (civic-blue, sage, rose, lavender, teal, gold) are kept for the
+     step/benefit color-coding requested separately, just slightly less saturated. */
+  --paper: #FFFFFF;
+  --paper-deep: #F2F2F2;
+  --ink: #171717;
+  --terra: #A31F34;
+  --terra-dark: #7A1729;
+  --civic-blue: #2E6DA4;
+  --civic-blue-dark: #235485;
+  --sage: #5C8A68;
+  --sage-dark: #43684D;
+  --rose: #B15258;
+  --lavender: #83699E;
+  --teal: #3F7E8C;
+  --gold: #B3862F;
+  --glossary-blue: #2E6DA4;
+  --glossary-blue-dark: #235485;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-utility: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mit-blue: var(--terra);
-  --mit-blue-light: #FDF0E8;
+  --mit-blue-light: #FBEAEC;
   --mit-green: var(--sage);
-  --mit-green-light: #EFF6F1;
+  --mit-green-light: #EDF3EE;
   --navy: var(--ink);
-  --slate: #5E4D42;
-  --muted: #8B7355;
-  --border: rgba(61, 43, 31, .15);
-  --border-light: rgba(61, 43, 31, .09);
-  --surface: #F1ECE3;
+  --slate: #4A4A4A;
+  --muted: #6B6B6B;
+  --border: rgba(23, 23, 23, .13);
+  --border-light: rgba(23, 23, 23, .08);
+  --surface: #F2F2F2;
   --white: #FFFFFF;
   --radius: 12px;
-  --shadow-sm: 0 2px 8px rgba(61, 43, 31, .06);
-  --shadow: 0 10px 28px rgba(61, 43, 31, .1);
-  --shadow-md: 0 18px 44px rgba(61, 43, 31, .16);
+  --shadow-sm: 0 2px 8px rgba(23, 23, 23, .06);
+  --shadow: 0 10px 28px rgba(23, 23, 23, .1);
+  --shadow-md: 0 18px 44px rgba(23, 23, 23, .16);
 }
 
 html { font-size: 16px; scroll-behavior: smooth; }

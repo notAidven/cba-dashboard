@@ -1,0 +1,219 @@
+.board { display: flex; flex-direction: column; gap: 22px; }
+
+/* ---- Filter panel ---- */
+.filterPanel {
+  padding: 22px 24px 24px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--white);
+}
+
+.filterPanelTop {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.filterPanelLabel {
+  margin-bottom: 6px;
+  color: var(--page-color, var(--terra));
+  font-family: var(--font-utility);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.filterPanelHint { max-width: 560px; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+
+.clearBtn {
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--slate);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.clearBtn:hover { border-color: var(--page-color, var(--terra)); color: var(--page-color, var(--terra)); }
+
+.filterBuckets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+.bucket { border: 0; }
+
+.bucketLabel {
+  margin-bottom: 5px;
+  padding: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.bucketHint { margin-bottom: 10px; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
+
+.bucketOptions { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.chipWrap { position: relative; display: inline-flex; }
+
+.chip,
+.chipActive {
+  padding: 7px 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--slate);
+  font-size: 12px;
+  font-weight: 700;
+  transition: background .15s, border-color .15s, color .15s;
+}
+
+.chip:hover { border-color: var(--page-color, var(--terra)); color: var(--page-color, var(--terra)); }
+
+.chipActive {
+  border-color: var(--page-color, var(--terra));
+  background: var(--page-color, var(--terra));
+  color: #fff;
+}
+
+/* Definition tooltips on hover / keyboard focus */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 0;
+  z-index: 40;
+  width: 288px;
+  padding: 13px 15px;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 11px;
+  background: var(--ink);
+  color: rgba(255, 255, 255, .82);
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.58;
+  box-shadow: var(--shadow);
+  transition: opacity .16s, visibility .16s;
+  pointer-events: none;
+}
+
+.tooltip strong { display: block; margin-bottom: 5px; color: #fff; font-size: 12px; }
+
+.chipWrap:hover .tooltip,
+.chipWrap:focus-within .tooltip { visibility: visible; opacity: 1; }
+
+.resultCount {
+  color: var(--muted);
+  font-family: var(--font-utility);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+/* ---- Benefit cards ---- */
+.benefitGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 13px; }
+
+.benefitCard {
+  padding: 19px 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+  transition: opacity .2s, filter .2s, border-color .2s, transform .2s;
+}
+
+.benefitCard h3 {
+  margin-bottom: 7px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.benefitCard p { color: var(--slate); font-size: 12.5px; line-height: 1.62; }
+
+.matched {
+  opacity: 1;
+  border-color: color-mix(in srgb, var(--page-color, var(--terra)) 32%, var(--border));
+  box-shadow: var(--shadow-sm);
+}
+
+.faded { opacity: .34; filter: grayscale(.55); }
+
+.tagRow { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 5px; list-style: none; }
+
+.tagRow li {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-family: var(--font-utility);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.tag_horizon { background: #EEF3FB; color: #45649D; }
+.tag_type { background: #EFF6F1; color: #4F765B; }
+.tag_recipient { background: #FDF5EE; color: #9F5D3F; }
+
+/* ---- Creative / in-kind benefits ---- */
+.creative {
+  padding: 26px 28px;
+  border: 1px solid color-mix(in srgb, var(--page-color, var(--terra)) 30%, var(--border));
+  border-radius: 15px;
+  background: var(--page-tint, var(--paper-deep));
+}
+
+.creativeHeading {
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.creativeCaption { color: var(--slate); font-size: 13.5px; line-height: 1.7; }
+
+.creativeList { margin-top: 18px; display: flex; flex-direction: column; gap: 11px; list-style: none; }
+
+.creativeList li {
+  padding-left: 18px;
+  position: relative;
+}
+
+.creativeList li::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--page-color, var(--terra));
+}
+
+.creativeList strong { display: block; color: var(--ink); font-size: 14px; font-weight: 700; }
+.creativeList span { color: var(--slate); font-size: 12.5px; line-height: 1.58; }
+
+@media (max-width: 860px) {
+  .filterBuckets { grid-template-columns: 1fr; gap: 18px; }
+  .tooltip { width: min(280px, 74vw); }
+}
+
+@media (max-width: 620px) {
+  .filterPanel { padding: 18px 17px 20px; }
+  .filterPanelTop { flex-direction: column; gap: 12px; }
+  .benefitGrid { grid-template-columns: 1fr; }
+  .creative { padding: 22px 19px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefitCard,
+  .chip,
+  .chipActive,
+  .tooltip { transition: none; }
+}

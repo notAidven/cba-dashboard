@@ -7,15 +7,34 @@
 // ---------- LANDING PAGE ----------
 
 export const landingPage = {
-  title: "Community Benefits Agreement Dashboard",
+  title: "Community Benefits Agreement Toolkit",
+  tagline: "Ensuring Shared Benefits, Not Burdens",
   subtitle:
     "A step-by-step toolkit to help communities, municipalities, and developers negotiate, draft, and enforce Community Benefits Agreements.",
+
+  // ---------- MISSION / PHILOSOPHY (Comment #9, #10) ----------
+  mission: {
+    label: "Our philosophy",
+    heading: "Every project deserves a public-interest and fairness lens",
+    lead:
+      "Every infrastructure or renewable energy project should be evaluated through a public-interest and fairness lens. Even when a project provides major regional benefits, such as cleaner energy, lower costs, or improved resilience, it can still impose short- and long-term burdens on nearby residents who did not choose to be affected.",
+    body: [
+      "Fairness means recognizing those impacts and ensuring that the communities who bear them are not left worse off. When a project generates large long-term gains, a small portion of those gains should be used to offset the costs felt by the local community. This is a basic principle of energy justice: those bearing the burden should also receive a fair share of the benefits and be appropriately compensated for their losses.",
+      "The public also has a right to know about proposed projects early — before approvals are issued and before construction begins — and to participate at a stage when design, location, technology choices, construction plans, and community benefits can still be shaped. State laws, environmental review requirements, and public-notice regulations protect this right.",
+    ],
+    principles: [
+      "It is not selfishness (NIMBY) that motivates community concerns — it is a desire to be treated fairly.",
+      "Projects should be judged not just on meeting minimally acceptable environmental standards, but on maximizing community benefits wherever possible.",
+      "This toolkit is more than a technical manual. It stands for the principle that those who bear a project's burdens should share in its gains.",
+    ],
+  },
 
   whatIsACBA: {
     heading: "What is a CBA?",
     body: `A Community Benefits Agreement (CBA) is a legally-binding contract between a developer and a community coalition (or, in some cases, a municipality) that outlines specific benefits the developer must deliver in exchange for community support or non-opposition to a project.
 
 Unlike informal promises or goodwill gestures, CBAs are enforceable legal documents. They are negotiated before a project is approved and signed by all parties, ensuring that the community has a formal role in shaping how development affects their neighborhood.`,
+    note: "Some states require similar agreements under different names (for example, Host Community Agreements, Development Agreements, or Impact Mitigation Agreements). This playbook applies to both required and voluntary agreements.",
   },
 
   whatCBACanDo: {
@@ -46,94 +65,245 @@ Unlike informal promises or goodwill gestures, CBAs are enforceable legal docume
         number: 1,
         title: "Enforceable Commitments",
         description:
-          "Transforms verbal promises into legally binding obligations with real consequences for non-compliance.",
+          "A CBA transforms verbal promises made during public hearings into legally binding contract terms. Without a signed agreement, a developer's stated intentions to hire locally, fund mitigation, or limit construction hours carry no legal weight and can be dropped once approvals are secured. With a CBA, the same commitments come with defined remedies — notice-and-cure periods, monitoring, and in many templates, penalties or the ability to sue for breach.",
       },
       {
         number: 2,
         title: "Reduce Conflict",
         description:
-          "Establishes agreed-upon expectations before a project begins, reducing disputes during construction and operation.",
+          "Projects that skip meaningful engagement tend to generate opposition late, when it is most disruptive — during permitting appeals, board hearings, or construction. Negotiating expectations up front gives both sides a shared, written reference point, so disagreements during construction and operation are resolved by checking the agreement rather than relitigating the original debate.",
       },
       {
         number: 3,
         title: "Improve Equity",
         description:
-          "Ensures that development projects deliver tangible benefits to the communities most affected.",
+          "Regulatory review (an EIA/EIR, a siting permit) sets a floor: the minimum a project must do to be allowed to proceed. A CBA operates above that floor, directing a share of a project's benefits specifically to the residents who bear its costs, rather than letting those benefits accrue only to the region or the developer.",
       },
       {
         number: 4,
         title: "Build Relationships",
         description:
-          "Creates a structured process for ongoing communication between developers, municipalities, and communities.",
+          "Negotiating a CBA typically requires a monitoring committee, regular reporting, or a defined point of contact — structures that keep the developer and the community talking after the ribbon-cutting, not just during the pre-approval push for support.",
       },
       {
         number: 5,
         title: "Protect from Risk",
         description:
-          "Shields communities from broken promises if developers sell the project or leadership changes.",
+          "Renewable energy and infrastructure projects frequently change hands — the developer that made commitments during permitting may not be the entity that operates the facility a decade later. Because a CBA is a contract tied to the project rather than a person, its obligations are more likely to survive a sale, refinancing, or change in company leadership than an informal understanding would.",
       },
     ],
   },
 
+  // Each category is tagged across three dimensions so the benefits board can be
+  // filtered by impact time horizon, benefit type, and recipient. (Comments #3, #4, #5)
   benefitCategories: [
     {
       label: "Childcare",
       tooltip: "On-site childcare facilities or subsidized childcare slots for local families",
+      horizon: ["long-term"],
+      type: ["other"],
+      recipient: ["residents"],
     },
     {
       label: "Community Investment",
       tooltip: "Community investment funds, grants to local nonprofits, or infrastructure contributions",
+      horizon: ["long-term"],
+      type: ["compensation", "other"],
+      recipient: ["community-orgs", "residents", "municipality"],
     },
     {
       label: "Direct Finances",
       tooltip: "Host community payments, annual fees, or one-time payments to the municipality",
+      horizon: ["short-term", "long-term"],
+      type: ["compensation"],
+      recipient: ["municipality"],
     },
     {
       label: "Education",
       tooltip: "Scholarships, STEM programs, school partnerships, or workforce training for youth",
+      horizon: ["long-term"],
+      type: ["other"],
+      recipient: ["residents", "community-orgs"],
     },
     {
       label: "Environment & Sustainability",
       tooltip: "Environmental mitigation, habitat restoration, stormwater management, or carbon offsets",
+      horizon: ["long-term"],
+      type: ["mitigation"],
+      recipient: ["municipality", "community-orgs", "residents"],
     },
     {
       label: "Affordable Housing",
       tooltip: "Below-market-rate units, anti-displacement protections, or housing trust fund contributions",
+      horizon: ["long-term"],
+      type: ["mitigation", "compensation"],
+      recipient: ["residents"],
     },
     {
       label: "Landowner Protections",
       tooltip: "Compensation, easement protections, or reclamation bonds for adjacent landowners",
+      horizon: ["short-term", "long-term"],
+      type: ["compensation", "mitigation"],
+      recipient: ["landowners"],
     },
     {
       label: "Local Business",
       tooltip: "Procurement preferences, vendor contracts, or business incubation for local firms",
+      horizon: ["short-term", "long-term"],
+      type: ["other"],
+      recipient: ["community-orgs", "residents"],
     },
     {
       label: "Local Hiring & Wages",
       tooltip:
         "Local hire requirements (e.g., 30% of jobs to residents within 5 miles), prevailing wage requirements",
+      horizon: ["short-term", "long-term"],
+      type: ["compensation", "other"],
+      recipient: ["residents"],
     },
     {
       label: "Safety",
       tooltip: "Traffic safety plans, emergency response protocols, or lighting improvements",
+      horizon: ["short-term", "long-term"],
+      type: ["mitigation"],
+      recipient: ["residents", "municipality"],
     },
     {
       label: "Specialized / Project-Specific",
       tooltip: "Benefits unique to the project type, such as cable burial for offshore wind or road repair for heavy construction",
+      horizon: ["short-term", "long-term"],
+      type: ["mitigation", "compensation", "other"],
+      recipient: ["municipality", "landowners", "residents", "community-orgs"],
     },
     {
       label: "Traffic / Transportation",
       tooltip: "Road improvements, transit contributions, or traffic management plans",
+      horizon: ["short-term", "long-term"],
+      type: ["mitigation"],
+      recipient: ["municipality", "residents"],
     },
     {
       label: "Waste Collection",
       tooltip: "Waste management plans, recycling programs, or community cleanup funds",
+      horizon: ["short-term", "long-term"],
+      type: ["mitigation", "other"],
+      recipient: ["municipality", "residents"],
     },
   ],
 
+  // ---------- BENEFIT FILTER BUCKETS (Comment #3, #4, #5) ----------
+  // Hovering a filter reveals its definition. Selecting filters emphasizes the
+  // applicable benefit categories and fades the rest into the background.
+  benefitFilters: [
+    {
+      id: "horizon",
+      label: "Impact time horizon",
+      hint: "How long the impact — and the commitment that answers it — is expected to last.",
+      options: [
+        {
+          id: "short-term",
+          label: "Short-term",
+          definition:
+            "Impacts and commitments tied to the construction phase: traffic and truck routing, dust and noise, road damage, staging areas, temporary loss of access, and construction-period employment. These are usually intense but time-limited.",
+        },
+        {
+          id: "long-term",
+          label: "Long-term",
+          definition:
+            "Impacts and commitments that persist through project operation and sometimes decommissioning: viewshed and noise from operating equipment, groundwater and habitat effects, property value changes, ongoing payments, and long-term monitoring. These may last for decades.",
+        },
+      ],
+    },
+    {
+      id: "type",
+      label: "Benefit type",
+      hint: "What the commitment is actually doing — preventing harm, paying for it, or adding value.",
+      options: [
+        {
+          id: "mitigation",
+          label: "Mitigation",
+          definition:
+            "Measures that avoid, reduce, or remedy an impact at its source rather than paying for it after the fact. Short-term mitigation addresses construction impacts (dust suppression, truck routing, work-hour limits, road repair). Long-term mitigation addresses operational and environmental harms (noise buffers, groundwater protections, habitat restoration, decommissioning bonds, ongoing monitoring). Environmental mitigation is often the single most important part of a CBA.",
+        },
+        {
+          id: "compensation",
+          label: "Compensation",
+          definition:
+            "Payment for impacts that cannot be fully avoided or mitigated. Compensation can include direct payments to affected landowners or residents, impact fees to the municipality, or community benefit funds tied to the scale and duration of project impacts. Amounts are typically benchmarked against appraised losses, comparable agreements, or a share of project revenue.",
+        },
+        {
+          id: "other",
+          label: "Other / value-added",
+          definition:
+            "Commitments that go beyond preventing or paying for harm to create new local value — workforce pipelines, education programs, local procurement, co-ownership, and reduced energy costs. These are where a fair process can move from 'made whole' to 'better off'.",
+        },
+      ],
+    },
+    {
+      id: "recipient",
+      label: "Recipient",
+      hint: "Who actually receives the benefit or payment.",
+      options: [
+        {
+          id: "landowners",
+          label: "Individual landowners",
+          definition:
+            "Owners of parcels hosting or directly adjacent to project infrastructure, who may receive easement payments, setback protections, property value guarantees, or reclamation bonds.",
+        },
+        {
+          id: "residents",
+          label: "Residents",
+          definition:
+            "Households in the affected area, whether or not they own land — including renters. Benefits may reach them as reduced energy bills, hiring preferences, health protections, or direct payments.",
+        },
+        {
+          id: "municipality",
+          label: "Municipality",
+          definition:
+            "The town, city, or county government, which may receive host community payments, impact fees, infrastructure contributions, or funding for the staff capacity needed to monitor the agreement.",
+        },
+        {
+          id: "community-orgs",
+          label: "Community organizations",
+          definition:
+            "Nonprofits, community foundations, land trusts, or coalitions that administer funds and programs on the community's behalf. Routing money through a neutral organization can protect it from political shifts and ensure it is paid out as intended.",
+        },
+      ],
+    },
+  ],
+
+  // ---------- IN-KIND / CREATIVE BENEFITS (Comment #10) ----------
+  creativeBenefits: {
+    heading: "Look beyond financial compensation",
+    caption:
+      "We aim to maximize value for all stakeholders. Community benefits extend beyond financial compensation to include in-kind contributions such as reduced energy costs, shared ownership models, and access to land or infrastructure. A fair CBA process looks beyond mitigation and compensation to identify creative, public-interest solutions that expand opportunity, reduce burdens, and ensure that communities share in the project's long-term gains. Beyond the common benefits outlined above, additional creative options may include:",
+    items: [
+      {
+        label: "Reduced monthly energy bills",
+        detail: "Discounted rates or bill credits for residents of the community where the energy is produced.",
+      },
+      {
+        label: "Community co-ownership or profit-sharing",
+        detail: "An equity stake or revenue share that gives residents a claim on long-term project profits.",
+      },
+      {
+        label: "Agricultural use of land",
+        detail: "Grazing, pollinator habitat, or agrivoltaic food production on land beneath and between solar panels.",
+      },
+      {
+        label: "Local hiring pipelines and apprenticeships",
+        detail: "Training and placement programs that turn construction jobs into durable local careers.",
+      },
+      {
+        label: "Access to project infrastructure",
+        detail: "Community use of new roads, broadband, substations, docks, or grid interconnection built for the project.",
+      },
+    ],
+  },
+
   whoThisIsFor: {
-    heading: "Who This Dashboard Is For",
-    body: "This dashboard is designed for community organizers, environmental justice advocates, municipal officials and staff, and local government boards navigating development projects in their communities.",
+    heading: "Who This Toolkit Is For",
+    body: "This toolkit is built primarily for community organizers and environmental justice advocates. It is also a useful reference for municipal officials, local government boards, and others navigating development projects in their communities.",
     primary: [
       {
         role: "Community Organizers & EJ Advocates",
@@ -159,16 +329,198 @@ Unlike informal promises or goodwill gestures, CBAs are enforceable legal docume
   },
 
   howToUse: {
-    heading: "How to Use This Dashboard",
-    body: "Use the dropdown step modules below to navigate the six phases of a CBA — from initial preparation through enforcement. Each step includes guidance, a suggested checklist, and links to real templates you can open and use directly. Scroll down to the Resource Library to browse all templates, external resources, and case studies in one place.",
+    heading: "How to Use This Toolkit",
+    body: "Start with the state and local legal requirements that apply to your project, then use the dropdown step modules below to navigate the six phases of a CBA — from initial preparation through enforcement. Each step includes guidance, a suggested checklist, and links to real templates you can open and use directly. Scroll down to the Resource Library to browse all templates, external resources, and case studies in one place.",
     steps: [
-      "Select your role above to filter checklist items relevant to you",
+      "Begin with 'Before you begin' — confirm what your state, county, and municipality already require",
+      "Find out where the environmental review process stands, since it runs on its own fixed schedule",
       "Open each accordion step in order — only one step is open at a time",
-      "Check off action items as you complete them",
+      "Check off action items on the suggested checklist as you complete them",
       "Click 'Open Template' to view and use any worksheet or form",
       "Visit the Resource Library to explore additional materials",
     ],
   },
+};
+
+// ============================================================
+// BEFORE YOU BEGIN — two gateway boxes shown ahead of the six steps
+// (Comment #1: state & local legal requirements)
+// (Comment #2: environmental review timeline)
+// ============================================================
+
+export const stateLawExamples = [
+  {
+    id: "ny",
+    state: "New York",
+    summary: "Host community benefits required as a condition of state siting approval.",
+    body: "New York's Accelerated Renewable Energy Growth and Community Benefit Act requires developers of large-scale renewable energy facilities to provide host community benefits as a condition of state siting approval through the Office of Renewable Energy Siting.",
+    tradeoff:
+      "While this centralized process speeds up permitting, local governments can find the benefit formulas opaque and have limited influence over fund distribution.",
+  },
+  {
+    id: "ct",
+    state: "Connecticut",
+    summary: "CBAs mandated above 5 MW; workforce plans required above 2 MW.",
+    body: "Connecticut mandates CBAs for renewable energy projects over five megawatts, and projects above two megawatts must submit workforce plans with local hiring and apprenticeship goals.",
+    tradeoff:
+      "These rules promote equitable participation, but smaller towns may lack the resources or leverage to negotiate strong agreements and track enforcement.",
+  },
+  {
+    id: "me",
+    state: "Maine",
+    summary: "Fixed per-turbine community benefit payments for offshore wind.",
+    body: "Offshore wind developers are required to provide a community benefits package worth at least $4,000 per turbine annually, with similar expectations for other renewables.",
+    tradeoff:
+      "The fixed payment model offers predictability but can overlook non-financial priorities like fisheries protection or coastal access improvements.",
+  },
+  {
+    id: "mi",
+    state: "Michigan",
+    summary: "Expedited state permitting for projects that include CBAs.",
+    body: "Under Public Act 233, large wind, solar, and storage projects can qualify for expedited state permitting if they include CBAs or comparable benefit commitments.",
+    tradeoff:
+      "The framework integrates community benefits into state review, but fast approvals could dilute local influence over agreement details.",
+  },
+  {
+    id: "ca",
+    state: "California",
+    summary: "Voluntary CBAs tied to a faster permitting pathway.",
+    body: "AB 205 allows renewable developers to pursue faster permitting when they incorporate CBAs or other benefit mechanisms.",
+    tradeoff: "Since participation is voluntary, outcomes are variable.",
+  },
+  {
+    id: "de",
+    state: "Delaware",
+    summary: "Negotiated CBAs required as part of project approval.",
+    body: "2024 siting rules require developers to negotiate CBAs or similar arrangements with host communities as part of project approval.",
+    tradeoff: "This strengthens local input but exposes capacity gaps in smaller communities.",
+  },
+  {
+    id: "md",
+    state: "Maryland",
+    summary: "Early community engagement and formalized benefits required.",
+    body: "2024 legislation requires renewable developers to engage communities early and formalize benefits through CBAs.",
+    tradeoff:
+      "Implementation is still developing and could result in lasting improvements or just one-time payments.",
+  },
+];
+
+export const beforeYouBegin = {
+  label: "Before you begin",
+  heading: "Start with the law, not the template",
+  intro:
+    "Two things are already in motion before any CBA conversation starts: what your state and local government require of the developer, and the environmental review clock. Both shape what you can negotiate. Work through these before filling out any template in this toolkit.",
+  boxes: [
+    {
+      id: "legal-requirements",
+      number: "01",
+      color: "#A95F42",
+      tint: "#FBF1EA",
+      title: "Understand State & Local Legal Requirements Before You Begin",
+      lead:
+        "Before any CBA discussion begins, communities and municipalities must understand what state, county, and local laws require — and don't require.",
+      body: [
+        "In many states, developers are legally required to negotiate Host Community Agreements, Development Agreements, or Impact Mitigation Agreements. These may function like CBAs even if they are not called \"CBAs,\" and in some cases they may limit or shape what can be negotiated. In other states, CBAs may be voluntary, or certain types of benefits may not be enforceable through a contract.",
+      ],
+      examplesHeading: "State approaches vary widely",
+      examplesNote: "Select a state to see how its requirements work and where they fall short.",
+      fallback: {
+        heading: "If the agreement you want is not required or not fully enforceable under state law",
+        intro: "Communities still have several options:",
+        items: [
+          "Use the CBA as a voluntary agreement to document commitments and create public accountability.",
+          "Tie certain commitments to local permits or approvals, which may provide stronger enforceability than a standalone CBA.",
+          "Use MOUs or \"good-neighbor agreements\" when contract enforceability is limited.",
+          "Work with state agencies to incorporate mitigation or monitoring requirements into state permits or environmental review conditions.",
+        ],
+      },
+      research: {
+        heading: "Begin by researching",
+        items: [
+          "State siting laws and permitting requirements",
+          "Whether host agreements or impact mitigation agreements are required",
+          "What benefits or mitigation measures are already mandated",
+          "Whether municipalities have authority to negotiate additional benefits",
+          "Whether state agencies (energy siting boards, environmental agencies, utility regulators) must be involved",
+        ],
+      },
+      outreach: {
+        heading: "Contact agencies before you draft anything",
+        intro:
+          "Early outreach is essential. Communities should contact relevant state and local agencies before filling out templates or drafting benefit lists. These agencies can clarify:",
+        items: [
+          "What the developer must do by law",
+          "What timelines apply",
+          "What parts of the project are negotiable",
+          "How CBAs or host agreements interact with permitting",
+        ],
+      },
+      checklist: {
+        heading: "Suggested checklist",
+        items: [
+          "Identify all required state, county, and municipal approvals",
+          "Determine whether a CBA, HCA, or similar contract is required",
+          "Contact relevant state agencies (energy siting, environmental review, utility regulators)",
+          "Review state statutes on community benefits, mitigation, or siting",
+          "Map out which benefits are legally required vs. negotiable",
+        ],
+      },
+    },
+    {
+      id: "environmental-review",
+      number: "02",
+      color: "#3F7583",
+      tint: "#EAF2F4",
+      title: "Environmental Review Happens on Its Own Timeline",
+      lead:
+        "Most states require an Environmental Impact Assessment (EIA) or Environmental Impact Report (EIR) for new facilities. Some projects also trigger federal NEPA review, which runs in parallel. These processes have legally fixed schedules that do not adjust to community needs or CBA negotiations.",
+      body: [
+        "Environmental review is one of the most important sources of data, impact analysis, and mitigation requirements that communities can use in CBA negotiations.",
+      ],
+      keyPointsHeading: "Key points",
+      keyPoints: [
+        {
+          title: "Scoping is your first and best opportunity to influence what gets studied.",
+          detail:
+            "Communities should submit scoping comments identifying the impacts they want analyzed — noise, groundwater, traffic, EJ impacts, health risks, and cumulative effects.",
+        },
+        {
+          title: "Draft EIA/EIR review is essential.",
+          detail:
+            "Even though the timeline is set by the agency, communities should review the draft and submit comments that highlight missing data, underestimated impacts, or mitigation needs.",
+        },
+        {
+          title: "EIA findings directly inform CBA priorities.",
+          detail:
+            "Use the EIA to identify short-term construction impacts, long-term operational impacts, environmental risks that require mitigation, monitoring needs, and impacts that may require compensation.",
+        },
+        {
+          title: "Some mitigation can be required through permits, not the CBA.",
+          detail:
+            "Understanding what will be handled through environmental review helps communities focus CBA negotiations on benefits that are not already mandated.",
+        },
+        {
+          title: "CBA negotiations and EIA review will overlap, but they are not coordinated.",
+          detail:
+            "Communities should plan for the fact that environmental review will move forward on its own schedule, and that they will not get to set or align it with the negotiation calendar.",
+        },
+      ],
+      diagrams: [
+        {
+          id: "timeline",
+          title: "Aligning the two timelines",
+          caption:
+            "This diagram shows how environmental review processes (EIA/EIS) and CBA negotiations align along a typical project timeline, from pre-application and site selection through permitting, environmental review, and final agreement. The middle row represents the shared milestones where both processes overlap, such as application filing and environmental review. The dotted line marks the transition point where community engagement and coalition-building can begin to influence project design and benefit negotiations, illustrating how parallel tracks of regulatory review and CBA development can converge into a coordinated decision process.",
+        },
+        {
+          id: "feedback",
+          title: "How the two processes feed each other",
+          caption:
+            "This diagram illustrates how technical findings from environmental review — impact assessments, design elevations, and mitigation requirements — inform the choices made during CBA negotiation. Those negotiated mitigation and compensation measures then feed back into the environmental review process, refining project design and compliance strategies. Together, both processes contribute to a joint cumulative impact analysis, integrating regulatory and community perspectives on long-term environmental and social outcomes.",
+        },
+      ],
+    },
+  ],
 };
 
 // ---------- STEPS ----------
@@ -186,11 +538,21 @@ export const steps = [
       {
         title: "1. Understand the Project Context & What the Developer Needs",
         body: "Before engaging in negotiations, understand what the developer is proposing, what approvals they need, and what leverage the community holds. Developers often need zoning variances, permits, or community support letters — each represents a potential negotiation point.",
+        pinDown: {
+          heading: "Things to pin down early",
+          items: [
+            "Clarify which impacts are short-term (construction-phase) and which are long-term (operational or environmental), since each requires different mitigation and benefit commitments.",
+            "Identify which environmental impacts require mitigation, whether short-term construction impacts or long-term operational harms that may persist for decades.",
+            "Identify which impacts may require compensation, either to individual landowners and residents (easements, noise or traffic impacts) or to the municipality (impact fees, infrastructure contributions).",
+            "Confirm what state, county, and municipal law already requires the developer to do, so you know which benefits are mandated and which are genuinely negotiable.",
+          ],
+        },
         checklist: {
           community: [
             "Research the developer's track record and previous CBA compliance",
             "Identify what permits or approvals the developer needs from the municipality",
             "Map community assets and concerns that could be affected by the project",
+            "Separate short-term construction impacts from long-term operational impacts in your mapping",
             "Understand the project timeline and when community leverage is highest",
             "Gather information about similar projects and their community benefit outcomes",
           ],
@@ -238,6 +600,29 @@ export const steps = [
         title: "3. Assess Your Capacity & Identify Support Needs",
         body: "A CBA negotiation can take months and requires legal, technical, and organizational capacity. Use the Readiness Checklist to identify gaps before negotiations begin — not during them.",
         templateId: "readiness-checklist",
+        notes: [
+          {
+            title: "Participation has real costs — plan for them early",
+            body: "Participating effectively in a CBA process often involves costs, including legal review, technical analysis, facilitation, translation, and community outreach. These costs vary widely by project size and community capacity. Communities should identify early which expenses they may incur and what external funding sources are available.",
+            items: [
+              "State intervenor funding programs, where they exist",
+              "Municipal support, including staff time or shared consultants",
+              "Philanthropic and community foundation grants",
+              "Developer contributions administered through a neutral community foundation or non-profit, so funds are paid out independently",
+            ],
+            caveat: "Cost ranges cited anywhere in this toolkit are illustrations drawn from comparable projects, not promises or quotes.",
+            links: [
+              {
+                label: "Massachusetts Intervenor Support Grant Program",
+                url: "https://www.mass.gov/info-details/intervenor-support-grant-program",
+              },
+              {
+                label: "New York: Guide to Intervenor Funding (Tug Hill Commission)",
+                url: "https://www.tughill.org/wp-content/uploads/2016/11/Guide-to-Intervenor-Funding-2-14-13.pdf",
+              },
+            ],
+          },
+        ],
         checklist: {
           community: [
             "Complete the Readiness Checklist to identify gaps in your coalition's capacity",
@@ -245,6 +630,7 @@ export const steps = [
             "Assess your coalition's ability to sustain participation over a multi-month negotiation",
             "Identify trusted technical advisors (planners, environmental consultants) to support the process",
             "Determine if you need translation or accessibility support for community members",
+            "Identify potential funding sources for participation costs (e.g., state intervenor funding, municipal support, philanthropic grants, or developer contributions administered through a neutral community foundation)",
           ],
           municipal: [
             "Assess whether municipal staff have bandwidth and expertise to manage the CBA process",
@@ -263,6 +649,39 @@ export const steps = [
       {
         title: "4. Consider Bringing in a Neutral Facilitator or Mediator",
         body: "A neutral facilitator is not a mediator hired by the developer — they are an independent professional who manages the process fairly. A facilitator can help bridge communication gaps, manage power imbalances, and keep negotiations on track.",
+        notes: [
+          {
+            title: "Where to find facilitators — and who pays",
+            body: "Neutral facilitation may involve costs, which can sometimes be covered through state technical assistance programs or developer-funded community foundations. Several states maintain public rosters of trained, low-cost mediators.",
+            links: [
+              {
+                label: "Massachusetts Office of Public Collaboration (MOPC)",
+                description: "Statewide roster of trained public mediators and facilitators specializing in community and environmental conflict resolution.",
+                url: "https://www.umb.edu/mopc/",
+              },
+              {
+                label: "New York Community Dispute Resolution Centers (CDRC)",
+                description: "Free or low-cost mediation and facilitation in all 62 counties, coordinated by the New York State Dispute Resolution Association.",
+                url: "https://ww2.nycourts.gov/ip/adr/cdrcp.shtml",
+              },
+              {
+                label: "California Environmental Mediation Center (EMC)",
+                description: "Mediation and collaborative process design for environmental and land-use projects statewide.",
+                url: "https://www.envmediationcenter.org/",
+              },
+              {
+                label: "Consensus Building Institute (CBI)",
+                description: "National technical assistance and mediator referrals for complex multi-stakeholder projects.",
+                url: "https://www.cbi.org/",
+              },
+              {
+                label: "U.S. Institute for Environmental Conflict Resolution",
+                description: "Federal center offering assessment, facilitation, and mediator referrals for environmental disputes.",
+                url: "https://www.udall.gov/OurPrograms/Institute/Institute.aspx",
+              },
+            ],
+          },
+        ],
         checklist: {
           community: [
             "Discuss with your coalition whether a neutral facilitator would help or limit your power",
@@ -285,6 +704,48 @@ export const steps = [
           ],
         },
       },
+      {
+        title: "5. Know Your Legal Protections for Participating",
+        body: "Residents sometimes hesitate to speak at hearings or join a coalition because they worry about being sued. Understanding the protections that exist — and their limits — helps people participate with confidence.",
+        notes: [
+          {
+            title: "Note on legal liability and SLAPP protections",
+            body: "Community members who participate in public meetings, comment processes, or CBA-related engagement are generally protected under state and federal free-speech laws when expressing views on matters of public concern. In the past, some developers have attempted to use SLAPP lawsuits (Strategic Lawsuits Against Public Participation) to intimidate or silence community activists. Many states now have anti-SLAPP statutes that allow courts to quickly dismiss these suits and, in some cases, require the developer to pay the defendant's legal fees.",
+            items: [
+              "The scope of these protections varies significantly by state — there is no single national standard.",
+              "CBAs themselves are legal contracts that may create obligations for the organizations or municipalities that sign them.",
+              "Individual residents typically do not incur personal liability simply for participating in engagement processes, offering input, or serving on advisory groups.",
+            ],
+            caveat: "This is general information, not legal advice. Communities should seek advice from a licensed attorney in their state if they have concerns about potential exposure or if a developer threatens litigation.",
+            example: {
+              label: "Illustrative example — Massachusetts",
+              body: "Massachusetts provides strong protections against SLAPP suits under Mass. General Laws Chapter 231, Section 59H, which allows defendants to file a special motion to dismiss if they are sued for exercising their right to petition or participate in public processes. If the motion succeeds, courts must dismiss the case and award the defendant attorney's fees and costs, making it one of the more robust anti-SLAPP frameworks in the country.",
+              linkLabel: "Read Mass. General Laws c. 231 § 59H",
+              url: "https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleII/Chapter231/Section59H",
+            },
+          },
+        ],
+        checklist: {
+          community: [
+            "Find out whether your state has an anti-SLAPP statute and what it covers",
+            "Reassure participants that public comment and advisory service rarely create personal liability",
+            "Identify an attorney who can be contacted quickly if a developer threatens litigation",
+            "Clarify which entity will actually sign the CBA and therefore carry contractual obligations",
+            "Document threats or intimidation in writing as they occur",
+          ],
+          municipal: [
+            "Confirm with municipal counsel what liability the municipality assumes by signing a CBA",
+            "Make clear publicly that residents may comment at hearings without fear of retaliation",
+            "Review whether your state's anti-SLAPP statute covers participants in municipal processes",
+            "Keep official records of public comment so participation is documented and protected",
+          ],
+          developer: [
+            "Commit in writing not to pursue litigation against residents for participating in public processes",
+            "Instruct counsel that intimidation tactics undermine the legitimacy of the agreement",
+            "Clarify which community entity has capacity to sign and be bound by the agreement",
+          ],
+        },
+      },
     ],
     templates: ["priorities-worksheet", "readiness-checklist"],
   },
@@ -300,11 +761,18 @@ export const steps = [
     guidance: [
       {
         title: "1. Start Engagement Early and Make It Continuous",
-        body: "Meaningful engagement cannot begin after a developer has filed permits. Start as early as possible — ideally at the project announcement stage — and maintain engagement throughout the entire CBA process.",
+        body: "Meaningful engagement cannot begin after a developer has filed permits. Start as early as possible — ideally at the project announcement stage — and maintain engagement throughout the entire CBA process. Engagement should surface concerns about both short-term construction impacts and long-term operational impacts, since these shape different types of commitments.",
+        notes: [
+          {
+            title: "Budget for inclusive engagement",
+            body: "Communities should anticipate the costs of inclusive engagement — translation, childcare, stipends, meeting space, and logistics — and identify funding sources early rather than scaling back participation when money runs short.",
+          },
+        ],
         checklist: {
           community: [
             "Launch community outreach before the developer submits permit applications",
             "Establish regular community update meetings (e.g., monthly) with consistent formats",
+            "Ask separately about construction-phase concerns and long-term operational concerns",
             "Create feedback loops so community input visibly shapes what you bring to the table",
           ],
           municipal: [
@@ -328,6 +796,7 @@ export const steps = [
             "Hold meetings at multiple times and locations accessible by public transit",
             "Provide childcare and food at community meetings to reduce barriers to participation",
             "Partner with trusted community organizations that have relationships in underrepresented communities",
+            "Identify funding for engagement supports (translation, childcare, food, stipends), which may be available through state programs or developer-funded community foundations",
           ],
           municipal: [
             "Require developers to submit accessibility plans as part of the engagement process",
@@ -387,6 +856,14 @@ export const steps = [
       {
         title: "5. Document What You Hear and Show How It Shapes the Project",
         body: "Community members will disengage if they feel their input disappears into a void. Document all engagement activities and publish regular summaries showing how feedback has (or has not) changed the negotiating position or project design.",
+        pinDown: {
+          heading: "In practice, this means",
+          items: [
+            "Categorizing feedback into short-term impacts (construction disruptions) and long-term impacts (environmental, health, or quality-of-life effects).",
+            "Identifying concerns about environmental impacts that require mitigation, including construction-phase disruptions and long-term risks such as noise, groundwater contamination, or habitat loss.",
+            "Noting concerns about impacts that may warrant compensation, such as property value changes, noise, traffic, or loss of use.",
+          ],
+        },
         checklist: {
           community: [
             "Keep meeting notes, surveys, and all engagement artifacts in a shared repository",
@@ -424,11 +901,41 @@ export const steps = [
         title: "1. Sample Negotiation Timelines",
         body: "CBA negotiations typically unfold in five phases. Timeline ranges vary based on project complexity, capacity, and the number of issues to negotiate.",
         phases: [
-          { phase: "Pre-Negotiation", duration: "2–6 weeks", description: "Stakeholder mapping, coalition building, priority setting, facilitator selection" },
-          { phase: "Issue Identification", duration: "2–8 weeks", description: "All parties share their interests and concerns; agenda for negotiation is set" },
-          { phase: "Option Development", duration: "4–12 weeks", description: "Parties generate and evaluate benefit options for each priority area" },
-          { phase: "Drafting & Closure", duration: "2–6 weeks", description: "Tentative agreements are drafted into CBA language; final review and sign-off" },
-          { phase: "Implementation Planning", duration: "1–4 weeks", description: "Monitoring committee structure, reporting timelines, and enforcement protocols are finalized" },
+          {
+            phase: "Pre-Negotiation",
+            duration: "2–6 weeks",
+            description: "Stakeholder mapping, coalition building, priority setting, facilitator selection",
+          },
+          {
+            phase: "Issue Identification",
+            duration: "2–8 weeks",
+            description: "All parties share their interests and concerns; agenda for negotiation is set",
+            detail: [
+              "Identify both short- and long-term mitigation measures for traffic, noise, and ecological impacts",
+              "Identify compensation needs for short-term construction impacts and long-term operational impacts, and discuss potential valuation methods",
+              "Identify the expected costs of technical analysis, legal review, or facilitation needed to evaluate issues, using illustrative ranges based on similar projects",
+            ],
+          },
+          {
+            phase: "Option Development",
+            duration: "4–12 weeks",
+            description: "Parties generate and evaluate benefit options for each priority area",
+            detail: [
+              "Evaluate options separately for short-term and long-term impacts so commitments match the duration and severity of each impact",
+              "Evaluate mitigation options using environmental review findings, technical studies, and comparable projects to determine what level of mitigation is feasible and necessary",
+              "Evaluate compensation options such as direct payments, easements, impact fees, or community benefit funds, using comparable agreements or impact valuations as benchmarks",
+            ],
+          },
+          {
+            phase: "Drafting & Closure",
+            duration: "2–6 weeks",
+            description: "Tentative agreements are drafted into CBA language; final review and sign-off",
+          },
+          {
+            phase: "Implementation Planning",
+            duration: "1–4 weeks",
+            description: "Monitoring committee structure, reporting timelines, and enforcement protocols are finalized",
+          },
         ],
         checklist: {
           community: [
@@ -540,7 +1047,15 @@ export const steps = [
       },
       {
         title: "5. Understanding Power Dynamics",
-        body: "Most CBA negotiations involve significant power imbalances. Developers typically have more resources, legal counsel, and political connections than community groups. Recognizing and addressing these imbalances is essential to a fair process.",
+        body: "Most CBA negotiations involve significant power imbalances. Developers typically have more resources, legal counsel, and political connections than community groups. Recognizing and addressing these imbalances is essential to a fair process. Developers also tend to frame impacts narrowly, so communities should specifically request data that distinguishes short-term construction impacts from long-term operational harms.",
+        pinDown: {
+          heading: "Strategies to rebalance power",
+          items: [
+            "Communities may need expert support to estimate fair compensation for impacts, since developers often control valuation data. Bringing in neutral technical experts can help level the playing field.",
+            "Communities may need technical support to understand environmental impacts and evaluate whether proposed mitigation measures are adequate, since developers often control the underlying data.",
+            "Request that impact data be broken out by phase — construction versus operation — rather than presented as a single aggregate figure.",
+          ],
+        },
         checklist: {
           community: [
             "Map the power dynamics before negotiations: who has leverage, who has less, and why",
@@ -907,6 +1422,37 @@ export const steps = [
           ],
         },
       },
+      {
+        title: "3. Establish Accountability and Follow-Through Mechanisms",
+        body: "Monitoring committees, annual reporting, and third-party audits are essential for ensuring that long-term commitments are implemented. Short-term construction impacts can be tracked through immediate mitigation measures, but long-term benefits and risks require sustained oversight to ensure follow-through, to make necessary changes, and to maintain trust.",
+        pinDown: {
+          heading: "Match the mechanism to the time horizon",
+          items: [
+            "Short-term: rapid-response mitigation tracking during construction — complaint hotlines, weekly site walks, dust and noise monitoring, and immediate corrective action.",
+            "Long-term: standing committees, annual public reporting, and periodic third-party audits that survive staff turnover and ownership changes.",
+            "Without mechanisms tuned to each horizon, benefits risk fading once the project is built and attention moves on.",
+          ],
+        },
+        checklist: {
+          community: [
+            "Confirm the CBA names distinct tracking mechanisms for construction-phase and operational-phase commitments",
+            "Set a schedule for annual public reporting that does not depend on any single staff member or volunteer",
+            "Identify who is responsible for triggering a third-party audit and under what conditions",
+            "Plan for leadership succession so oversight continues over the full life of the agreement",
+          ],
+          municipal: [
+            "Tie long-term monitoring obligations to permit conditions so they survive changes in political leadership",
+            "Publish annual compliance summaries alongside other municipal reporting",
+            "Budget for the staff time required to sustain oversight for the full agreement term",
+            "Establish a clear process for amending monitoring arrangements as conditions change",
+          ],
+          developer: [
+            "Fund long-term monitoring for the full term of the agreement, not just the construction period",
+            "Establish rapid-response procedures for construction-phase complaints with defined response times",
+            "Commit to annual public reporting even after construction is complete",
+          ],
+        },
+      },
     ],
     templates: ["reporting-form"],
   },
@@ -1080,6 +1626,37 @@ export const steps = [
           ],
         },
       },
+      {
+        title: "4. Match Accountability Structures to the Time Horizon",
+        body: "Accountability structures should match the time horizon of the impact: short-term monitoring for construction-phase disruptions, and long-term committees and reporting for operational and environmental effects. Without these mechanisms, benefits risk fading once the project is built.",
+        pinDown: {
+          heading: "Two horizons, two enforcement postures",
+          items: [
+            "Short-term construction disruptions need fast, low-formality escalation — a named contact, a defined response window, and the ability to halt work that violates agreed conditions.",
+            "Long-term operational and environmental effects need durable institutions — a funded committee, scheduled reporting, and remedies that survive ownership changes and staff turnover.",
+            "Check that your enforcement clauses actually reach both. Agreements often specify remedies for construction breaches in detail while leaving twenty-year commitments with no practical trigger.",
+          ],
+        },
+        checklist: {
+          community: [
+            "Confirm your CBA has usable enforcement triggers for both construction-phase and operational-phase breaches",
+            "Test the escalation path once during construction so weaknesses surface while attention is high",
+            "Schedule a standing annual review of long-term commitments, independent of any complaint",
+            "Ensure the successor clause carries enforcement rights forward if the project is sold",
+          ],
+          municipal: [
+            "Attach short-term construction conditions to permits where breach can stop work",
+            "Calendar long-term compliance reviews so they are not dependent on individual staff memory",
+            "Confirm the municipality retains standing to enforce operational commitments decades out",
+            "Review whether enforcement remedies remain adequate as the project changes hands",
+          ],
+          developer: [
+            "Maintain a responsive point of contact during construction with a published response window",
+            "Keep long-term reporting obligations funded and staffed after the construction team demobilizes",
+            "Disclose ownership changes promptly and confirm successor acceptance of all obligations",
+          ],
+        },
+      },
     ],
     templates: ["enforcement-checklist"],
   },
@@ -1109,6 +1686,14 @@ export const templates = {
             label: "Which populations in your community are most affected by this project?",
             type: "textarea",
           },
+          {
+            label: "Short-term impacts (construction): what disruptions do you expect while the project is being built?",
+            type: "textarea",
+          },
+          {
+            label: "Long-term impacts (operations / environment): what effects may persist for years or decades?",
+            type: "textarea",
+          },
         ],
       },
       {
@@ -1118,7 +1703,8 @@ export const templates = {
         items: [
           "Local Hiring & Wage Requirements",
           "Affordable Housing",
-          "Environmental Mitigation",
+          "Environmental Mitigation (short-term and long-term)",
+          "Compensation for Impacts (to landowners, residents, or the municipality)",
           "Community Investment Fund",
           "Education & Workforce Development",
           "Transportation & Traffic Improvements",
@@ -1128,6 +1714,7 @@ export const templates = {
           "Childcare",
           "Landowner Protections",
           "Waste Collection & Site Cleanup",
+          "Reduced Energy Costs / Co-Ownership / In-Kind Benefits",
           "Specialized / Project-Specific Benefits",
         ],
         followUp: "Rank your top 5 priorities (1 = most important):",
@@ -1139,6 +1726,10 @@ export const templates = {
           { label: "How long should the CBA remain in effect?", type: "select", options: ["Duration of construction only", "Duration of operation (e.g., 20 years)", "Permanent / in perpetuity", "Custom duration"] },
           { label: "If custom, specify:", type: "text" },
           { label: "Are any benefits needed before construction begins?", type: "textarea" },
+          { label: "Short-term commitments (construction phase) — what must be delivered and by when?", type: "textarea" },
+          { label: "Long-term commitments (operational phase) — what must continue, and for how long?", type: "textarea" },
+          { label: "Long-term compensation or impact payments — who receives them, how often, and how are they adjusted over time?", type: "textarea" },
+          { label: "Long-term environmental monitoring and mitigation — who monitors, how often, and who pays?", type: "textarea" },
         ],
       },
       {
@@ -1191,6 +1782,7 @@ export const templates = {
           "We have a designated lead negotiator who has authority to speak for the coalition",
           "We have a communications plan for keeping the broader community informed",
           "We have a process for onboarding new coalition members",
+          "We have funding to support legal, technical, or facilitation needs",
         ],
       },
       {
@@ -1213,6 +1805,8 @@ export const templates = {
           "We have identified elected officials who are allies in this process",
           "We have reviewed relevant case studies from the Resource Library",
           "We have identified any media partners who can support public accountability",
+          "We have identified potential funding sources (state intervenor funding, municipal support, philanthropic grants, developer-funded community foundations)",
+          "We have contacted the relevant state and local agencies with land-use or siting authority",
         ],
       },
       {
@@ -1296,6 +1890,9 @@ export const templates = {
           { label: "Our organization / coalition represents:", type: "text" },
           { label: "Our core interests in this negotiation (what we ultimately need, not just what we're asking for):", type: "textarea" },
           { label: "Our top 3 priority benefits in this session:", type: "textarea" },
+          { label: "Identify which impacts are short-term vs. long-term and what commitments are needed for each:", type: "textarea" },
+          { label: "Identify required mitigation measures for short-term construction impacts and long-term operational impacts:", type: "textarea" },
+          { label: "Identify which impacts require compensation and who should receive it (landowners, residents, or the municipality):", type: "textarea" },
           { label: "Our BATNA (Best Alternative to a Negotiated Agreement — what we will do if no agreement is reached):", type: "textarea" },
         ],
       },
@@ -1322,6 +1919,13 @@ export const templates = {
         columns: ["Benefit Category", "Our Opening Ask", "Acceptable Outcome", "Dealbreaker"],
         rows: 6,
         description: "Fill in this table for each major benefit category you plan to discuss.",
+        followUp: "Then work through each of the following:",
+        prompts: [
+          "Potential mitigation measures (noise buffers, groundwater protections, habitat restoration, traffic management, long-term monitoring)",
+          "Potential compensation mechanisms (direct payments, easements, impact fees, community funds)",
+          "Short-term mitigation measures and long-term monitoring or mitigation strategies",
+          "In-kind and creative options (reduced energy bills, co-ownership, agricultural land use, apprenticeships, infrastructure access)",
+        ],
       },
       {
         title: "Section E: Enforcement Preferences",
@@ -1611,8 +2215,32 @@ export const resources = [
   { id: "rl-e11", type: "external", title: "Common Challenges in Negotiating CBAs", organization: "Research Compilation", topic: "Negotiation", description: "Synthesis of common challenges and how practitioners have addressed them.", url: "#" },
   { id: "rl-e12", type: "external", title: "Delivering Community Benefits Through Economic Development", organization: "Economic Research", topic: "Implementation", description: "Research on how community benefits are delivered through economic development projects.", url: "#" },
   { id: "rl-e13", type: "external", title: "Community Benefits: Practical Tools for Proactive Development", organization: "Practitioner Guide", topic: "Best Practices", description: "Practical toolkit for developers seeking to proactively engage with community benefit processes.", url: "#" },
-  { id: "rl-e14", type: "external", title: "Community Benefits Timeline", organization: "Dashboard Reference", topic: "Process Guidance", description: "A visual timeline tool for planning and tracking the CBA negotiation process.", url: "#" },
+  { id: "rl-e14", type: "external", title: "Community Benefits Timeline", organization: "Toolkit Reference", topic: "Process Guidance", description: "A visual timeline tool for planning and tracking the CBA negotiation process.", url: "#" },
   { id: "rl-e15", type: "external", title: "DOE Community Benefits Guide", organization: "U.S. Department of Energy", topic: "Federal Policy", description: "DOE guidance on community benefit plans for federally funded energy projects.", url: "https://www.energy.gov/topics/community-benefit-plans" },
+
+  // Databases of existing agreements and frameworks (Comment #8)
+  { id: "rl-e16", type: "external", title: "Database of Community Benefits Frameworks Across the US", organization: "World Resources Institute", topic: "Database", description: "Searchable database of community benefits frameworks and requirements across US states and localities.", url: "https://www.wri.org/data/database-community-benefits-frameworks-across-us" },
+  { id: "rl-e17", type: "external", title: "Community Benefits Agreements Database", organization: "Sabin Center for Climate Change Law, Columbia University", topic: "Database", description: "Collection of executed CBAs for energy and infrastructure projects, useful for benchmarking benefit terms and enforcement language.", url: "https://climate.law.columbia.edu/content/community-benefits-agreements-database" },
+  { id: "rl-e18", type: "external", title: "MIT Renewable Energy Clinic CBA Tracker", organization: "MIT Renewable Energy Clinic", topic: "Database", description: "Our own tracker of CBA agreements, in development. Will provide side-by-side comparison of benefit terms, monitoring structures, and enforcement outcomes.", url: "#", status: "coming-soon" },
+
+  // Research
+  { id: "rl-e19", type: "external", title: "From Promise to Practice: What Makes Community Benefits Agreements Enforceable?", organization: "Energy Research & Social Science", topic: "Research", description: "Documentary analysis of 72 CBAs for renewable energy, infrastructure, and real estate projects, with practitioner interviews, examining what actually drives enforcement, monitoring, and contestation over time.", url: "https://www.sciencedirect.com/science/article/pii/S2214629626003142" },
+
+  // Environmental review
+  { id: "rl-e20", type: "external", title: "NEPA Citizen's Guide to Environmental Review", organization: "Council on Environmental Quality", topic: "Environmental Review", description: "Plain-language guide to how federal environmental review works and where the public can comment during scoping and draft review.", url: "https://ceq.doe.gov/get-involved/citizens_guide_to_nepa.html" },
+
+  // Participation funding (Comment #7)
+  { id: "rl-e21", type: "external", title: "Massachusetts Intervenor Support Grant Program", organization: "Commonwealth of Massachusetts", topic: "Funding Support", description: "State grant program helping communities fund technical and legal review during energy facility siting proceedings.", url: "https://www.mass.gov/info-details/intervenor-support-grant-program" },
+  { id: "rl-e22", type: "external", title: "Guide to Intervenor Funding", organization: "Tug Hill Commission (New York)", topic: "Funding Support", description: "Practical guide to how intervenor funding works in New York siting proceedings and how communities can access it.", url: "https://www.tughill.org/wp-content/uploads/2016/11/Guide-to-Intervenor-Funding-2-14-13.pdf" },
+
+  // Facilitation and mediation rosters (Comment #7)
+  { id: "rl-e23", type: "external", title: "Massachusetts Office of Public Collaboration", organization: "UMass Boston", topic: "Facilitation", description: "Statewide roster of trained public mediators and facilitators specializing in community and environmental conflict resolution.", url: "https://www.umb.edu/mopc/" },
+  { id: "rl-e24", type: "external", title: "Community Dispute Resolution Centers Program", organization: "New York State Unified Court System", topic: "Facilitation", description: "Free or low-cost mediation and facilitation services available in all 62 New York counties.", url: "https://ww2.nycourts.gov/ip/adr/cdrcp.shtml" },
+  { id: "rl-e25", type: "external", title: "Consensus Building Institute", organization: "CBI", topic: "Facilitation", description: "National technical assistance, process design, and mediator referrals for complex multi-stakeholder negotiations.", url: "https://www.cbi.org/" },
+
+  // Legal protections (Comment #6)
+  { id: "rl-e26", type: "external", title: "Massachusetts Anti-SLAPP Statute (c. 231 § 59H)", organization: "Massachusetts General Laws", topic: "Legal Protections", description: "The statute allowing defendants sued for exercising their right to petition to file a special motion to dismiss, with attorney's fees awarded if successful.", url: "https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleII/Chapter231/Section59H" },
+  { id: "rl-e27", type: "external", title: "State Anti-SLAPP Laws — Overview", organization: "Reporters Committee for Freedom of the Press", topic: "Legal Protections", description: "State-by-state guide to anti-SLAPP protections, useful for understanding what shields public participation in your jurisdiction.", url: "https://www.rcfp.org/resources/anti-slapp-legal-guide/" },
 
   // Case Studies
   { id: "rl-c1", type: "case-study", title: "Block Island Wind Farm CBA", location: "Rhode Island", sector: "Offshore Wind", outcome: "Successful enforcement", status: "coming-soon", description: "First U.S. offshore wind farm. CBA included reimbursement clause for infrastructure damage; developer paid cable repair costs without litigation." },
@@ -1627,25 +2255,36 @@ export const resources = [
 // ---------- GLOSSARY ----------
 
 export const glossary = [
+  { term: "Anti-SLAPP Statute", definition: "A state law allowing courts to quickly dismiss lawsuits filed to intimidate people for exercising their right to petition or speak on matters of public concern. Many statutes also require the losing plaintiff to pay the defendant's legal fees. Scope varies significantly by state." },
   { term: "Coalition", definition: "A group of community organizations, residents, or advocates that collectively represent local interests in CBA negotiations." },
   { term: "Community Benefits Agreement (CBA)", definition: "A legally binding contract between a developer and a community coalition or municipality that outlines specific benefits the developer must deliver." },
   { term: "Community Benefit Plan (CBP)", definition: "A non-binding plan required in some federal funding applications (e.g., DOE) that outlines how a project will engage and benefit local communities." },
   { term: "Community Investment Fund", definition: "A pool of money contributed by the developer to support local programs, infrastructure, or services." },
+  { term: "Compensation", definition: "Payment for project impacts that cannot be fully avoided or mitigated. Compensation can include direct payments to affected landowners or residents, impact fees to the municipality, or community benefit funds tied to the scale and duration of project impacts." },
   { term: "Cumulative Impact Analysis (CIA)", definition: "An assessment of cumulative environmental and social burdens required for certain energy infrastructure projects under Massachusetts state law." },
   { term: "Developer", definition: "The company or entity proposing and constructing a project subject to community review or permitting." },
   { term: "Dispute Resolution", definition: "The process for addressing non-compliance or disagreements, often through mediation or arbitration." },
   { term: "Engagement Plan", definition: "A document outlining how the community will be informed, consulted, and involved throughout the project." },
+  { term: "Environmental Impact Assessment (EIA)", definition: "A study of a proposed project's likely environmental effects, required by most states before a new facility can be approved. Also called an Environmental Impact Report (EIR) or, at the federal level, an Environmental Impact Statement (EIS). It runs on a legally fixed schedule that does not adjust to CBA negotiations." },
   { term: "Environmental Justice (EJ) Principles", definition: "Principles ensuring meaningful involvement and equitable distribution of environmental benefits and burdens regardless of race, income, or other protected characteristics." },
-  { term: "Host Community Agreement", definition: "A related contract between a municipality and developer outlining payments or benefits tied to project operation." },
+  { term: "Host Community Agreement", definition: "A related contract between a municipality and developer outlining payments or benefits tied to project operation. In several states this is the legally required instrument even where it is not called a CBA." },
+  { term: "Impact Fee", definition: "A payment from a developer to a municipality to offset the public costs a project creates, such as road wear, emergency service demand, or infrastructure upgrades." },
+  { term: "Intervenor Funding", definition: "Money made available — usually by a state program or through developer contributions — to help communities pay for the legal and technical expertise needed to participate meaningfully in siting or permitting proceedings." },
   { term: "Joint Fact-Finding", definition: "A collaborative process where all parties gather and verify project data together to reduce information gaps." },
   { term: "Key Stakeholders", definition: "Residents, community groups, local officials, EJ communities, tribes, and others within or near the project area who may be affected." },
   { term: "Local Hire", definition: "A requirement that a certain percentage of jobs go to residents within a defined geographic area." },
+  { term: "Long-Term Impact", definition: "An effect that persists through project operation and sometimes decommissioning — viewshed and operational noise, groundwater and habitat effects, property value changes — potentially lasting decades." },
   { term: "Meaningful Engagement", definition: "Early, continuous, accessible, culturally competent engagement that informs decision-making." },
+  { term: "Mitigation", definition: "Measures that avoid, reduce, or remedy an impact at its source rather than paying for it afterward. Short-term mitigation addresses construction impacts; long-term mitigation addresses operational and environmental harms through buffers, protections, restoration, and ongoing monitoring." },
   { term: "Monitoring Committee", definition: "A group established to track compliance with CBA terms, review reports, and issue findings." },
   { term: "Municipality", definition: "A local government body (city, town, or county) responsible for land-use decisions, permitting, and enforcement." },
+  { term: "NEPA", definition: "The National Environmental Policy Act, the federal law requiring environmental review of projects with federal funding, permits, or land. Federal NEPA review can run in parallel with a state EIA process." },
   { term: "Neutral Facilitator", definition: "An independent professional who manages meetings, ensures balanced participation, and helps translate interests into agreements." },
   { term: "Notice and Cure Period", definition: "The timeframe given to a developer to fix a breach before enforcement actions begin." },
   { term: "Performance Bond", definition: "A financial guarantee that funds enforcement or remediation if the developer fails to meet commitments." },
+  { term: "Scoping", definition: "The early phase of environmental review that determines which impacts will be studied. This is a community's first and best opportunity to influence what the assessment actually examines." },
+  { term: "Short-Term Impact", definition: "An effect tied to the construction phase — traffic and truck routing, dust and noise, road damage, staging areas, temporary loss of access. Usually intense but time-limited." },
+  { term: "SLAPP Lawsuit", definition: "A Strategic Lawsuit Against Public Participation: litigation filed to intimidate or silence people for speaking out on matters of public concern rather than to win on the merits." },
   { term: "Stakeholder Map", definition: "A visual or written inventory of groups and individuals affected by or involved in a project." },
   { term: "Successor Clause", definition: "A provision ensuring that CBA obligations continue if project ownership changes." },
   { term: "Termination Clause", definition: "Defines conditions under which the agreement may end before its scheduled duration." },
@@ -1665,6 +2304,7 @@ export const bibliography = [
   { citation: "Clarke, C. (2016). Community Benefits Agreements: To The Extent Possible. University of Baltimore Journal of Land and Development, 6(1).", url: "https://scholarworks.law.ubalt.edu/ubjld/vol6/iss1/5" },
   { citation: "De Barbieri, E. W. (2017). Do Community Benefits Agreements Benefit Communities? SSRN Electronic Journal.", url: "https://doi.org/10.2139/ssrn.3028688" },
   { citation: "Fang, R. (2023). Institutionalizing community control: A community benefits ordinance for los angeles. Journal of Affordable Housing & Community Development Law, 32(2).", url: "https://www.proquest.com/docview/2878438025" },
+  { citation: "From promise to practice: What makes community benefits agreements enforceable? (2026). Energy Research & Social Science. Documentary analysis of 72 CBAs across renewable energy, infrastructure, and real estate projects, with practitioner interviews.", url: "https://www.sciencedirect.com/science/article/pii/S2214629626003142" },
   { citation: "Farley, B. (2024). Disrupting the knowledge and power imbalance in Community Benefits Agreement negotiations: Lessons from the Aggie Square development in Sacramento, California. Journal of Urban Affairs, 46(10), 2169–2184.", url: "https://doi.org/10.1080/07352166.2022.2155527" },
   { citation: "Faulkner, T. (2020, February 17). Senate Commission Wants Answers Regarding Exposed Block Island Wind Farm Cables. ecoRI News.", url: "https://ecori.org/2020-2-17-senate-commission-wants-answer-on-exposed-block-island-wind-cable/" },
   { citation: "Gross, J. (2007). Community Benefits Agreements: Definitions, Values, and Legal Enforceability. Journal of Affordable Housing & Community Development Law, 17(1–2), 35–58." },

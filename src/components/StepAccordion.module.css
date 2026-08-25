@@ -289,13 +289,96 @@
 
 .checklistHeader { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
 
-.checklistRoleTag {
-  padding: 3px 9px;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 800;
+/* ---- Things to pin down early / in-practice lists ---- */
+.pinDown {
+  margin-bottom: 16px;
+  padding: 15px 17px;
+  border-left: 3px solid var(--step-color);
+  border-radius: 0 11px 11px 0;
+  background: color-mix(in srgb, var(--step-color) 7%, var(--white));
 }
+
+.pinDownHeading {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--step-color);
+  font-family: var(--font-utility);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.pinDownList { padding-left: 17px; display: flex; flex-direction: column; gap: 7px; }
+.pinDownList li { color: var(--slate); font-size: 13px; line-height: 1.62; }
+.pinDownList li::marker { color: var(--step-color); }
+
+/* ---- Callout notes (costs, legal protections, facilitation) ---- */
+.note {
+  margin-bottom: 16px;
+  padding: 17px 19px;
+  border: 1px solid color-mix(in srgb, var(--step-color) 26%, var(--border));
+  border-radius: 13px;
+  background: var(--white);
+}
+
+.noteTitle {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.noteBody { color: var(--slate); font-size: 13px; line-height: 1.68; }
+
+.noteList { margin-top: 10px; padding-left: 17px; display: flex; flex-direction: column; gap: 6px; }
+.noteList li { color: var(--slate); font-size: 12.5px; line-height: 1.6; }
+.noteList li::marker { color: var(--step-color); }
+
+.noteLinks { margin-top: 12px; display: flex; flex-direction: column; gap: 9px; list-style: none; }
+.noteLinks li { display: flex; flex-direction: column; gap: 2px; }
+.noteLinks a { color: var(--glossary-blue); font-size: 12.5px; font-weight: 700; }
+.noteLinks a:hover { color: var(--glossary-blue-dark); text-decoration: underline; }
+.noteLinks li span { color: var(--muted); font-size: 12px; line-height: 1.55; }
+
+.noteExample {
+  margin-top: 13px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  background: var(--paper-deep);
+}
+
+.noteExampleLabel {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--step-color);
+  font-family: var(--font-utility);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.noteExample p { color: var(--slate); font-size: 12.5px; line-height: 1.65; }
+.noteExample a { display: inline-block; margin-top: 8px; color: var(--glossary-blue); font-size: 12px; font-weight: 700; }
+.noteExample a:hover { text-decoration: underline; }
+
+.noteCaveat {
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px solid var(--border-light);
+  color: var(--muted);
+  font-size: 11.5px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.phaseDetail { margin-top: 9px; padding-left: 16px; display: flex; flex-direction: column; gap: 5px; }
+.phaseDetail li { color: var(--muted); font-size: 12px; line-height: 1.55; }
+.phaseDetail li::marker { color: var(--step-color); }
 
 .checklist { display: flex; flex-direction: column; gap: 9px; list-style: none; }
 .checkItem { display: flex; align-items: flex-start; gap: 10px; }

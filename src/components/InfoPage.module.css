@@ -14,7 +14,7 @@
   justify-content: space-between;
   gap: 24px;
   border-bottom: 1px solid var(--border);
-  background: rgba(250, 247, 240, .96);
+  background: rgba(255, 255, 255, .96);
   backdrop-filter: blur(14px);
 }
 
@@ -148,41 +148,54 @@
 
 .keyPoint p { color: var(--slate); font-size: 14px; line-height: 1.65; }
 
-.expectationList { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; list-style: none; }
+.namingNote {
+  max-width: 790px;
+  padding: 18px 20px;
+  border: 1px dashed color-mix(in srgb, var(--page-color) 45%, var(--border));
+  border-radius: 12px;
+  background: var(--white);
+}
+
+.namingNote span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--page-color);
+  font-family: var(--font-utility);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.namingNote p { color: var(--slate); font-size: 13.5px; line-height: 1.65; }
+
+/* ---- Numbered editorial lists in place of equal-weight card grids (Additional Comments) ---- */
+.expectationList { display: flex; flex-direction: column; list-style: none; }
 
 .expectationItem {
-  min-height: 150px;
-  padding: 20px;
+  padding: 18px 0;
   display: grid;
   grid-template-columns: 34px 1fr;
   gap: 13px;
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  background: var(--white);
-  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border-light);
 }
 
-.itemNumber { color: var(--muted); font-family: var(--font-utility); font-size: 10px; font-weight: 700; }
-.itemMarker { width: 22px; height: 3px; display: block; margin-bottom: 13px; border-radius: 2px; background: var(--page-color); }
+.itemNumber { color: var(--muted); font-family: var(--font-display); font-size: 13px; font-weight: 700; }
+.itemMarker { width: 22px; height: 3px; display: block; margin-bottom: 10px; border-radius: 2px; background: var(--page-color); }
 .itemMarker.positive { background: var(--sage); }
 .itemMarker.caution { background: var(--rose); }
-.expectationItem p { color: var(--slate); font-size: 13.5px; line-height: 1.65; }
+.expectationItem p { max-width: 700px; color: var(--slate); font-size: 14px; line-height: 1.68; }
 
-.reasonGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.reasonCard { min-height: 190px; padding: 23px; border: 1px solid var(--border); border-radius: 15px; background: var(--white); }
-.reasonCard > span { color: var(--page-color); font-family: var(--font-utility); font-size: 10px; font-weight: 700; }
-.reasonCard h2 { margin: 29px 0 8px; color: var(--ink); font-family: var(--font-display); font-size: 20px; }
-.reasonCard p { color: var(--slate); font-size: 13.5px; line-height: 1.65; }
+.reasonList { display: flex; flex-direction: column; list-style: none; }
+.reasonItem { padding: 24px 0; display: grid; grid-template-columns: 46px 1fr; gap: 16px; border-bottom: 1px solid var(--border-light); }
+.reasonItem .itemNumber { padding-top: 2px; }
+.reasonItem h2 { margin-bottom: 8px; color: var(--ink); font-family: var(--font-display); font-size: 20px; }
+.reasonItem p { max-width: 700px; color: var(--slate); font-size: 14px; line-height: 1.7; }
 
-.benefitGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.benefitCard { min-height: 160px; padding: 19px; border: 1px solid color-mix(in srgb, var(--page-color) 22%, var(--border)); border-radius: 14px; background: var(--white); }
-.benefitCard h2 { margin-bottom: 10px; color: var(--ink); font-family: var(--font-display); font-size: 16px; }
-.benefitCard p { color: var(--slate); font-size: 12.5px; line-height: 1.62; }
-
-.audienceGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
-.audienceCard { min-height: 180px; padding: 21px; border: 1px solid var(--border); border-top: 4px solid var(--page-color); border-radius: 14px; background: var(--white); }
-.audienceCard h2 { margin-bottom: 12px; color: var(--ink); font-family: var(--font-display); font-size: 18px; }
-.audienceCard p { color: var(--slate); font-size: 13px; line-height: 1.65; }
+.audienceList { display: flex; flex-direction: column; list-style: none; }
+.audienceRow { padding: 20px 0; border-left: 3px solid var(--page-color); border-bottom: 1px solid var(--border-light); padding-left: 18px; }
+.audienceRow h2 { margin-bottom: 8px; color: var(--ink); font-family: var(--font-display); font-size: 18px; }
+.audienceRow p { max-width: 700px; color: var(--slate); font-size: 13.5px; line-height: 1.65; }
 
 .secondaryAudience { padding: 22px; border-radius: 14px; background: var(--page-tint); }
 .secondaryAudience h2 { margin-bottom: 11px; color: var(--ink); font-family: var(--font-display); font-size: 17px; }
@@ -233,16 +246,12 @@
   .titleRow { grid-template-columns: 50px 1fr; gap: 15px; }
   .pageNumber { width: 46px; height: 46px; font-size: 11px; }
   .main { padding: 42px 0 54px; }
-  .expectationList,
-  .reasonGrid,
-  .audienceGrid { grid-template-columns: 1fr; }
-  .benefitGrid { grid-template-columns: 1fr 1fr; }
+  .reasonItem { grid-template-columns: 34px 1fr; gap: 12px; }
   .pageFooter { align-items: flex-start; flex-direction: column; }
 }
 
 @media (max-width: 480px) {
   .brand strong { display: none; }
-  .benefitGrid { grid-template-columns: 1fr; }
   .footerActions { width: 100%; flex-direction: column; }
 }
 

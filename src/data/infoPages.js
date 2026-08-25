@@ -36,7 +36,7 @@ export const infoPages = [
     id: 'benefit-categories',
     number: '05',
     title: 'Common Benefit Categories',
-    summary: 'Browse the types of commitments that can respond to local priorities and project impacts.',
+    summary: 'Filter benefit types by time horizon, mitigation vs. compensation, and who receives them.',
     color: '#9580B8',
     tint: '#F5F2FB',
     wide: true,
@@ -44,7 +44,7 @@ export const infoPages = [
   {
     id: 'who-for',
     number: '06',
-    title: 'Who This Dashboard Is For',
+    title: 'Who This Toolkit Is For',
     summary: 'See how community advocates, municipal officials, boards, and project partners can use the toolkit.',
     color: '#4E8FA0',
     tint: '#EEF6F9',
@@ -52,7 +52,7 @@ export const infoPages = [
   {
     id: 'how-to',
     number: '07',
-    title: 'How to Use the Dashboard',
+    title: 'How to Use the Toolkit',
     summary: 'Get a short orientation to the six-step process, role filters, templates, resources, and glossary.',
     color: '#5B7EBD',
     tint: '#EEF3FB',
