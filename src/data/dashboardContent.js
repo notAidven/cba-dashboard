@@ -7,7 +7,7 @@
 // ---------- LANDING PAGE ----------
 
 export const landingPage = {
-  title: "Community Benefits Agreement Dashboard",
+  title: "Community Benefits Agreement Toolkit",
   tagline: "Ensuring Shared Benefits, Not Burdens",
   subtitle:
     "A step-by-step toolkit to help communities, municipalities, and developers negotiate, draft, and enforce Community Benefits Agreements.",
@@ -25,7 +25,7 @@ export const landingPage = {
     principles: [
       "It is not selfishness (NIMBY) that motivates community concerns — it is a desire to be treated fairly.",
       "Projects should be judged not just on meeting minimally acceptable environmental standards, but on maximizing community benefits wherever possible.",
-      "This dashboard is more than a technical manual. It stands for the principle that those who bear a project's burdens should share in its gains.",
+      "This toolkit is more than a technical manual. It stands for the principle that those who bear a project's burdens should share in its gains.",
     ],
   },
 
@@ -65,31 +65,31 @@ Unlike informal promises or goodwill gestures, CBAs are enforceable legal docume
         number: 1,
         title: "Enforceable Commitments",
         description:
-          "Transforms verbal promises into legally binding obligations with real consequences for non-compliance.",
+          "A CBA transforms verbal promises made during public hearings into legally binding contract terms. Without a signed agreement, a developer's stated intentions to hire locally, fund mitigation, or limit construction hours carry no legal weight and can be dropped once approvals are secured. With a CBA, the same commitments come with defined remedies — notice-and-cure periods, monitoring, and in many templates, penalties or the ability to sue for breach.",
       },
       {
         number: 2,
         title: "Reduce Conflict",
         description:
-          "Establishes agreed-upon expectations before a project begins, reducing disputes during construction and operation.",
+          "Projects that skip meaningful engagement tend to generate opposition late, when it is most disruptive — during permitting appeals, board hearings, or construction. Negotiating expectations up front gives both sides a shared, written reference point, so disagreements during construction and operation are resolved by checking the agreement rather than relitigating the original debate.",
       },
       {
         number: 3,
         title: "Improve Equity",
         description:
-          "Ensures that development projects deliver tangible benefits to the communities most affected.",
+          "Regulatory review (an EIA/EIR, a siting permit) sets a floor: the minimum a project must do to be allowed to proceed. A CBA operates above that floor, directing a share of a project's benefits specifically to the residents who bear its costs, rather than letting those benefits accrue only to the region or the developer.",
       },
       {
         number: 4,
         title: "Build Relationships",
         description:
-          "Creates a structured process for ongoing communication between developers, municipalities, and communities.",
+          "Negotiating a CBA typically requires a monitoring committee, regular reporting, or a defined point of contact — structures that keep the developer and the community talking after the ribbon-cutting, not just during the pre-approval push for support.",
       },
       {
         number: 5,
         title: "Protect from Risk",
         description:
-          "Shields communities from broken promises if developers sell the project or leadership changes.",
+          "Renewable energy and infrastructure projects frequently change hands — the developer that made commitments during permitting may not be the entity that operates the facility a decade later. Because a CBA is a contract tied to the project rather than a person, its obligations are more likely to survive a sale, refinancing, or change in company leadership than an informal understanding would.",
       },
     ],
   },
@@ -302,8 +302,8 @@ Unlike informal promises or goodwill gestures, CBAs are enforceable legal docume
   },
 
   whoThisIsFor: {
-    heading: "Who This Dashboard Is For",
-    body: "This dashboard is designed for community organizers, environmental justice advocates, municipal officials and staff, and local government boards navigating development projects in their communities.",
+    heading: "Who This Toolkit Is For",
+    body: "This toolkit is built primarily for community organizers and environmental justice advocates. It is also a useful reference for municipal officials, local government boards, and others navigating development projects in their communities.",
     primary: [
       {
         role: "Community Organizers & EJ Advocates",
@@ -329,14 +329,13 @@ Unlike informal promises or goodwill gestures, CBAs are enforceable legal docume
   },
 
   howToUse: {
-    heading: "How to Use This Dashboard",
+    heading: "How to Use This Toolkit",
     body: "Start with the state and local legal requirements that apply to your project, then use the dropdown step modules below to navigate the six phases of a CBA — from initial preparation through enforcement. Each step includes guidance, a suggested checklist, and links to real templates you can open and use directly. Scroll down to the Resource Library to browse all templates, external resources, and case studies in one place.",
     steps: [
       "Begin with 'Before you begin' — confirm what your state, county, and municipality already require",
       "Find out where the environmental review process stands, since it runs on its own fixed schedule",
-      "Select your role above to filter checklist items relevant to you",
       "Open each accordion step in order — only one step is open at a time",
-      "Check off action items as you complete them",
+      "Check off action items on the suggested checklist as you complete them",
       "Click 'Open Template' to view and use any worksheet or form",
       "Visit the Resource Library to explore additional materials",
     ],
@@ -410,7 +409,7 @@ export const beforeYouBegin = {
   label: "Before you begin",
   heading: "Start with the law, not the template",
   intro:
-    "Two things are already in motion before any CBA conversation starts: what your state and local government require of the developer, and the environmental review clock. Both shape what you can negotiate. Work through these before filling out any template in this dashboard.",
+    "Two things are already in motion before any CBA conversation starts: what your state and local government require of the developer, and the environmental review clock. Both shape what you can negotiate. Work through these before filling out any template in this toolkit.",
   boxes: [
     {
       id: "legal-requirements",
@@ -611,7 +610,7 @@ export const steps = [
               "Philanthropic and community foundation grants",
               "Developer contributions administered through a neutral community foundation or non-profit, so funds are paid out independently",
             ],
-            caveat: "Cost ranges cited anywhere in this dashboard are illustrations drawn from comparable projects, not promises or quotes.",
+            caveat: "Cost ranges cited anywhere in this toolkit are illustrations drawn from comparable projects, not promises or quotes.",
             links: [
               {
                 label: "Massachusetts Intervenor Support Grant Program",
@@ -2216,7 +2215,7 @@ export const resources = [
   { id: "rl-e11", type: "external", title: "Common Challenges in Negotiating CBAs", organization: "Research Compilation", topic: "Negotiation", description: "Synthesis of common challenges and how practitioners have addressed them.", url: "#" },
   { id: "rl-e12", type: "external", title: "Delivering Community Benefits Through Economic Development", organization: "Economic Research", topic: "Implementation", description: "Research on how community benefits are delivered through economic development projects.", url: "#" },
   { id: "rl-e13", type: "external", title: "Community Benefits: Practical Tools for Proactive Development", organization: "Practitioner Guide", topic: "Best Practices", description: "Practical toolkit for developers seeking to proactively engage with community benefit processes.", url: "#" },
-  { id: "rl-e14", type: "external", title: "Community Benefits Timeline", organization: "Dashboard Reference", topic: "Process Guidance", description: "A visual timeline tool for planning and tracking the CBA negotiation process.", url: "#" },
+  { id: "rl-e14", type: "external", title: "Community Benefits Timeline", organization: "Toolkit Reference", topic: "Process Guidance", description: "A visual timeline tool for planning and tracking the CBA negotiation process.", url: "#" },
   { id: "rl-e15", type: "external", title: "DOE Community Benefits Guide", organization: "U.S. Department of Energy", topic: "Federal Policy", description: "DOE guidance on community benefit plans for federally funded energy projects.", url: "https://www.energy.gov/topics/community-benefit-plans" },
 
   // Databases of existing agreements and frameworks (Comment #8)

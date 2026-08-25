@@ -45,15 +45,17 @@ function ExpectationList({ items, tone }) {
 
 function ReasonsContent() {
   return (
-    <div className={styles.reasonGrid}>
+    <ol className={styles.reasonList}>
       {landingPage.whyYouMightWantOne.items.map((item) => (
-        <article key={item.number} className={styles.reasonCard}>
-          <span>{String(item.number).padStart(2, '0')}</span>
-          <h2>{item.title}</h2>
-          <p><GlossaryText>{item.description}</GlossaryText></p>
-        </article>
+        <li key={item.number} className={styles.reasonItem}>
+          <span className={styles.itemNumber}>{String(item.number).padStart(2, '0')}</span>
+          <div>
+            <h2>{item.title}</h2>
+            <p><GlossaryText>{item.description}</GlossaryText></p>
+          </div>
+        </li>
       ))}
-    </div>
+    </ol>
   );
 }
 
@@ -65,14 +67,14 @@ function AudienceContent() {
   return (
     <div className={styles.proseStack}>
       <p className={styles.leadParagraph}><GlossaryText>{landingPage.whoThisIsFor.body}</GlossaryText></p>
-      <div className={styles.audienceGrid}>
+      <ul className={styles.audienceList}>
         {landingPage.whoThisIsFor.primary.map((audience) => (
-          <article key={audience.role} className={styles.audienceCard}>
-            <h2><GlossaryText>{audience.role}</GlossaryText></h2>
+          <li key={audience.role} className={styles.audienceRow}>
+            <h2>{audience.role}</h2>
             <p><GlossaryText>{audience.description}</GlossaryText></p>
-          </article>
+          </li>
         ))}
-      </div>
+      </ul>
       <aside className={styles.secondaryAudience}>
         <h2>Also useful for</h2>
         <ul>
@@ -140,7 +142,7 @@ export default function InfoPage({ pageId, onBack, onGlossaryOpen, onGoToSteps, 
         <button type="button" className={styles.brand} onClick={onBack}>
           <span className={styles.brandMark}>CBA</span>
           <span>
-            <strong>CBA Dashboard</strong>
+            <strong>CBA Toolkit</strong>
             <small>MIT Renewable Energy Clinic</small>
           </span>
         </button>
@@ -159,8 +161,8 @@ export default function InfoPage({ pageId, onBack, onGlossaryOpen, onGoToSteps, 
           <div className={styles.titleRow}>
             <span className={styles.pageNumber}>{page.number}</span>
             <div>
-              <p className={styles.eyebrow}>Dashboard orientation</p>
-              <h1><GlossaryText>{page.title}</GlossaryText></h1>
+              <p className={styles.eyebrow}>Toolkit orientation</p>
+              <h1>{page.title}</h1>
               <p className={styles.pageSummary}><GlossaryText>{page.summary}</GlossaryText></p>
             </div>
           </div>
@@ -173,7 +175,7 @@ export default function InfoPage({ pageId, onBack, onGlossaryOpen, onGoToSteps, 
 
       <footer className={styles.pageFooter}>
         <div>
-          <p>Continue exploring the dashboard</p>
+          <p>Continue exploring the toolkit</p>
           <span>Return to the overview or move into the working six-step process.</span>
         </div>
         <div className={styles.footerActions}>

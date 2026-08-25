@@ -12,12 +12,49 @@
 
 .note {
   background: var(--mit-blue-light);
-  border: 1px solid rgba(201, 123, 84, .2);
+  border: 1px solid rgba(163, 31, 52, .2);
   border-radius: var(--radius);
   padding: 10px 14px;
   font-size: 13px;
   color: var(--mit-blue);
   margin-bottom: 20px;
+}
+
+/* ---- Header actions: Download as PDF (Additional Comments) ---- */
+.headerActions { display: flex; align-items: flex-start; gap: 8px; flex-shrink: 0; }
+
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border: 1px solid var(--terra);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--terra);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.downloadBtn:hover { background: var(--terra); color: #fff; }
+
+/* ---- Print / "Download as PDF": print only the template, including whatever the user typed ---- */
+@media print {
+  body * { visibility: hidden; }
+  .printArea, .printArea * { visibility: visible; }
+  .printArea {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    margin: 0;
+    box-shadow: none;
+    border-top: none;
+  }
+  .headerActions, .note { display: none !important; }
+  .checkbox { accent-color: #000; }
 }
 
 .section {

@@ -100,6 +100,78 @@ the numbering in that document.
 
 ---
 
+## Additional Comments (the unnumbered page at the end of the PDF)
+
+The final page of the PDF has three unnumbered sections — Content/Evidence, User
+interface/accessibility, and Visuals — that weren't covered by #1–#10 above. This pass addresses
+them.
+
+### Renamed "dashboard" → "toolkit"
+
+Every user-facing string that called this a "dashboard" (nav brand, page title, hero heading,
+footer, resource library copy, info-page copy) now says "toolkit," per the note that "dashboard"
+suggests a spatial display or live-changing state that this tool doesn't have. Internal code
+identifiers (`dashboardContent.js`, component names, CSS class names) were left alone — renaming
+those is a pure refactor with no user-facing effect and added risk for no benefit.
+
+### Orientation cards → numbered editorial list
+
+The seven orientation topics were a grid of equal-weight tiles. They're now a single numbered
+list (`Hero.jsx`'s `orientationList`) — number, title, one-sentence teaser, "Read this topic" —
+so the topics read as an ordered sequence rather than seven identical things to compare.
+
+Inside the topic pages, the two other card grids called out in the review were converted the same
+way: "Why Might You Want One?" (`InfoPage.jsx`'s `ReasonsContent`) and "Who This Toolkit Is For"
+(`AudienceContent`) are now numbered/bordered lists instead of card grids, and the five "Why"
+items were expanded from one sentence each into a fuller paragraph of reasoning. **These are not
+sourced citations** — we don't have access to the clinic's literature library from here. Swap in
+real citations where you have them; the reasoning itself is grounded in mechanisms already
+documented elsewhere in the toolkit (EIA/CBA relationship, enforcement mechanisms, SLAPP
+protections), not invented.
+
+### Role selector cut to Community Advocate only
+
+Per your confirmation, the three-role picker (Community/EJ, Municipal, Developer) is gone. `role`
+is now a fixed constant in `App.jsx` (`ROLE = 'community'`) rather than a piece of state, so there
+is no selector floating above the six steps, and every step's checklist always shows the
+community-advocate items. The Municipal/Developer checklist data in `dashboardContent.js` was
+left in place rather than deleted — it's inert now, and stripping ~1,500 lines of content data
+felt like more risk than the ask called for. Say the word and it can be removed properly.
+
+### "Open Template" → downloadable PDF
+
+Each template modal now has a "Download as PDF" button (`TemplateModal.jsx`). It calls the
+browser's native print dialog, scoped via print CSS to just the template content — the same
+mechanism `Cmd/Ctrl+P` would trigger, but labeled for what a user actually wants to do with it.
+Because it prints the live DOM, whatever the user has typed into the fields is included; choosing
+"Save as PDF" as the print destination is how the file is saved, which is now stated directly in
+the modal's instructional note. This is a real capability using the browser's built-in
+print-to-PDF, not a new server-side export pipeline — building one of those would be a much larger
+addition than this review asked for.
+
+### Glossary link semantics
+
+Terms now link only once per page (`GlossaryText.jsx`'s new `GlossaryLinkScope`, keyed to the
+current view — the landing page, or whichever info page is open) instead of every time they
+appear. Every heading that previously ran through `GlossaryText` (the toolkit `<h1>`, info-page
+`<h1>`/`<h2>`, template modal `<h2>`/`<h3>`) now renders plain, so linking is body-copy only, per
+the request.
+
+### Visual system: MIT Science Impact Collaborative-aligned palette and a single typeface
+
+The color tokens in `index.css` moved from the previous warm terracotta/cream palette to an
+MIT-red/near-black/neutral-gray one (pulled from `scienceimpact.mit.edu`'s theme CSS: `#A31F34`
+red, near-black text, white/light-gray surfaces). The three-typeface system (serif headers + sans
+body + mono uppercase labels) was collapsed to a single sans family (Inter) across headings, body,
+and labels — that mix was called out as hard to follow, and hierarchy is now carried by weight and
+size instead of typeface. **Inter is a stand-in for MIT's GT America**, which is a licensed
+commercial typeface we don't have rights to embed here; swap the `@import` and `--font-*` tokens
+in `src/index.css` if the clinic has a GT America license. The step/benefit category color-coding
+(civic-blue, sage, rose, lavender, teal, gold) was kept, since that's the color system comment #8
+asked for, just desaturated slightly to sit better with the new neutrals.
+
+---
+
 ## Additional resource
 
 Added at your request, to both the Resource Library and the bibliography:
@@ -119,6 +191,13 @@ https://www.sciencedirect.com/science/article/pii/S2214629626003142
    source documents.
 4. **Legal review (#6).** The SLAPP language is written to be defensible and carries a caveat, but
    it should be reviewed by counsel before publication.
+5. **Real citations for the evidence-based rewrites.** The "Why Might You Want One?" and "Who
+   This Toolkit Is For" paragraphs were expanded with grounded reasoning, not sourced literature —
+   swap in citations from the clinic's library where you have them.
+6. **GT America license.** The typeface is currently Inter (see Visuals, above) as a stand-in for
+   MIT's GT America, which requires a commercial license this repo doesn't have.
+7. **Municipal/Developer checklist content.** Left in `dashboardContent.js` but now unreachable
+   from the UI since the role selector was removed — flag if you'd like it deleted outright.
 
 ## Build & deploy
 
