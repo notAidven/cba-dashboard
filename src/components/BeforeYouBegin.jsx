@@ -70,7 +70,7 @@ function LegalBox({ box }) {
       </div>
 
       <Reveal
-        label="What to do if it is not required, plus what to research first"
+        label="What to check before you start"
         openLabel="Hide the detail"
         count={box.fallback.items.length + box.research.items.length + box.outreach.items.length + box.checklist.items.length}
         tone="quiet"
@@ -141,7 +141,7 @@ function ReviewBox({ box }) {
       </div>
 
       <Reveal
-        label="See how the two timelines line up"
+        label="See the diagrams"
         openLabel="Hide the diagrams"
         count={box.diagrams.length}
         tone="quiet"

@@ -60,7 +60,7 @@ function Principles({ block }) {
 
 function Evidence({ block }) {
   return (
-    <Reveal label="Evidence and sources" openLabel="Hide evidence" count={block.sources.length}>
+    <Reveal label="See the research" openLabel="Hide the research" count={block.sources.length}>
       <aside className={styles.evidence}>
         <span className={styles.evidenceLabel}>Evidence</span>
         <p><GlossaryText>{block.text}</GlossaryText></p>
@@ -126,7 +126,7 @@ function Reasons({ block }) {
           <div className={styles.reasonBody}>
             <h3 className={styles.reasonTitle}>{item.title}</h3>
             <p className={styles.reasonHook}><GlossaryText>{item.hook}</GlossaryText></p>
-            <Reveal label="Why, and what it depends on" openLabel="Show less">
+            <Reveal label="What this depends on" openLabel="Show less">
               <p><GlossaryText>{item.body}</GlossaryText></p>
               <p className={styles.condition}><GlossaryText>{item.condition}</GlossaryText></p>
               <p className={styles.inlineSource}>{item.source}</p>
@@ -146,7 +146,7 @@ function CreativeBenefits() {
       <p className={styles.creativeCaption}>
         <GlossaryText>{creativeBenefits.shortCaption}</GlossaryText>
       </p>
-      <Reveal label="See in-kind and creative options" openLabel="Hide options" count={creativeBenefits.items.length} tone="quiet">
+      <Reveal label="See examples" openLabel="Hide examples" count={creativeBenefits.items.length} tone="quiet">
       <ul className={styles.creativeList}>
         {creativeBenefits.items.map((item) => (
           <li key={item.label}>
@@ -314,10 +314,10 @@ export default function Orientation({ initialSection, onBack, onGlossaryOpen, on
           ))}
 
           <footer className={styles.articleFooter}>
-            <p className={styles.footerLead}>That is the orientation.</p>
+            <p className={styles.footerLead}>That’s the orientation.</p>
             <p className={styles.footerBody}>
-              The next thing to do is confirm what your state and municipality already require,
-              then work the six steps in order.
+              Next, confirm what your state and municipality already require. Then work the six
+              steps in order.
             </p>
             <div className={styles.footerActions}>
               <button type="button" className={styles.primaryButton} onClick={onGoToSteps}>

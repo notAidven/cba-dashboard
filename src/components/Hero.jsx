@@ -83,7 +83,7 @@ export default function Hero({ onGlossaryOpen, onOpenOrientation }) {
               <GlossaryText>{landingPage.mission.lead}</GlossaryText>
             </p>
             <Reveal
-              label="Read the rest of our philosophy"
+              label="Keep reading"
               openLabel="Show less"
               count={landingPage.mission.body.length + landingPage.mission.principles.length}
               tone="quiet"
@@ -107,10 +107,10 @@ export default function Hero({ onGlossaryOpen, onOpenOrientation }) {
         <section className={styles.directory} id="overview-topics" aria-labelledby="directory-heading">
           <div className={styles.sectionIntro}>
             <p className={styles.sectionLabel}>Toolkit orientation</p>
-            <h2 className={styles.sectionHeading} id="directory-heading">Start here: one read-through before you begin</h2>
+            <h2 className={styles.sectionHeading} id="directory-heading">Start here</h2>
             <p className={styles.sectionDescription}>
-              The orientation is a single page in six sections, written to be read in order and
-              sourced throughout. Open it at the top, or jump straight to a section.
+              One page, six sections, meant to be read in order. Open it at the top, or jump
+              straight to the part you need.
             </p>
             <p className={styles.glossaryNote}>
               Blue terms such as <GlossaryText>Community Benefits Agreement</GlossaryText> open a definition when selected.

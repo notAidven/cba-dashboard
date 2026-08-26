@@ -3,7 +3,9 @@ import { landingPage } from '../data/dashboardContent';
 import GlossaryText from './GlossaryText';
 import styles from './BenefitsBoard.module.css';
 
-const { benefitCategories, benefitFilters, creativeBenefits } = landingPage;
+// The in-kind / creative benefits block is rendered by Orientation, which owns
+// the surrounding section — keeping it here too rendered it twice.
+const { benefitCategories, benefitFilters } = landingPage;
 
 // A category matches when, for every bucket the user has selected in, it carries
 // at least one of the selected tags. Buckets with no selection are ignored.
@@ -130,20 +132,6 @@ export default function BenefitsBoard() {
         ))}
       </div>
 
-      <aside className={styles.creative}>
-        <h3 className={styles.creativeHeading}>{creativeBenefits.heading}</h3>
-        <p className={styles.creativeCaption}>
-          <GlossaryText>{creativeBenefits.caption}</GlossaryText>
-        </p>
-        <ul className={styles.creativeList}>
-          {creativeBenefits.items.map((item) => (
-            <li key={item.label}>
-              <strong>{item.label}</strong>
-              <span>{item.detail}</span>
-            </li>
-          ))}
-        </ul>
-      </aside>
     </div>
   );
 }
