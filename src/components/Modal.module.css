@@ -12,11 +12,11 @@
 }
 
 .modal {
-  box-shadow: var(--shadow-overlay);
   background: var(--white);
-  border-radius: 0;
+  border-radius: 16px;
   width: 100%;
   max-width: 640px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.18);
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 64px);
@@ -64,7 +64,7 @@
   font-size: 14px;
   width: 30px;
   height: 30px;
-  border-radius: 0;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@
   width: 100%;
   padding: 8px 14px;
   border: 1px solid var(--border);
-  border-radius: 0;
+  border-radius: var(--radius);
   font-size: 14px;
   font-family: inherit;
   outline: none;
@@ -150,10 +150,10 @@
     box-shadow: none;
     animation: none;
     margin: 0;
-    border-top: none;
+    border-radius: 0;
   }
 
-  .modalHeader { padding-left: 0; padding-right: 0; border-bottom: 2px solid #000; }
-  .modalBody { max-height: none; overflow: visible; padding-left: 0; padding-right: 0; }
+  .modalHeader { border-bottom: 2px solid #000; }
+  .modalBody { max-height: none; overflow: visible; }
   .closeBtn { display: none !important; }
 }

@@ -178,12 +178,19 @@ function Block({ block }) {
   return <Component block={block} />;
 }
 
-export default function Orientation({ onBack, onGlossaryOpen, onGoToSteps, onGoToResources }) {
+export default function Orientation({ initialSection, onBack, onGlossaryOpen, onGoToSteps, onGoToResources }) {
   const [activeSection, setActiveSection] = useState(orientation.sections[0].id);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (!initialSection) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    // Wait for layout before scrolling to the requested section.
+    requestAnimationFrame(() => {
+      document.getElementById(initialSection)?.scrollIntoView({ block: 'start' });
+    });
+  }, [initialSection]);
 
   // Highlights the contents entry for whichever section currently occupies the
   // upper third of the viewport.
@@ -262,12 +269,20 @@ export default function Orientation({ onBack, onGlossaryOpen, onGoToSteps, onGoT
               key={section.id}
               id={section.id}
               className={`${styles.section} ${styles[`band_${section.band}`] || ''}`}
+              style={{ '--section-color': section.color, '--section-tint': section.tint }}
             >
               <div className={styles.sectionHead}>
                 <span className={styles.sectionNumber}>{section.number}</span>
                 <h2 className={styles.sectionTitle}>{section.title}</h2>
                 <p className={styles.sectionStandfirst}>{section.standfirst}</p>
               </div>
+
+              {section.photo && (
+                <figure className={styles.photo}>
+                  <img src={section.photo.src} alt={section.photo.alt} loading="lazy" />
+                  <figcaption>{section.photo.caption}</figcaption>
+                </figure>
+              )}
 
               <div className={styles.blocks}>
                 {section.blocks.map((block, index) => (

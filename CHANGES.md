@@ -5,98 +5,111 @@ Implements the review comments in `DashboardEdits.html#cmnt_ref1.pdf` (numbered 
 
 ---
 
-## Round 2 — Additional Comments + redesign
+## Round 2 — Additional Comments
 
-This round reworked the presentation layer. The numbered comments #1–#10 were already
-covered in content; the changes below address the *Additional Comments* section, the
-Aug 28 discussion notes, and two direct requests: one orientation page instead of seven
-cards, and a visual system matching [scienceimpact.mit.edu](https://scienceimpact.mit.edu/).
+Addresses the *Additional Comments* section and the Aug 28 discussion notes.
 
-### One orientation page, not seven cards
+**Design principle for this round:** the dashboard's existing visual language is kept.
+From the SIC site we take **only the colour palette and mood** — MIT red `#A31F34`,
+near-black ink `#0F0F0F`, link blue `#0094F0`, hairline `#E4E4E4`, and its pastel accent
+tints. Typography (Inter), rounded surfaces, soft elevation, the dark hero, and the card
+layouts all stay as they were. Nothing is restyled unless the review asks for it.
 
-> *"Get rid of the cards in this orientation step … instead have 1-2 evidence-based
+### One orientation page, not seven
+
+> *"Get rid of the cards in this orientation step and instead have 1-2 evidence-based
 > paragraphs explaining in detail what each orientation card promises to explain."*
-> *"The 7 orientation topics could be one editorial page … as opposed to equal tiles."*
+> *"The 7 orientation topics could be one editorial page with breaks or a numbered list."*
 
-- **New** `src/data/orientation.js` — the orientation as one long-form document in six
-  numbered sections: why fairness is the frame; what a CBA is; what the evidence says it
-  can and cannot do; why communities pursue one; what can be in an agreement; who it is
-  for and how to use the toolkit.
-- **New** `src/components/Orientation.jsx` / `.module.css` — renders it as a single page
-  with a sticky contents rail that tracks the reader's position.
-- Every non-definitional claim now carries a `source`, keyed to the existing
-  `bibliography` (Gross 2007; Marantz 2015; Wolf-Powers 2010; De Barbieri 2017;
-  Berglund 2021; Farley 2024; Jacobs 2010; Cascadden et al. 2021; *From promise to
-  practice* 2026, and others). Section 04 additionally states, for each of the five
-  reasons, the condition it depends on — the review's point that the previous five
-  bullets had "no evidence to support them".
-- **Removed** `src/components/InfoPage.jsx` / `.module.css` and `src/data/infoPages.js`.
-- **Removed** the six now-dead content blocks from `landingPage` (`whatIsACBA`,
-  `whatCBACanDo`, `whatCBACannotDo`, `whyYouMightWantOne`, `whoThisIsFor`, `howToUse`).
-  That copy lives in `orientation.js` now; a pointer comment marks this in
-  `dashboardContent.js`.
+- **New** `src/data/orientation.js` — the orientation as one document in six numbered
+  sections: why fairness is the frame; what a CBA is; what the evidence says it can and
+  cannot do; why communities pursue one; what can be in an agreement; who it is for and
+  how to use the toolkit.
+- **New** `src/components/Orientation.jsx` / `.module.css` — one page with a sticky
+  contents rail, styled in the dashboard's own idiom.
+- Every non-definitional claim carries a `source` keyed to the existing `bibliography`
+  (Gross 2007; Marantz 2015; Wolf-Powers 2010; De Barbieri 2017; Berglund 2021; Farley
+  2024; Jacobs 2010; Cascadden et al. 2021; *From promise to practice* 2026). Section 04
+  also states, for each of the five reasons, the condition it depends on — answering the
+  note that those bullets had "no evidence to support them".
+- The landing page keeps its numbered list (already not tiles); each row now opens the
+  single page at that section rather than a separate page.
+- **Removed** `InfoPage.jsx` / `.module.css`, `infoPages.js`, and the six now-dead
+  `landingPage` blocks the cards used. That copy lives in `orientation.js`; a pointer
+  comment marks this in `dashboardContent.js`.
 
-### Visual system aligned to the SIC site
+### Colour and mood from the SIC site
 
-> *"It would be really helpful if this site was more visually consistent with the
-> existing renewable energy clinic and/or SIC site, especially colour scheme and font."*
+> *"More visually consistent with the existing renewable energy clinic and/or SIC site,
+> especially in terms of colour scheme."*
+
+- Palette only. Step and benefit accents retuned to the same institutional register
+  (red / green / violet / blue / ochre / rust) for the colour-coding in comment #8.
+- Diagram palette follows: environmental review in blue, CBA in MIT red.
+
+### Photos (comment #8)
+
+> *"Add more diagrams or even photos when possible. It will make the whole dashboard
+> feel easier to use."*
+
+Four photos from the review folder, resized and re-encoded (2.1 MB → 1.1 MB), in
+`src/assets/photos/`:
+
+| Photo | Placement |
+| --- | --- |
+| Block Island Wind Farm site visit | Hero banner |
+| Facilitated community meeting | Orientation §01, fairness |
+| Community priorities workshop | Orientation §04, why communities pursue one |
+| Rooftop solar installation | Orientation §05, what can be in an agreement |
+
+Lucy's two hand-drawn diagrams remain as the SVG redraws (comment #8: "a slightly more
+professional looking version").
+
+**Outstanding:** these four photos need image credits before the site is published.
+
+### Mono uppercase labels
+
 > *"The serif headers and sans serif display + mono uppercase descriptive parts are a
 > little hard to follow visually."*
 
-- Palette taken from scienceimpact.mit.edu: ink `#0F0F0F`, MIT red `#A31F34`, link blue
-  `#0094F0`, hairline `#E4E4E4`, and the site's pastel section bands (peach `#F9C9BF`,
-  sand `#F4DAA6`, green `#C9E1BD`).
-- One typeface throughout — **Archivo**, standing in for the licensed GT America the SIC
-  site uses. The serif/sans/mono mix is gone; so are the mono uppercase labels, including
-  inside the SVG diagrams.
-- Flat by default: `--radius: 0`, no decorative shadows. Hierarchy comes from rules,
-  scale, and whitespace, as on the SIC site. Elevation is reserved for things that
-  genuinely float (modals, the glossary popover).
-- Step colour-coding retuned to sit with the red-and-black palette (comment #8):
-  red / green / violet / blue / ochre / rust.
-
-### Breaking the card monoculture
-
-> *"Most elements on the page get identical treatment at identical size, so nothing
-> really has more weight than anything else."*
-
-- **Resource Library** rebuilt from a 27-tile grid into a ruled index grouped by kind,
-  with the Aug 28 filters (templates / external sources / case studies) plus step and
-  free-text search.
-- **Benefits board** rebuilt from a card grid into a ruled table where matching rows stay
-  in full ink and non-matching rows fade — which is what the source brief actually asked
-  for ("filters at the top that bold applicable benefits when selected").
-- **Step accordions** reduced from bordered cards with three accent devices to ruled rows
-  with a single coloured rule.
+- Removed from the SVG diagram labels, which were the remaining mono/all-caps text.
 
 ### Role selector
 
 > *"Remove the role selector and distinguish the roles within the six steps."*
-> *"I think that we should just stick to community advocate."*
+> *"We should just stick to community advocate."*
 
-- The selector is gone; `ROLE` is fixed to `community` in `App.jsx`. Orientation §06 is
-  written for the community advocate and says plainly where others fit.
+- Gone; `ROLE` is fixed to `community`. Orientation §06 is written for the community
+  advocate and says plainly where everyone else fits.
 
 ### Templates as downloadable PDFs
 
 > *"The 'open template' buttons should ideally go to a pdf that can be downloaded."*
 
-- `TemplateModal` now renders through a portal to `document.body`, so print rules can
-  hide the app and leave only the form. The previous `visibility: hidden` approach left
-  the page's layout in place and produced pages of blank space before the form.
-- Print stylesheet added: field rules survive on paper, placeholders are suppressed,
-  sections avoid breaking across pages, and glossary links print as plain black text.
-- Copy now states that nothing is stored by the site, so the PDF must be saved before
-  closing.
+- `TemplateModal` renders through a portal to `document.body` so print rules can hide the
+  app and leave only the form. The previous approach used `visibility: hidden`, which
+  kept the page's layout and produced pages of blank space before the form.
+- Print stylesheet: field rules survive on paper, placeholders are suppressed, sections
+  avoid breaking across pages, and glossary links print as plain black text.
 
 ### Glossary link semantics
 
 > *"Link each term once per page, in body copy only, not in headings."*
 
 - Already once-per-page via `GlossaryLinkScope`; this round removed the remaining links
-  from headings and bold lead-ins (`ResourceLibrary` card titles, `BeforeYouBegin` key
-  points). The sidebar hint no longer names a specific term, since that term may already
-  have been linked further up the page.
+  from headings (resource card titles) and bold lead-ins.
+
+### Resource Library filters (Aug 28 notes)
+
+- Kept the original card layout — it is more readable than a condensed list — with the
+  existing type filters (templates / external sources / case studies), step filter, and
+  free-text search.
+
+### Fixes
+
+- Hidden filter tooltips were `visibility: hidden` while absolutely positioned, so they
+  still counted toward document scroll width and pushed the page sideways at 390px.
+  Now `display: none` until hover/focus.
 
 ### Naming
 

@@ -12,6 +12,10 @@
 // in `bibliography` (see dashboardContent.js) so the reader can chase it.
 // ============================================================
 
+import communityMeeting from '../assets/photos/community-meeting.jpg';
+import prioritiesWorkshop from '../assets/photos/priorities-workshop.jpg';
+import solarInstall from '../assets/photos/solar-install.jpg';
+
 export const orientation = {
   eyebrow: 'Orientation',
   title: 'Start here',
@@ -24,6 +28,9 @@ export const orientation = {
     // ---------------------------------------------------------
     {
       id: 'fairness',
+      photo: { src: communityMeeting, alt: 'Residents, officials, and a project team seated together at a facilitated community meeting.', caption: 'Engagement works when it happens early enough that the answers can still change.' },
+      color: '#A31F34',
+      tint: '#FFF4F4',
       number: '01',
       title: 'Why fairness is the frame',
       standfirst:
@@ -67,6 +74,8 @@ export const orientation = {
     // ---------------------------------------------------------
     {
       id: 'what-is',
+      color: '#1D5E8C',
+      tint: '#EEF3F8',
       number: '02',
       title: 'What a Community Benefits Agreement is',
       standfirst:
@@ -110,6 +119,8 @@ export const orientation = {
     // ---------------------------------------------------------
     {
       id: 'can-cannot',
+      color: '#8A6A1F',
+      tint: '#FAF6EC',
       number: '03',
       title: 'What the evidence says a CBA can and cannot do',
       standfirst:
@@ -193,6 +204,9 @@ export const orientation = {
     // ---------------------------------------------------------
     {
       id: 'why',
+      photo: { src: prioritiesWorkshop, alt: 'Participants working over a shared map and materials at a community priorities workshop.', caption: 'Setting priorities together, before the negotiation, is what Step 1 of this toolkit is for.' },
+      color: '#3D6B4A',
+      tint: '#EEF4EF',
       number: '04',
       title: 'Why communities pursue one',
       standfirst:
@@ -255,6 +269,9 @@ export const orientation = {
     // ---------------------------------------------------------
     {
       id: 'benefits',
+      photo: { src: solarInstall, alt: 'A worker fastening panels during a rooftop solar installation.', caption: 'Local hiring and apprenticeship pipelines turn construction work into durable local careers.' },
+      color: '#6B4E8C',
+      tint: '#F3F0F7',
       number: '05',
       title: 'What can be in an agreement',
       standfirst:
@@ -277,6 +294,8 @@ export const orientation = {
     // ---------------------------------------------------------
     {
       id: 'using',
+      color: '#9E3B2E',
+      tint: '#FBF1EF',
       number: '06',
       title: 'Who this is for, and how to work through it',
       standfirst: 'Written for community advocates. Usable by everyone else at the table.',
