@@ -20,7 +20,7 @@ export const landingPage = {
   // ---------- MISSION / PHILOSOPHY (Comment #9, #10) ----------
   mission: {
     label: "Our philosophy",
-    heading: "Every project deserves a public-interest and fairness lens",
+    heading: "Nobody should be left worse off",
     lead:
       "Every infrastructure or renewable energy project should be evaluated through a public-interest and fairness lens. Even when a project provides major regional benefits, such as cleaner energy, lower costs, or improved resilience, it can still impose short- and long-term burdens on nearby residents who did not choose to be affected.",
     body: [
@@ -316,7 +316,7 @@ export const stateLawExamples = [
 
 export const beforeYouBegin = {
   label: "Before you begin",
-  heading: "Start with the law, not the template",
+  heading: "Two things are already in motion",
   intro:
     "Two things are already in motion before any CBA conversation starts: what your state and local government require of the developer, and the environmental review clock. Both shape what you can negotiate. Work through these before filling out any template in this toolkit.",
   boxes: [
@@ -511,7 +511,7 @@ export const steps = [
         templateId: "readiness-checklist",
         notes: [
           {
-            title: "Participation has real costs — plan for them early",
+            title: "What this will cost you",
             body: "Participating effectively in a CBA process often involves costs, including legal review, technical analysis, facilitation, translation, and community outreach. These costs vary widely by project size and community capacity. Communities should identify early which expenses they may incur and what external funding sources are available.",
             items: [
               "State intervenor funding programs, where they exist",
@@ -560,7 +560,7 @@ export const steps = [
         body: "A neutral facilitator is not a mediator hired by the developer — they are an independent professional who manages the process fairly. A facilitator can help bridge communication gaps, manage power imbalances, and keep negotiations on track.",
         notes: [
           {
-            title: "Where to find facilitators — and who pays",
+            title: "Who to call, and who pays",
             body: "Neutral facilitation may involve costs, which can sometimes be covered through state technical assistance programs or developer-funded community foundations. Several states maintain public rosters of trained, low-cost mediators.",
             links: [
               {

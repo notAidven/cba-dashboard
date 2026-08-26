@@ -20,7 +20,7 @@ export const orientation = {
   eyebrow: 'Orientation',
   title: 'Start here',
   standfirst:
-    'A single read-through of what a Community Benefits Agreement is, what the evidence says it can and cannot do, what belongs in one, and how to work through the rest of this toolkit. Roughly fifteen minutes end to end.',
+    'What a CBA is, what it can and can\u2019t do, what goes in one, and how to use the rest of this toolkit. About fifteen minutes.',
   note:
     'Sections are numbered so you can skim, but they are written to be read in order. Blue terms open a definition.',
 
@@ -32,9 +32,9 @@ export const orientation = {
       color: '#A31F34',
       tint: '#FFF4F4',
       number: '01',
-      title: 'Why fairness is the frame',
+      title: 'Where we stand',
       standfirst:
-        'Before any of the mechanics, the premise this toolkit works from.',
+        'The principles behind this toolkit.',
       band: 'peach',
       blocks: [
         {
@@ -51,7 +51,7 @@ export const orientation = {
         },
         {
           type: 'principles',
-          heading: 'What this toolkit stands for',
+          heading: 'What we believe',
           items: [
             'It is not selfishness that motivates community concerns. NIMBY is a dismissal, not an analysis. The underlying demand is to be treated fairly.',
             'Projects should be judged not only on whether they clear the minimum environmental and regulatory bar, but on whether they maximize community benefit where that is possible.',
@@ -77,9 +77,9 @@ export const orientation = {
       color: '#1D5E8C',
       tint: '#EEF3F8',
       number: '02',
-      title: 'What a Community Benefits Agreement is',
+      title: 'What a CBA is',
       standfirst:
-        'A contract, not a promise — and in a growing number of states, not optional.',
+        'A binding contract. In a growing number of states, a legal requirement.',
       band: 'none',
       blocks: [
         {
@@ -110,7 +110,7 @@ export const orientation = {
         {
           type: 'prose',
           collapse: true,
-          collapseLabel: 'How a CBA relates to permits and public law',
+          collapseLabel: 'How this fits with permits',
           paragraphs: [
             'A CBA sits in a particular place relative to public law. Environmental review and siting conditions set a floor: the minimum a project must do to be permitted at all. A CBA operates above that floor. Understanding which protections you already have by right — and therefore do not need to trade for — is what keeps a negotiation from spending its leverage buying something the law already requires.',
           ],
@@ -124,9 +124,9 @@ export const orientation = {
       color: '#8A6A1F',
       tint: '#FAF6EC',
       number: '03',
-      title: 'What the evidence says a CBA can and cannot do',
+      title: 'What the research shows',
       standfirst:
-        'The research record is genuinely mixed. That is useful information, not a reason for pessimism.',
+        'The record is mixed. Knowing where agreements fall apart is how you build one that holds.',
       band: 'sand',
       blocks: [
         {
@@ -176,7 +176,7 @@ export const orientation = {
         },
         {
           type: 'caseNote',
-          heading: 'Two instructive records',
+          heading: 'Two cases worth knowing',
           cases: [
             {
               label: 'Detroit',
@@ -195,7 +195,7 @@ export const orientation = {
         {
           type: 'callout',
           tone: 'caution',
-          heading: 'On power asymmetry',
+          heading: 'The developer holds the data',
           body:
             'Developers usually control the underlying data — impact modelling, revenue projections, valuation of harms — and often the technical vocabulary of the negotiation as well. Detailed study of that imbalance, and of the strategies communities used to close it, is the single most practically useful body of work for anyone about to sit down at the table. Step 3 of this toolkit treats it directly.',
           source: 'Farley (2024), Disrupting the knowledge and power imbalance in CBA negotiations: Lessons from Aggie Square',
@@ -210,9 +210,9 @@ export const orientation = {
       color: '#3D6B4A',
       tint: '#EEF4EF',
       number: '04',
-      title: 'Why communities pursue one',
+      title: 'Why communities want one',
       standfirst:
-        'Five reasons, each with the evidence that supports it and the condition it depends on.',
+        'Five reasons, and what each one depends on.',
       band: 'none',
       blocks: [
         {
@@ -231,7 +231,7 @@ export const orientation = {
             },
             {
               number: 2,
-              title: 'Reduced conflict, earlier',
+              title: 'Fewer fights later',
               hook:
                 'Settles expectations before positions harden, so later disputes get looked up rather than re-fought.',
               body:
@@ -242,7 +242,7 @@ export const orientation = {
             },
             {
               number: 3,
-              title: 'Equity above the regulatory floor',
+              title: 'More than the legal minimum',
               hook:
                 'Permits set a minimum. A CBA is what directs a share of the upside to the people carrying the costs.',
               body:
@@ -253,7 +253,7 @@ export const orientation = {
             },
             {
               number: 4,
-              title: 'A durable relationship',
+              title: 'A relationship that lasts',
               hook:
                 'Creates standing structures — a monitoring committee, a reporting cadence — that outlast the approval fight.',
               body:
@@ -264,7 +264,7 @@ export const orientation = {
             },
             {
               number: 5,
-              title: 'Protection against a change of hands',
+              title: 'It survives a sale',
               hook:
                 'Obligations can be written to survive a sale, a refinancing, or a change of corporate control.',
               body:
@@ -285,9 +285,9 @@ export const orientation = {
       color: '#6B4E8C',
       tint: '#F3F0F7',
       number: '05',
-      title: 'What can be in an agreement',
+      title: 'What goes in an agreement',
       standfirst:
-        'Thirteen recurring benefit categories, filterable by when the impact lands, whether the benefit mitigates or compensates, and who receives it.',
+        'Thirteen benefit categories. Filter them by timing, type, and who receives them.',
       band: 'green',
       blocks: [
         {
@@ -300,7 +300,7 @@ export const orientation = {
         {
           type: 'prose',
           collapse: true,
-          collapseLabel: 'What those three distinctions mean',
+          collapseLabel: 'More on each',
           paragraphs: [
             'The first is time horizon. Short-term impacts are construction-phase — traffic, dust, noise, road damage, temporary loss of access — intense but bounded. Long-term impacts run through operation and sometimes decommissioning, and can persist for decades. They call for different commitments, different monitoring, and different durations of obligation, and conflating them is the most common drafting error.',
             'The second is the difference between mitigation and compensation. Mitigation reduces or removes an impact at its source: buffers, routing, groundwater protection, habitat restoration, hour restrictions. Compensation pays for what cannot be avoided — direct payments to affected landowners or residents, impact fees to the municipality, or a community benefit fund scaled to the severity and duration of the harm. Environmental mitigation is, in many projects, the most consequential part of the agreement, and much of it can be secured through permit conditions rather than the CBA itself.',
@@ -318,8 +318,8 @@ export const orientation = {
       color: '#9E3B2E',
       tint: '#FBF1EF',
       number: '06',
-      title: 'Who this is for, and how to work through it',
-      standfirst: 'Written for community advocates. Usable by everyone else at the table.',
+      title: 'Who this is for',
+      standfirst: 'Written for community advocates, plus how to use the rest of the toolkit.',
       band: 'none',
       blocks: [
         {
@@ -332,14 +332,14 @@ export const orientation = {
         {
           type: 'prose',
           collapse: true,
-          collapseLabel: 'Useful to everyone else at the table, too',
+          collapseLabel: 'Other roles at the table',
           paragraphs: [
             'Municipal officials and local government staff will find the legal-requirements and drafting material directly applicable, since in many states the municipality is the required signatory. Developers and their consultants can use it to understand what a well-prepared community will arrive expecting. Researchers will find the sources behind every section in the bibliography.',
           ],
         },
         {
           type: 'howTo',
-          heading: 'How to work through the toolkit',
+          heading: 'How to use this toolkit',
           steps: [
             {
               label: 'Begin with Before you begin',
