@@ -1,18 +1,15 @@
+/* A stack of ruled rows rather than bordered cards — one accent device
+   (the coloured rule on top) instead of three. */
 .accordion {
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--step-color) 28%, var(--border));
-  border-radius: 20px;
-  background: var(--white);
-  box-shadow: var(--shadow-sm);
-  transition: transform .18s, box-shadow .18s;
+  border-top: 3px solid var(--step-color);
+  background: var(--paper);
 }
-
-.accordion:hover { box-shadow: var(--shadow); }
+.accordion:last-child { border-bottom: 1px solid var(--border); }
 
 .header {
   width: 100%;
   min-height: 82px;
-  padding: 15px 20px 15px 0;
+  padding: 18px 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,7 +19,7 @@
   transition: background .18s;
 }
 
-.header:hover { background: color-mix(in srgb, var(--step-color) 7%, var(--white)); }
+.header:hover { background: color-mix(in srgb, var(--step-color) 5%, var(--paper)); }
 .headerOpen { background: var(--step-color); }
 .headerOpen:hover { background: var(--step-color); }
 
@@ -33,29 +30,22 @@
   align-items: center;
 }
 
-.accentBar {
-  width: 6px;
-  align-self: stretch;
-  flex-shrink: 0;
-  margin-right: 17px;
-  border-radius: 0 5px 5px 0;
-}
+.accentBar { display: none; }
 
 .headerOpen .accentBar { background: rgba(255, 255, 255, .34) !important; }
 
 .stepBadge {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   padding: 0;
   margin-right: 15px;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid rgba(255, 255, 255, .55);
-  border-radius: 50%;
+  border: none;
   color: #fff;
-  font-family: var(--font-utility);
+  font-family: var(--font-body);
   font-size: 12px;
   font-weight: 700;
 }
@@ -73,8 +63,9 @@
 .stepTitle {
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 750;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
@@ -127,14 +118,14 @@
   flex-wrap: wrap;
   gap: 8px;
   border: 1px solid var(--border-light);
-  border-radius: 12px;
+  border-radius: 0;
   background: rgba(255, 255, 255, .7);
 }
 
 .templateLabel,
 .checklistLabel {
   color: var(--muted);
-  font-family: var(--font-utility);
+  font-family: var(--font-body);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: .08em;
@@ -147,7 +138,7 @@
   align-items: center;
   gap: 6px;
   border: 1px solid;
-  border-radius: 9px;
+  border-radius: 0;
   background: var(--white);
   font-size: 12px;
   font-weight: 800;
@@ -168,7 +159,7 @@
 .guidanceItem {
   overflow: hidden;
   border: 1px solid var(--border-light);
-  border-radius: 13px;
+  border-radius: 0;
   background: var(--white);
 }
 
@@ -217,7 +208,7 @@
   overflow: hidden;
   margin-bottom: 16px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .phaseRow {
@@ -243,7 +234,7 @@
 .phaseDuration {
   border-right: 1px solid var(--border-light);
   color: var(--muted);
-  font-family: var(--font-utility);
+  font-family: var(--font-body);
   font-size: 10px;
 }
 
@@ -263,7 +254,7 @@
 .meetingPhase {
   padding: 13px;
   border: 1px solid var(--border-light);
-  border-radius: 11px;
+  border-radius: 0;
   background: var(--paper);
 }
 
@@ -271,7 +262,7 @@
   display: block;
   margin-bottom: 7px;
   color: var(--ink);
-  font-family: var(--font-utility);
+  font-family: var(--font-body);
   font-size: 9px;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -294,7 +285,7 @@
   margin-bottom: 16px;
   padding: 15px 17px;
   border-left: 3px solid var(--step-color);
-  border-radius: 0 11px 11px 0;
+  border-radius: 0;
   background: color-mix(in srgb, var(--step-color) 7%, var(--white));
 }
 
@@ -302,7 +293,7 @@
   display: block;
   margin-bottom: 9px;
   color: var(--step-color);
-  font-family: var(--font-utility);
+  font-family: var(--font-body);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .09em;
@@ -318,7 +309,7 @@
   margin-bottom: 16px;
   padding: 17px 19px;
   border: 1px solid color-mix(in srgb, var(--step-color) 26%, var(--border));
-  border-radius: 13px;
+  border-radius: 0;
   background: var(--white);
 }
 
@@ -347,7 +338,7 @@
 .noteExample {
   margin-top: 13px;
   padding: 13px 15px;
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--paper-deep);
 }
 
@@ -355,7 +346,7 @@
   display: block;
   margin-bottom: 6px;
   color: var(--step-color);
-  font-family: var(--font-utility);
+  font-family: var(--font-body);
   font-size: 9.5px;
   font-weight: 700;
   letter-spacing: .09em;

@@ -12,11 +12,11 @@
 }
 
 .modal {
+  box-shadow: var(--shadow-overlay);
   background: var(--white);
-  border-radius: 16px;
+  border-radius: 0;
   width: 100%;
   max-width: 640px;
-  box-shadow: 0 24px 64px rgba(0,0,0,.18);
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 64px);
@@ -64,7 +64,7 @@
   font-size: 14px;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@
   width: 100%;
   padding: 8px 14px;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 0;
   font-size: 14px;
   font-family: inherit;
   outline: none;
@@ -129,4 +129,31 @@
   color: var(--muted);
   padding: 24px;
   font-size: 14px;
+}
+
+
+@media print {
+  /* Unpick the fixed, scroll-clipped overlay so the form flows across pages. */
+  .overlay {
+    position: static;
+    display: block;
+    padding: 0;
+    background: #fff;
+    backdrop-filter: none;
+    overflow: visible;
+  }
+
+  .modal {
+    max-width: 100%;
+    max-height: none;
+    overflow: visible;
+    box-shadow: none;
+    animation: none;
+    margin: 0;
+    border-top: none;
+  }
+
+  .modalHeader { padding-left: 0; padding-right: 0; border-bottom: 2px solid #000; }
+  .modalBody { max-height: none; overflow: visible; padding-left: 0; padding-right: 0; }
+  .closeBtn { display: none !important; }
 }
