@@ -20,8 +20,12 @@ export default function App() {
   const [activeTemplate, setActiveTemplate] = useState(null);
   const [openStep, setOpenStep] = useState(null);
   const [showOrientation, setShowOrientation] = useState(false);
+  const [orientationSection, setOrientationSection] = useState(null);
 
-  const openOrientation = () => {
+  // Called bare from nav/CTAs, or with a section id from the contents list on the
+  // landing page, which opens the page scrolled to that section.
+  const openOrientation = (sectionId) => {
+    setOrientationSection(typeof sectionId === 'string' ? sectionId : null);
     setShowOrientation(true);
     window.scrollTo(0, 0);
   };
@@ -45,6 +49,7 @@ export default function App() {
       {showOrientation ? (
         <GlossaryLinkScope scopeKey="orientation">
           <Orientation
+            initialSection={orientationSection}
             onBack={returnToToolkit}
             onGlossaryOpen={() => setGlossaryOpen(true)}
             onGoToSteps={() => returnToSection('steps')}

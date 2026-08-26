@@ -1,84 +1,55 @@
-/* Archivo stands in for GT America, the grotesque used across scienceimpact.mit.edu.
-   One family for everything, as on the SIC site — the review flagged the previous
-   serif-headline / sans-body / mono-label mix as hard to follow. */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* ---- Palette lifted from scienceimpact.mit.edu ----
-     Near-black ink, MIT red, a bright link blue, hairline neutrals, and three
-     pastel bands the SIC site uses to separate editorial sections. */
-  --ink: #0F0F0F;
-  --ink-soft: #333333;
+  /* Colour and mood only from the MIT Science Impact Collaborative site
+     (scienceimpact.mit.edu): near-black ink, institutional red, a bright link
+     blue, hairline neutrals, and its three pastel accent tints. Typography,
+     radii, and elevation stay as the dashboard already had them. */
   --paper: #FFFFFF;
-  --paper-warm: #F3F4EE;
-  --paper-deep: #F0F0F0;
-
-  --terra: #A31F34;          /* MIT red — primary accent */
+  --paper-deep: #F3F4EE;
+  --ink: #0F0F0F;
+  --terra: #A31F34;
   --terra-dark: #7A1729;
-  --terra-tint: #FFF4F4;
 
-  --link: #0094F0;
-  --link-dark: #007ECC;
+  /* Step / benefit accents, held to the same institutional register. */
+  --civic-blue: #1D5E8C;
+  --civic-blue-dark: #17486B;
+  --sage: #3D6B4A;
+  --sage-dark: #2E5239;
+  --rose: #9E3B2E;
+  --lavender: #6B4E8C;
+  --teal: #1D5E8C;
+  --gold: #8A6A1F;
 
-  --slate: #565656;
-  --muted: #727272;
-  --border: #E4E4E4;
-  --border-light: #EBEBEB;
-  --border-strong: #0F0F0F;
-
-  /* SIC's pastel section bands */
+  /* SIC's pastel section tints */
   --band-peach: #F9C9BF;
   --band-sand: #F4DAA6;
   --band-green: #C9E1BD;
 
-  /* Step / template colour coding (review comment #8). Muted so they sit
-     alongside the red-and-black institutional palette rather than fighting it. */
-  --step-prepare: #A31F34;
-  --step-engage: #3D6B4A;
-  --step-negotiate: #1D5E8C;
-  --step-draft: #6B4E8C;
-  --step-monitor: #8A6A1F;
-  --step-enforce: #9E3B2E;
-
   --glossary-blue: #0094F0;
   --glossary-blue-dark: #007ECC;
 
-  --font-display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-body: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-utility: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-utility: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Flat by default. The SIC site builds hierarchy from rules and whitespace,
-     not from cards floating on shadows — which is also the fix for the
-     "card monoculture" note in the review. */
-  --radius: 0px;
-  --radius-sm: 0px;
-  --shadow-sm: none;
-  --shadow: none;
-  /* Elevation is reserved for things that genuinely float: modals, popovers. */
-  --shadow-overlay: 0 24px 60px rgba(15, 15, 15, .22);
-  --shadow-md: 0 24px 60px rgba(15, 15, 15, .22);
-
-  /* Legacy aliases kept so older modules keep resolving while they are restyled. */
-  --navy: var(--ink);
-  --white: #FFFFFF;
-  --surface: #F3F4EE;
   --mit-blue: var(--terra);
-  --mit-blue-light: var(--terra-tint);
-  --mit-green: var(--step-engage);
+  --mit-blue-light: #FFF4F4;
+  --mit-green: var(--sage);
   --mit-green-light: #EEF4EF;
-  --civic-blue: var(--step-negotiate);
-  --civic-blue-dark: #17486B;
-  --sage: var(--step-engage);
-  --sage-dark: #2E5239;
-  --rose: var(--step-enforce);
-  --lavender: var(--step-draft);
-  --teal: var(--step-negotiate);
-  --gold: var(--step-monitor);
-
-  --measure: 68ch;
-  --gutter: clamp(20px, 5vw, 64px);
+  --navy: var(--ink);
+  --slate: #3D3D3D;
+  --muted: #565656;
+  --border: #E4E4E4;
+  --border-light: #EBEBEB;
+  --surface: #F3F4EE;
+  --white: #FFFFFF;
+  --radius: 12px;
+  --shadow-sm: 0 2px 8px rgba(15, 15, 15, .06);
+  --shadow: 0 10px 28px rgba(15, 15, 15, .1);
+  --shadow-md: 0 18px 44px rgba(15, 15, 15, .16);
 }
 
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -86,68 +57,50 @@ html { font-size: 16px; scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 1rem;
-  color: var(--ink);
+  color: var(--navy);
   background: var(--paper);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  color: var(--ink);
-  line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  color: var(--navy);
+  line-height: 1.25;
+  font-weight: 700;
 }
-
-h1 { font-size: clamp(2.4rem, 5vw, 4.1rem); letter-spacing: -0.03em; }
-h2 { font-size: clamp(1.6rem, 2.6vw, 2.15rem); }
-h3 { font-size: clamp(1.15rem, 1.6vw, 1.4rem); }
-
-p { text-wrap: pretty; }
 
 a { color: inherit; text-decoration: none; }
 
 button {
   cursor: pointer;
   font-family: inherit;
-  font-size: inherit;
   border: none;
   background: none;
-  color: inherit;
 }
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible,
-textarea:focus-visible,
-[tabindex]:focus-visible {
-  outline: 2px solid var(--link);
-  outline-offset: 2px;
+textarea:focus-visible {
+  outline: 2px solid var(--glossary-blue);
+  outline-offset: 3px;
 }
-
-::selection { background: var(--band-sand); color: var(--ink); }
 
 #root { min-height: 100vh; }
 
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--paper-deep); }
-::-webkit-scrollbar-thumb { background: #C4C4C4; }
-::-webkit-scrollbar-thumb:hover { background: var(--slate); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C4C4C4; border-radius: 3px; }
 
-.sr-only {
-  position: absolute; width: 1px; height: 1px;
-  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
-}
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 
 @media print {
   body { background: #fff; }
 
   /* A template is open: print only the form, not the page behind it.
-     The modal is portalled to <body>, so hiding #root leaves just the form. */
+     TemplateModal is portalled to <body>, so hiding #root leaves just the form. */
   body.template-open { overflow: visible; }
   body.template-open > #root { display: none !important; }
 
