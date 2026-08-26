@@ -7,32 +7,32 @@ import Footer from './components/Footer';
 import GlossaryModal from './components/GlossaryModal';
 import TemplateModal from './components/TemplateModal';
 import GlossaryText, { GlossaryLinkScope } from './components/GlossaryText';
-import InfoPage from './components/InfoPage';
+import Orientation from './components/Orientation';
 import { steps } from './data/dashboardContent';
 import styles from './App.module.css';
 
-// The dashboard→toolkit review asked us to stop offering Municipal/Developer role
-// personalization and stick to a single audience, so this is fixed rather than user-selectable.
+// The review asked us to drop Municipal/Developer role personalization and write for a
+// single audience — the community advocate — so this is fixed rather than user-selectable.
 const ROLE = 'community';
 
 export default function App() {
   const [glossaryOpen, setGlossaryOpen] = useState(false);
   const [activeTemplate, setActiveTemplate] = useState(null);
   const [openStep, setOpenStep] = useState(null);
-  const [activeInfoPage, setActiveInfoPage] = useState(null);
+  const [showOrientation, setShowOrientation] = useState(false);
 
-  const openInfoPage = (pageId) => {
-    setActiveInfoPage(pageId);
+  const openOrientation = () => {
+    setShowOrientation(true);
     window.scrollTo(0, 0);
   };
 
-  const returnToDashboard = () => {
-    setActiveInfoPage(null);
+  const returnToToolkit = () => {
+    setShowOrientation(false);
     window.scrollTo(0, 0);
   };
 
   const returnToSection = (sectionId) => {
-    setActiveInfoPage(null);
+    setShowOrientation(false);
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -42,11 +42,10 @@ export default function App() {
 
   return (
     <div className={styles.app}>
-      {activeInfoPage ? (
-        <GlossaryLinkScope scopeKey={activeInfoPage}>
-          <InfoPage
-            pageId={activeInfoPage}
-            onBack={returnToDashboard}
+      {showOrientation ? (
+        <GlossaryLinkScope scopeKey="orientation">
+          <Orientation
+            onBack={returnToToolkit}
             onGlossaryOpen={() => setGlossaryOpen(true)}
             onGoToSteps={() => returnToSection('steps')}
             onGoToResources={() => returnToSection('resources')}
@@ -54,10 +53,7 @@ export default function App() {
         </GlossaryLinkScope>
       ) : (
         <GlossaryLinkScope scopeKey="landing">
-          <Hero
-            onGlossaryOpen={() => setGlossaryOpen(true)}
-            onOpenInfoPage={openInfoPage}
-          />
+          <Hero onGlossaryOpen={() => setGlossaryOpen(true)} onOpenOrientation={openOrientation} />
 
           <BeforeYouBegin />
 
@@ -65,15 +61,17 @@ export default function App() {
             <div className={styles.container}>
               <div className={styles.stepsIntro}>
                 <div>
-                  <p className={styles.sectionLabel}><GlossaryText>The CBA process</GlossaryText></p>
+                  <p className={styles.sectionLabel}>The CBA process</p>
                   <h2 className={styles.sectionHeading}>Six steps to a strong agreement</h2>
                   <p className={styles.sectionSubtext}>
-                    <GlossaryText>Work through each step in order. Expand a step to access professional guidance, a suggested checklist, and working templates.</GlossaryText>
+                    <GlossaryText>Work through each step in order. Expand a step for guidance, a suggested checklist you can tick off, and the working templates that belong to that stage.</GlossaryText>
                   </p>
                 </div>
                 <aside className={styles.glossaryHint}>
-                  <span>Glossary tip</span>
-                  <p>Select any blue term, such as <GlossaryText>Monitoring Committee</GlossaryText>, for a definition.</p>
+                  <span>Glossary</span>
+                  {/* Don't name a term here — it may already be linked further up the
+                      page, and each term is only linked once per page. */}
+                  <p>Terms shown in blue open a definition. Each one is linked the first time it appears on a page; the full glossary is in the top bar.</p>
                 </aside>
               </div>
 
@@ -103,19 +101,14 @@ export default function App() {
 
           <ResourceLibrary onOpenTemplate={setActiveTemplate} />
 
-          <Footer onGlossaryOpen={() => setGlossaryOpen(true)} />
+          <Footer onGlossaryOpen={() => setGlossaryOpen(true)} onOpenOrientation={openOrientation} />
         </GlossaryLinkScope>
       )}
 
-      {glossaryOpen && (
-        <GlossaryModal onClose={() => setGlossaryOpen(false)} />
-      )}
+      {glossaryOpen && <GlossaryModal onClose={() => setGlossaryOpen(false)} />}
 
       {activeTemplate && (
-        <TemplateModal
-          templateId={activeTemplate}
-          onClose={() => setActiveTemplate(null)}
-        />
+        <TemplateModal templateId={activeTemplate} onClose={() => setActiveTemplate(null)} />
       )}
     </div>
   );

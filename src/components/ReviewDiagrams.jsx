@@ -1,10 +1,10 @@
 // Professional redraws of the two hand-drawn EIA/CBA diagrams (Comment #2, #8).
-// Palette matches the dashboard: environmental review = civic blue, CBA = sage.
+// Palette matches the toolkit: environmental review = blue, CBA = MIT red.
 
-const ENV = '#45649D';
-const CBA = '#4F765B';
-const INK = '#3D2B1F';
-const MUTED = '#8B7355';
+const ENV = '#1D5E8C';
+const CBA = '#A31F34';
+const INK = '#0F0F0F';
+const MUTED = '#727272';
 
 export function TimelineDiagram() {
   const milestones = [
@@ -50,11 +50,11 @@ export function TimelineDiagram() {
         <line key={x} x1={x} y1="46" x2={x} y2="66" stroke={ENV} strokeWidth="2" />
       ))}
 
-      <text x="150" y="42" fill={ENV} fontFamily="IBM Plex Mono, monospace" fontSize="10" fontWeight="600" letterSpacing="0.04em">
-        SCREENING &amp; ASSESSMENTS
+      <text x="150" y="42" fill={ENV} fontFamily="Archivo, Helvetica Neue, Arial, sans-serif" fontSize="11" fontWeight="600" letterSpacing="0.01em">
+        Screening &amp; assessments
       </text>
-      <text x="382" y="42" fill={ENV} fontFamily="IBM Plex Mono, monospace" fontSize="10" fontWeight="600" letterSpacing="0.04em">
-        SCOPING · DRAFT REVIEW · FINAL EIS
+      <text x="382" y="42" fill={ENV} fontFamily="Archivo, Helvetica Neue, Arial, sans-serif" fontSize="11" fontWeight="600" letterSpacing="0.01em">
+        Scoping · draft review · final EIS
       </text>
 
       {/* curve down to the consolidated permit box */}
@@ -82,13 +82,13 @@ export function TimelineDiagram() {
                 x={x + 62}
                 y={186 + li * 15}
                 fill={INK}
-                fontFamily="IBM Plex Mono, monospace"
-                fontSize="10.5"
+                fontFamily="Archivo, Helvetica Neue, Arial, sans-serif"
+                fontSize="11.5"
                 fontWeight="600"
-                letterSpacing="0.05em"
+                letterSpacing="0.01em"
                 textAnchor="middle"
               >
-                {line.toUpperCase()}
+                {line}
               </text>
             ))}
           </g>
@@ -109,12 +109,12 @@ export function TimelineDiagram() {
       ))}
 
       {/* emphasis band over the active negotiation window */}
-      <rect x="364" y="321" width="152" height="10" rx="5" fill={CBA} opacity="0.18" />
+      <rect x="364" y="321" width="152" height="10" rx="0" fill={CBA} opacity="0.18" />
 
-      <text x="228" y="313" fill={CBA} fontFamily="IBM Plex Mono, monospace" fontSize="10" fontWeight="600" letterSpacing="0.04em">
+      <text x="228" y="313" fill={CBA} fontFamily="Archivo, Helvetica Neue, Arial, sans-serif" fontSize="11" fontWeight="600" letterSpacing="0.01em">
         COALITION-BUILDING
       </text>
-      <text x="382" y="313" fill={CBA} fontFamily="IBM Plex Mono, monospace" fontSize="10" fontWeight="600" letterSpacing="0.04em">
+      <text x="382" y="313" fill={CBA} fontFamily="Archivo, Helvetica Neue, Arial, sans-serif" fontSize="11" fontWeight="600" letterSpacing="0.01em">
         COMMUNITY PRIORITIES
       </text>
       <text x="228" y="356" fill={CBA} fontFamily="IBM Plex Sans, sans-serif" fontSize="11" fontStyle="italic">
@@ -141,16 +141,16 @@ export function TimelineDiagram() {
         y="152"
         width="168"
         height="76"
-        rx="10"
+        rx="0"
         fill="#FFFFFF"
         stroke={INK}
         strokeWidth="1.5"
       />
-      <text x="800" y="182" fill={INK} fontFamily="IBM Plex Mono, monospace" fontSize="10.5" fontWeight="700" letterSpacing="0.05em" textAnchor="middle">
-        CONSOLIDATED PERMIT
+      <text x="800" y="182" fill={INK} fontFamily="Archivo, Helvetica Neue, Arial, sans-serif" fontSize="11.5" fontWeight="700" letterSpacing="0.01em" textAnchor="middle">
+        Consolidated permit
       </text>
-      <text x="800" y="200" fill={INK} fontFamily="IBM Plex Mono, monospace" fontSize="10.5" fontWeight="700" letterSpacing="0.05em" textAnchor="middle">
-        / FINAL AGREEMENT
+      <text x="800" y="200" fill={INK} fontFamily="Archivo, Helvetica Neue, Arial, sans-serif" fontSize="11.5" fontWeight="700" letterSpacing="0.01em" textAnchor="middle">
+        / final agreement
       </text>
     </svg>
   );
@@ -277,7 +277,7 @@ export function FeedbackLoopDiagram() {
       </text>
 
       {/* Centre: cumulative impact analysis */}
-      <rect x="214" y="196" width="192" height="68" rx="34" fill="#D9D2C7" opacity="0.8" />
+      <rect x="214" y="196" width="192" height="68" rx="34" fill="#E4E4E4" opacity="0.8" />
       <text x="310" y="225" fill={INK} fontFamily="IBM Plex Serif, Georgia, serif" fontSize="16" fontWeight="700" textAnchor="middle">
         cumulative impact
       </text>

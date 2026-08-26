@@ -123,7 +123,8 @@ function ReviewBox({ box }) {
         <ul className={styles.keyPoints}>
           {box.keyPoints.map((point) => (
             <li key={point.title}>
-              <strong><GlossaryText>{point.title}</GlossaryText></strong>
+              {/* Bold lead-ins read as headings — glossary links stay in the detail line. */}
+              <strong>{point.title}</strong>
               <span><GlossaryText>{point.detail}</GlossaryText></span>
             </li>
           ))}

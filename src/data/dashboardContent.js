@@ -5,6 +5,11 @@
 // ============================================================
 
 // ---------- LANDING PAGE ----------
+// NOTE: the seven orientation cards (what a CBA is / can do / cannot do / why you
+// might want one / who it is for / how to use it) were replaced by the single
+// long-form orientation page. That copy now lives in src/data/orientation.js —
+// edit it there, not here.
+
 
 export const landingPage = {
   title: "Community Benefits Agreement Toolkit",
@@ -29,70 +34,9 @@ export const landingPage = {
     ],
   },
 
-  whatIsACBA: {
-    heading: "What is a CBA?",
-    body: `A Community Benefits Agreement (CBA) is a legally-binding contract between a developer and a community coalition (or, in some cases, a municipality) that outlines specific benefits the developer must deliver in exchange for community support or non-opposition to a project.
 
-Unlike informal promises or goodwill gestures, CBAs are enforceable legal documents. They are negotiated before a project is approved and signed by all parties, ensuring that the community has a formal role in shaping how development affects their neighborhood.`,
-    note: "Some states require similar agreements under different names (for example, Host Community Agreements, Development Agreements, or Impact Mitigation Agreements). This playbook applies to both required and voluntary agreements.",
-  },
 
-  whatCBACanDo: {
-    heading: "What a CBA Can Do",
-    items: [
-      "Create legally enforceable obligations that hold developers accountable to specific commitments",
-      "Ensure that community benefits are specific, measurable, and tied to clear timelines",
-      "Build trust between developers and communities by creating a structured, transparent process",
-      "Reduce conflict during and after construction by establishing agreed-upon expectations",
-      "Strengthen long-term accountability through monitoring committees and reporting requirements",
-    ],
-  },
 
-  whatCBACannotDo: {
-    heading: "What a CBA Cannot Do",
-    items: [
-      "Cannot replace meaningful community engagement — it formalizes commitments that emerge from it",
-      "Cannot guarantee equitable outcomes if the negotiation process itself was unequal",
-      "Cannot function as a real protection without clear, specific commitments backed by enforcement mechanisms",
-      "Cannot ensure compliance if benefits are vague or monitoring structures are absent",
-    ],
-  },
-
-  whyYouMightWantOne: {
-    heading: "Why Might You Want One?",
-    items: [
-      {
-        number: 1,
-        title: "Enforceable Commitments",
-        description:
-          "A CBA transforms verbal promises made during public hearings into legally binding contract terms. Without a signed agreement, a developer's stated intentions to hire locally, fund mitigation, or limit construction hours carry no legal weight and can be dropped once approvals are secured. With a CBA, the same commitments come with defined remedies — notice-and-cure periods, monitoring, and in many templates, penalties or the ability to sue for breach.",
-      },
-      {
-        number: 2,
-        title: "Reduce Conflict",
-        description:
-          "Projects that skip meaningful engagement tend to generate opposition late, when it is most disruptive — during permitting appeals, board hearings, or construction. Negotiating expectations up front gives both sides a shared, written reference point, so disagreements during construction and operation are resolved by checking the agreement rather than relitigating the original debate.",
-      },
-      {
-        number: 3,
-        title: "Improve Equity",
-        description:
-          "Regulatory review (an EIA/EIR, a siting permit) sets a floor: the minimum a project must do to be allowed to proceed. A CBA operates above that floor, directing a share of a project's benefits specifically to the residents who bear its costs, rather than letting those benefits accrue only to the region or the developer.",
-      },
-      {
-        number: 4,
-        title: "Build Relationships",
-        description:
-          "Negotiating a CBA typically requires a monitoring committee, regular reporting, or a defined point of contact — structures that keep the developer and the community talking after the ribbon-cutting, not just during the pre-approval push for support.",
-      },
-      {
-        number: 5,
-        title: "Protect from Risk",
-        description:
-          "Renewable energy and infrastructure projects frequently change hands — the developer that made commitments during permitting may not be the entity that operates the facility a decade later. Because a CBA is a contract tied to the project rather than a person, its obligations are more likely to survive a sale, refinancing, or change in company leadership than an informal understanding would.",
-      },
-    ],
-  },
 
   // Each category is tagged across three dimensions so the benefits board can be
   // filtered by impact time horizon, benefit type, and recipient. (Comments #3, #4, #5)
@@ -301,45 +245,7 @@ Unlike informal promises or goodwill gestures, CBAs are enforceable legal docume
     ],
   },
 
-  whoThisIsFor: {
-    heading: "Who This Toolkit Is For",
-    body: "This toolkit is built primarily for community organizers and environmental justice advocates. It is also a useful reference for municipal officials, local government boards, and others navigating development projects in their communities.",
-    primary: [
-      {
-        role: "Community Organizers & EJ Advocates",
-        description:
-          "Build power, understand your rights, and hold developers accountable.",
-      },
-      {
-        role: "Municipal Officials & Staff",
-        description:
-          "Structure fair agreements, meet legal obligations, and protect public interests.",
-      },
-      {
-        role: "Local Government Boards",
-        description:
-          "Review CBA processes, ensure compliance, and represent constituent interests.",
-      },
-    ],
-    secondary: [
-      "Developers seeking to understand community expectations",
-      "Consultants advising on community benefit processes",
-      "Researchers studying CBA implementation and outcomes",
-    ],
-  },
 
-  howToUse: {
-    heading: "How to Use This Toolkit",
-    body: "Start with the state and local legal requirements that apply to your project, then use the dropdown step modules below to navigate the six phases of a CBA — from initial preparation through enforcement. Each step includes guidance, a suggested checklist, and links to real templates you can open and use directly. Scroll down to the Resource Library to browse all templates, external resources, and case studies in one place.",
-    steps: [
-      "Begin with 'Before you begin' — confirm what your state, county, and municipality already require",
-      "Find out where the environmental review process stands, since it runs on its own fixed schedule",
-      "Open each accordion step in order — only one step is open at a time",
-      "Check off action items on the suggested checklist as you complete them",
-      "Click 'Open Template' to view and use any worksheet or form",
-      "Visit the Resource Library to explore additional materials",
-    ],
-  },
 };
 
 // ============================================================
@@ -414,8 +320,8 @@ export const beforeYouBegin = {
     {
       id: "legal-requirements",
       number: "01",
-      color: "#A95F42",
-      tint: "#FBF1EA",
+      color: "#A31F34",
+      tint: "#FFF4F4",
       title: "Understand State & Local Legal Requirements Before You Begin",
       lead:
         "Before any CBA discussion begins, communities and municipalities must understand what state, county, and local laws require — and don't require.",
@@ -469,8 +375,8 @@ export const beforeYouBegin = {
     {
       id: "environmental-review",
       number: "02",
-      color: "#3F7583",
-      tint: "#EAF2F4",
+      color: "#1D5E8C",
+      tint: "#EEF3F8",
       title: "Environmental Review Happens on Its Own Timeline",
       lead:
         "Most states require an Environmental Impact Assessment (EIA) or Environmental Impact Report (EIR) for new facilities. Some projects also trigger federal NEPA review, which runs in parallel. These processes have legally fixed schedules that do not adjust to community needs or CBA negotiations.",
@@ -530,7 +436,7 @@ export const steps = [
     id: "prepare",
     number: 1,
     title: "Prepare",
-    color: "#A95F42", // terra
+    color: "#A31F34", // step 1 — MIT red
     subtitle: "What communities and municipalities should do before any negotiation begins",
     description:
       "Strong CBAs begin before the negotiation table. This step helps you understand the project context, identify community priorities, assess your capacity, and decide whether to bring in outside support.",
@@ -754,7 +660,7 @@ export const steps = [
     id: "engage",
     number: 2,
     title: "Engage",
-    color: "#527A60", // sage
+    color: "#3D6B4A", // step 2 — green
     subtitle: "How to build meaningful, inclusive, and effective community engagement before negotiations begin",
     description:
       "Engagement is not a checkbox — it is the foundation of a legitimate CBA. This step guides you through building continuous, inclusive, and documented community engagement that shapes the negotiation.",
@@ -892,7 +798,7 @@ export const steps = [
     id: "negotiate",
     number: 3,
     title: "Negotiate",
-    color: "#806B9F", // lavender
+    color: "#6B4E8C", // step 3 — violet
     subtitle: "Designing a fair, transparent, and enforceable negotiation process",
     description:
       "Good negotiation is structured, documented, and fair. This step provides timelines, facilitation guidance, power-dynamics tools, and a preparation worksheet to help all parties negotiate effectively.",
@@ -1082,7 +988,7 @@ export const steps = [
     id: "draft",
     number: 4,
     title: "Draft",
-    color: "#3F7583", // teal
+    color: "#1D5E8C", // step 4 — blue
     subtitle: "Translate negotiated commitments into clear, enforceable, durable language",
     description:
       "A CBA is only as strong as its language. This step provides a structure template, model clauses, an example benefits menu, and a guide to the most common drafting mistakes.",
@@ -1321,7 +1227,7 @@ export const steps = [
     id: "monitor",
     number: 5,
     title: "Monitor",
-    color: "#9A7626", // gold
+    color: "#8A6A1F", // step 5 — ochre
     subtitle: "Ensure commitments are implemented, tracked, and publicly accountable",
     description:
       "A signed CBA is not the finish line — it is the beginning. This step establishes monitoring frameworks, committee structures, and reporting tools to ensure every commitment is tracked and enforced.",
@@ -1461,7 +1367,7 @@ export const steps = [
     id: "enforce",
     number: 6,
     title: "Enforce",
-    color: "#A65057", // rose
+    color: "#9E3B2E", // step 6 — rust
     subtitle: "Activate the tools that ensure commitments are delivered and know when to escalate",
     description:
       "Enforcement is the test of whether a CBA was real or just paper. This step walks through the enforcement pathway, real case examples of successful enforcement, and guidance on when and how to seek legal support.",
@@ -2323,10 +2229,10 @@ export const bibliography = [
 // ---------- STEP COLOR MAP ----------
 
 export const stepColors = {
-  prepare: "#A95F42",
-  engage: "#527A60",
-  negotiate: "#806B9F",
-  draft: "#3F7583",
-  monitor: "#9A7626",
-  enforce: "#A65057",
+  prepare: "#A31F34",
+  engage: "#3D6B4A",
+  negotiate: "#6B4E8C",
+  draft: "#1D5E8C",
+  monitor: "#8A6A1F",
+  enforce: "#9E3B2E",
 };

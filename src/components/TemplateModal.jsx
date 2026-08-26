@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { templates, steps } from '../data/dashboardContent';
 import { IconClose, IconDownload } from './Icons';
 import GlossaryText from './GlossaryText';
@@ -10,13 +11,17 @@ export default function TemplateModal({ templateId, onClose }) {
   useEffect(() => {
     const handleKeyDown = (event) => event.key === 'Escape' && onClose();
     document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.body.classList.add('template-open');
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.classList.remove('template-open');
+    };
   }, [onClose]);
 
   if (!tmpl) return null;
   const step = steps.find((s) => s.id === tmpl.step);
 
-  return (
+  return createPortal(
     <div className={styles.overlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className={`${styles.modal} ${styles.modalWide} ${tStyles.printArea}`} role="dialog" aria-modal="true" aria-labelledby="template-title">
         <div className={styles.modalHeader}>
@@ -39,8 +44,10 @@ export default function TemplateModal({ templateId, onClose }) {
 
         <div className={styles.modalBody}>
           <div className={tStyles.note}>
-            Fill this template in on screen, then use "Download as PDF" to save what you've entered — it opens your
-            browser's print dialog; choose "Save as PDF" as the destination. You can also print it blank for workshops.
+            Fill this template in on screen, then use “Download as PDF” to save a copy with your answers in it.
+            That opens your browser’s save dialog — choose “Save as PDF” as the destination. Nothing you type is
+            stored by this site, so save the PDF before you close the form. You can also save it blank to work
+            through on paper.
           </div>
 
           {tmpl.sections.map((section, si) => (
@@ -269,6 +276,7 @@ export default function TemplateModal({ templateId, onClose }) {
           ))}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
