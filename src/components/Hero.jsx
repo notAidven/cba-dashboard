@@ -3,6 +3,7 @@ import { orientation } from '../data/orientation';
 import offshoreWindVisit from '../assets/photos/offshore-wind-visit.jpg';
 import { IconArrowDown } from './Icons';
 import GlossaryText from './GlossaryText';
+import Reveal from './Reveal';
 import styles from './Hero.module.css';
 
 export default function Hero({ onGlossaryOpen, onOpenOrientation }) {
@@ -81,16 +82,23 @@ export default function Hero({ onGlossaryOpen, onOpenOrientation }) {
             <p className={styles.missionLead}>
               <GlossaryText>{landingPage.mission.lead}</GlossaryText>
             </p>
-            {landingPage.mission.body.map((paragraph) => (
-              <p key={paragraph} className={styles.missionBody}>
-                <GlossaryText>{paragraph}</GlossaryText>
-              </p>
-            ))}
-            <ul className={styles.missionPrinciples}>
-              {landingPage.mission.principles.map((principle) => (
-                <li key={principle}><GlossaryText>{principle}</GlossaryText></li>
+            <Reveal
+              label="Read the rest of our philosophy"
+              openLabel="Show less"
+              count={landingPage.mission.body.length + landingPage.mission.principles.length}
+              tone="quiet"
+            >
+              {landingPage.mission.body.map((paragraph) => (
+                <p key={paragraph} className={styles.missionBody}>
+                  <GlossaryText>{paragraph}</GlossaryText>
+                </p>
               ))}
-            </ul>
+              <ul className={styles.missionPrinciples}>
+                {landingPage.mission.principles.map((principle) => (
+                  <li key={principle}><GlossaryText>{principle}</GlossaryText></li>
+                ))}
+              </ul>
+            </Reveal>
           </div>
         </div>
       </section>

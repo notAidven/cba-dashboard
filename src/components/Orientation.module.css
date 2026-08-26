@@ -445,3 +445,12 @@
   .layout { display: block; }
   .section { break-inside: avoid; border: none; }
 }
+
+/* One-line summary of each reason; the argument sits behind a reveal. */
+.reasonHook {
+  color: var(--ink) !important;
+  font-size: 14.5px !important;
+  font-weight: 600;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}

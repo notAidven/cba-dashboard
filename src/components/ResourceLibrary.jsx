@@ -7,10 +7,18 @@ import styles from './ResourceLibrary.module.css';
 const TYPE_LABELS = { template: 'Template', external: 'External Resource', 'case-study': 'Case Study' };
 const TYPE_COLORS = { template: '#9580B8', external: '#6B9B7A', 'case-study': '#C97B54' };
 
+// Show a manageable first screenful per group; the rest is one click away.
+// 27 cards open at once was the single largest block of text on the page.
+const PREVIEW_COUNT = 6;
+
 export default function ResourceLibrary({ onOpenTemplate }) {
   const [search, setSearch] = useState('');
   const [filterType, setFilterType] = useState('all');
   const [filterStep, setFilterStep] = useState('all');
+  const [expandedGroups, setExpandedGroups] = useState({});
+
+  const toggleGroup = (type) =>
+    setExpandedGroups((prev) => ({ ...prev, [type]: !prev[type] }));
 
   const filtered = useMemo(() => resources.filter((r) => {
     const q = search.toLowerCase();
@@ -22,6 +30,23 @@ export default function ResourceLibrary({ onOpenTemplate }) {
   }), [search, filterType, filterStep]);
 
   const byType = (type) => filtered.filter((r) => r.type === type);
+
+  // A group opens fully when the user asks, or when a filter/search has already
+  // narrowed it to a short list.
+  const isExpanded = (type) => expandedGroups[type] || byType(type).length <= PREVIEW_COUNT;
+  const visible = (type) => (isExpanded(type) ? byType(type) : byType(type).slice(0, PREVIEW_COUNT));
+
+  const MoreButton = ({ type }) => {
+    const total = byType(type).length;
+    if (total <= PREVIEW_COUNT) return null;
+    const open = expandedGroups[type];
+    return (
+      <button type="button" className={styles.moreBtn} onClick={() => toggleGroup(type)} aria-expanded={!!open}>
+        {open ? 'Show fewer' : `Show all ${total}`}
+        <span className={styles.moreChevron} aria-hidden="true">{open ? '\u2191' : '\u2193'}</span>
+      </button>
+    );
+  };
 
   return (
     <section className={styles.section} id="resources">
@@ -84,7 +109,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
               Templates ({byType('template').length})
             </h3>
             <div className={styles.grid}>
-              {byType('template').map((r) => (
+              {visible('template').map((r) => (
                 <div key={r.id} className={styles.card}>
                   <div className={styles.cardTop}>
                     <span className={styles.typeBadge} style={{ background: TYPE_COLORS.template }}>Template</span>
@@ -98,6 +123,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
                 </div>
               ))}
             </div>
+            <MoreButton type="template" />
           </div>
         )}
 
@@ -107,7 +133,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
               External Resources ({byType('external').length})
             </h3>
             <div className={styles.grid}>
-              {byType('external').map((r) => (
+              {visible('external').map((r) => (
                 <div key={r.id} className={styles.card}>
                   <div className={styles.cardTop}>
                     <span className={styles.typeBadge} style={{ background: TYPE_COLORS.external }}>External</span>
@@ -132,6 +158,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
                 </div>
               ))}
             </div>
+            <MoreButton type="external" />
           </div>
         )}
 
@@ -141,7 +168,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
               Case Studies ({byType('case-study').length})
             </h3>
             <div className={styles.grid}>
-              {byType('case-study').map((r) => (
+              {visible('case-study').map((r) => (
                 <div key={r.id} className={`${styles.card} ${styles.cardCaseStudy}`}>
                   <div className={styles.cardTop}>
                     <span className={styles.typeBadge} style={{ background: TYPE_COLORS['case-study'] }}>Case Study</span>
@@ -154,6 +181,7 @@ export default function ResourceLibrary({ onOpenTemplate }) {
                 </div>
               ))}
             </div>
+            <MoreButton type="case-study" />
           </div>
         )}
 

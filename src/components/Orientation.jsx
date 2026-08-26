@@ -3,6 +3,7 @@ import { orientation } from '../data/orientation';
 import { landingPage } from '../data/dashboardContent';
 import BenefitsBoard from './BenefitsBoard';
 import GlossaryText from './GlossaryText';
+import Reveal from './Reveal';
 import styles from './Orientation.module.css';
 
 /* Glossary terms are linked in body copy only, never in headings — per the
@@ -10,7 +11,7 @@ import styles from './Orientation.module.css';
    through <GlossaryText>; every heading is rendered as plain text. */
 
 function Prose({ block }) {
-  return (
+  const body = (
     <div className={styles.prose}>
       {block.paragraphs.map((paragraph, index) => (
         <p
@@ -21,6 +22,18 @@ function Prose({ block }) {
         </p>
       ))}
     </div>
+  );
+
+  if (!block.collapse) return body;
+
+  return (
+    <Reveal
+      label={block.collapseLabel || 'Read more'}
+      openLabel="Show less"
+      count={block.paragraphs.length}
+    >
+      {body}
+    </Reveal>
   );
 }
 
@@ -47,13 +60,15 @@ function Principles({ block }) {
 
 function Evidence({ block }) {
   return (
-    <aside className={styles.evidence}>
-      <span className={styles.evidenceLabel}>Evidence</span>
-      <p><GlossaryText>{block.text}</GlossaryText></p>
-      <ul className={styles.sourceList}>
-        {block.sources.map((source) => <li key={source}>{source}</li>)}
-      </ul>
-    </aside>
+    <Reveal label="Evidence and sources" openLabel="Hide evidence" count={block.sources.length}>
+      <aside className={styles.evidence}>
+        <span className={styles.evidenceLabel}>Evidence</span>
+        <p><GlossaryText>{block.text}</GlossaryText></p>
+        <ul className={styles.sourceList}>
+          {block.sources.map((source) => <li key={source}>{source}</li>)}
+        </ul>
+      </aside>
+    </Reveal>
   );
 }
 
@@ -86,8 +101,8 @@ function TwoColumn({ block }) {
 
 function CaseNote({ block }) {
   return (
+    <Reveal label={block.heading} openLabel={`Hide: ${block.heading.toLowerCase()}`} count={block.cases.length}>
     <div className={styles.caseNote}>
-      <h3 className={styles.blockHeading}>{block.heading}</h3>
       <div className={styles.caseGrid}>
         {block.cases.map((entry) => (
           <article key={entry.label} className={styles.caseItem}>
@@ -98,6 +113,7 @@ function CaseNote({ block }) {
         ))}
       </div>
     </div>
+    </Reveal>
   );
 }
 
@@ -109,9 +125,12 @@ function Reasons({ block }) {
           <span className={styles.reasonNumber}>{String(item.number).padStart(2, '0')}</span>
           <div className={styles.reasonBody}>
             <h3 className={styles.reasonTitle}>{item.title}</h3>
-            <p><GlossaryText>{item.body}</GlossaryText></p>
-            <p className={styles.condition}><GlossaryText>{item.condition}</GlossaryText></p>
-            <p className={styles.inlineSource}>{item.source}</p>
+            <p className={styles.reasonHook}><GlossaryText>{item.hook}</GlossaryText></p>
+            <Reveal label="Why, and what it depends on" openLabel="Show less">
+              <p><GlossaryText>{item.body}</GlossaryText></p>
+              <p className={styles.condition}><GlossaryText>{item.condition}</GlossaryText></p>
+              <p className={styles.inlineSource}>{item.source}</p>
+            </Reveal>
           </div>
         </li>
       ))}
@@ -125,8 +144,9 @@ function CreativeBenefits() {
     <section className={styles.creative}>
       <h3 className={styles.blockHeading}>{creativeBenefits.heading}</h3>
       <p className={styles.creativeCaption}>
-        <GlossaryText>{creativeBenefits.caption}</GlossaryText>
+        <GlossaryText>{creativeBenefits.shortCaption}</GlossaryText>
       </p>
+      <Reveal label="See in-kind and creative options" openLabel="Hide options" count={creativeBenefits.items.length} tone="quiet">
       <ul className={styles.creativeList}>
         {creativeBenefits.items.map((item) => (
           <li key={item.label}>
@@ -135,6 +155,7 @@ function CreativeBenefits() {
           </li>
         ))}
       </ul>
+      </Reveal>
     </section>
   );
 }

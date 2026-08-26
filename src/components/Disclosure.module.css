@@ -7,7 +7,7 @@
   transition: border-color .15s, box-shadow .15s;
 }
 
-.panel:hover { border-color: rgba(201, 123, 84, .3); }
+.panel:hover { border-color: var(--terra); }
 .panelOpen { box-shadow: var(--shadow); }
 
 .header {

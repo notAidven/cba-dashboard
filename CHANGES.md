@@ -5,6 +5,31 @@ Implements the review comments in `DashboardEdits.html#cmnt_ref1.pdf` (numbered 
 
 ---
 
+## Round 3 — Reduce on-screen text
+
+The review asked for more evidence and depth; having all of it open at once made the
+pages overwhelming. Nothing was deleted — supporting detail moved behind inline
+expanders, so it stays on the page and stays findable.
+
+| Page | Before | After |
+| --- | --- | --- |
+| Landing | 2,848 words · ~13.3 screens | **1,593 words · ~8.1 screens** (−44%) |
+| Orientation | 3,315 words · ~13.7 screens | **2,217 words · ~11.1 screens** (−33%) |
+
+- **New** `src/components/Reveal.jsx` / `.module.css` — a small inline expander with a
+  count badge and proper `aria-expanded` / `aria-controls` wiring.
+- **Resource Library** shows 6 cards per group with "Show all N" (18 visible instead of
+  41). A group that a filter or search has already narrowed opens in full automatically.
+- **Before you begin** keeps each box's lead and state chips; the fallback options,
+  research and outreach lists, checklist, and the two diagrams sit behind expanders.
+- **Orientation**: evidence blocks, case notes, in-kind options, and the denser second
+  paragraphs are collapsed. The five reasons in §04 now show a one-line hook each, with
+  the argument, condition, and source one click away.
+- **Landing philosophy block** keeps its lead statement; the remaining paragraphs and the
+  three principles are behind one expander.
+
+---
+
 ## Round 2 — Additional Comments
 
 Addresses the *Additional Comments* section and the Aug 28 discussion notes.

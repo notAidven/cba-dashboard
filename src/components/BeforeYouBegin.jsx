@@ -4,6 +4,7 @@ import { beforeYouBegin, stateLawExamples } from '../data/dashboardContent';
 import { TimelineDiagram, FeedbackLoopDiagram } from './ReviewDiagrams';
 import { IconClose } from './Icons';
 import GlossaryText from './GlossaryText';
+import Reveal from './Reveal';
 import styles from './BeforeYouBegin.module.css';
 
 const DIAGRAMS = {
@@ -68,6 +69,12 @@ function LegalBox({ box }) {
         </div>
       </div>
 
+      <Reveal
+        label="What to do if it is not required, plus what to research first"
+        openLabel="Hide the detail"
+        count={box.fallback.items.length + box.research.items.length + box.outreach.items.length + box.checklist.items.length}
+        tone="quiet"
+      >
       <div className={styles.subBlock}>
         <p className={styles.subHeading}>{box.fallback.heading}</p>
         <p className={styles.subNote}>{box.fallback.intro}</p>
@@ -110,6 +117,8 @@ function LegalBox({ box }) {
         </ul>
       </div>
 
+      </Reveal>
+
       {active && <StateModal example={active} onClose={() => setOpenState(null)} />}
     </>
   );
@@ -131,6 +140,12 @@ function ReviewBox({ box }) {
         </ul>
       </div>
 
+      <Reveal
+        label="See how the two timelines line up"
+        openLabel="Hide the diagrams"
+        count={box.diagrams.length}
+        tone="quiet"
+      >
       {box.diagrams.map((diagram) => {
         const Diagram = DIAGRAMS[diagram.id];
         if (!Diagram) return null;
@@ -146,6 +161,7 @@ function ReviewBox({ box }) {
           </figure>
         );
       })}
+      </Reveal>
     </>
   );
 }
