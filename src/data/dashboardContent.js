@@ -219,6 +219,9 @@ export const landingPage = {
   // ---------- IN-KIND / CREATIVE BENEFITS (Comment #10) ----------
   creativeBenefits: {
     heading: "Look beyond financial compensation",
+    // Short form shown by default; the full caption is kept for reference.
+    shortCaption:
+      "Community benefits go beyond money. A fair process also looks for in-kind options that expand opportunity, reduce burdens, and let communities share in a project's long-term gains.",
     caption:
       "We aim to maximize value for all stakeholders. Community benefits extend beyond financial compensation to include in-kind contributions such as reduced energy costs, shared ownership models, and access to land or infrastructure. A fair CBA process looks beyond mitigation and compensation to identify creative, public-interest solutions that expand opportunity, reduce burdens, and ensure that communities share in the project's long-term gains. Beyond the common benefits outlined above, additional creative options may include:",
     items: [

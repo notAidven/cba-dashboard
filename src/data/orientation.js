@@ -109,8 +109,10 @@ export const orientation = {
         },
         {
           type: 'prose',
+          collapse: true,
+          collapseLabel: 'How a CBA relates to permits and public law',
           paragraphs: [
-            'A CBA also sits in a particular place relative to public law. Environmental review and siting conditions set a floor: the minimum a project must do to be permitted at all. A CBA operates above that floor. Understanding which protections you already have by right — and therefore do not need to trade for — is what keeps a negotiation from spending its leverage buying something the law already requires.',
+            'A CBA sits in a particular place relative to public law. Environmental review and siting conditions set a floor: the minimum a project must do to be permitted at all. A CBA operates above that floor. Understanding which protections you already have by right — and therefore do not need to trade for — is what keeps a negotiation from spending its leverage buying something the law already requires.',
           ],
         },
       ],
@@ -219,6 +221,8 @@ export const orientation = {
             {
               number: 1,
               title: 'Enforceable commitments',
+              hook:
+                'Turns hearing-room assurances into contract terms with a remedy attached.',
               body:
                 'A CBA converts verbal assurances made during permitting into contract terms. Without one, a developer’s stated intention to hire locally or fund mitigation is unenforceable and frequently abandoned once approvals are in hand. With one, the same commitment carries a remedy. Recent documentary analysis of 72 agreements across renewable energy, infrastructure, and real estate — paired with practitioner interviews — examines precisely what separates the agreements that get enforced from those that do not.',
               condition:
@@ -228,6 +232,8 @@ export const orientation = {
             {
               number: 2,
               title: 'Reduced conflict, earlier',
+              hook:
+                'Settles expectations before positions harden, so later disputes get looked up rather than re-fought.',
               body:
                 'Projects that skip meaningful engagement generate opposition late, when it is most expensive for everyone — at permitting appeals, board hearings, or during construction. Negotiating expectations in advance gives both sides a shared written reference, so disputes get resolved by consulting the agreement rather than relitigating the original fight. This is the core finding of decades of environmental dispute resolution practice, well predating CBAs as a named instrument.',
               condition:
@@ -237,6 +243,8 @@ export const orientation = {
             {
               number: 3,
               title: 'Equity above the regulatory floor',
+              hook:
+                'Permits set a minimum. A CBA is what directs a share of the upside to the people carrying the costs.',
               body:
                 'Environmental review and siting permits establish the minimum a project must do. They are not designed to direct a share of a project’s upside to the specific residents who carry its costs. A CBA is the instrument that does that work, which is why it matters most where regional benefits are large and locally concentrated harms are borne by a small number of people.',
               condition:
@@ -246,6 +254,8 @@ export const orientation = {
             {
               number: 4,
               title: 'A durable relationship',
+              hook:
+                'Creates standing structures — a monitoring committee, a reporting cadence — that outlast the approval fight.',
               body:
                 'Negotiating an agreement typically produces standing structures — a monitoring committee, a reporting cadence, a named point of contact. Those structures are what keep a developer and a community in contact through the operating life of a facility, rather than only during the pre-approval push for support. They are also, on the evidence, the component most often omitted and most predictive of whether commitments are honoured.',
               condition:
@@ -255,6 +265,8 @@ export const orientation = {
             {
               number: 5,
               title: 'Protection against a change of hands',
+              hook:
+                'Obligations can be written to survive a sale, a refinancing, or a change of corporate control.',
               body:
                 'Energy and infrastructure projects change ownership routinely. The developer that made commitments during permitting is often not the entity operating the facility a decade later. Because a CBA is a contract attached to the project, its obligations can be written to survive a sale, a refinancing, or a change in corporate control in a way an informal understanding never does.',
               condition:
@@ -282,8 +294,17 @@ export const orientation = {
           type: 'prose',
           lead: true,
           paragraphs: [
-            'Three distinctions do most of the analytical work in a CBA, and the filters below are built around them. The first is time horizon: short-term impacts are construction-phase — traffic, dust, noise, road damage, temporary loss of access — intense but bounded. Long-term impacts run through operation and sometimes decommissioning, and can persist for decades. They call for different commitments, different monitoring, and different durations of obligation, and conflating them is the most common drafting error.',
-            'The second is the difference between mitigation and compensation. Mitigation reduces or removes an impact at its source: buffers, routing, groundwater protection, habitat restoration, hour restrictions. Compensation pays for what cannot be avoided — direct payments to affected landowners or residents, impact fees to the municipality, or a community benefit fund scaled to the severity and duration of the harm. Environmental mitigation is, in many projects, the most consequential part of the agreement, and much of it can be secured through permit conditions rather than the CBA itself. The third distinction is simply who receives the benefit: an individual landowner, residents generally, the municipality, or a community organization. Benefits routed to different recipients need different delivery and different accountability.',
+            'Three distinctions do most of the analytical work in a CBA, and the filters below are built around them: when the impact lands, whether the benefit mitigates or compensates, and who receives it.',
+          ],
+        },
+        {
+          type: 'prose',
+          collapse: true,
+          collapseLabel: 'What those three distinctions mean',
+          paragraphs: [
+            'The first is time horizon. Short-term impacts are construction-phase — traffic, dust, noise, road damage, temporary loss of access — intense but bounded. Long-term impacts run through operation and sometimes decommissioning, and can persist for decades. They call for different commitments, different monitoring, and different durations of obligation, and conflating them is the most common drafting error.',
+            'The second is the difference between mitigation and compensation. Mitigation reduces or removes an impact at its source: buffers, routing, groundwater protection, habitat restoration, hour restrictions. Compensation pays for what cannot be avoided — direct payments to affected landowners or residents, impact fees to the municipality, or a community benefit fund scaled to the severity and duration of the harm. Environmental mitigation is, in many projects, the most consequential part of the agreement, and much of it can be secured through permit conditions rather than the CBA itself.',
+            'The third is simply who receives the benefit: an individual landowner, residents generally, the municipality, or a community organization. Benefits routed to different recipients need different delivery and different accountability.',
           ],
         },
         { type: 'benefitsBoard' },
@@ -305,8 +326,15 @@ export const orientation = {
           type: 'prose',
           lead: true,
           paragraphs: [
-            'This toolkit is written for community organizers and environmental justice advocates — people building a coalition, working out what to ask for, and preparing to negotiate with a counterparty that has more resources and better information. Everything below is drafted from that vantage point, and the guidance in each step is aimed at that reader.',
-            'It is also legitimately useful to others in the process, and they are welcome to it. Municipal officials and local government staff will find the legal-requirements and drafting material directly applicable, since in many states the municipality is the required signatory. Developers and their consultants can use it to understand what a well-prepared community will arrive expecting. Researchers will find the sources behind every section in the bibliography. But where guidance would differ by role, it is written for the community advocate.',
+            'This toolkit is written for community organizers and environmental justice advocates — people building a coalition, working out what to ask for, and preparing to negotiate with a counterparty that has more resources and better information. Where guidance would differ by role, it is written for that reader.',
+          ],
+        },
+        {
+          type: 'prose',
+          collapse: true,
+          collapseLabel: 'Useful to everyone else at the table, too',
+          paragraphs: [
+            'Municipal officials and local government staff will find the legal-requirements and drafting material directly applicable, since in many states the municipality is the required signatory. Developers and their consultants can use it to understand what a well-prepared community will arrive expecting. Researchers will find the sources behind every section in the bibliography.',
           ],
         },
         {
