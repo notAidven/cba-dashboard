@@ -5,6 +5,7 @@ import StepAccordion from './components/StepAccordion';
 import ResourceLibrary from './components/ResourceLibrary';
 import Footer from './components/Footer';
 import SiteHeader from './components/SiteHeader';
+import SiteFooter from './components/SiteFooter';
 import GlossaryModal from './components/GlossaryModal';
 import TemplateModal from './components/TemplateModal';
 import GlossaryText, { GlossaryLinkScope } from './components/GlossaryText';
@@ -111,6 +112,8 @@ export default function App() {
           <Footer onGlossaryOpen={() => setGlossaryOpen(true)} onOpenOrientation={openOrientation} />
         </GlossaryLinkScope>
       )}
+
+      <SiteFooter />
 
       {glossaryOpen && <GlossaryModal onClose={() => setGlossaryOpen(false)} />}
 

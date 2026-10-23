@@ -1,0 +1,68 @@
+/* Matches the Renewable Energy Clinic Wix footer: Avenir on a pale grey-blue
+   band, hairline black rules, centred logos. */
+
+.footer {
+  padding: 22px 20px 26px;
+  background: #F3F4F9;
+  color: #000;
+  font-family: 'Avenir Next', Avenir, 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell {
+  padding: 0 50px;
+  font-style: normal;
+  color: inherit;
+}
+
+a.cell:hover,
+.accessibility:hover { text-decoration: underline; }
+
+.divider {
+  align-self: stretch;
+  width: 1px;
+  min-height: 46px;
+  background: #000;
+}
+
+.rule {
+  margin: 26px 0 17px;
+  border: 0;
+  border-top: 1px solid #000;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+}
+
+.logos a { display: block; }
+.mitLogo { display: block; height: 32px; width: auto; }
+/* The DUSP PNG is a padded mark on white: multiply drops the white box on the
+   tinted band, and the extra height sizes the mark itself to ~40px. */
+.duspLogo { display: block; height: 58px; width: auto; margin: -9px 0; mix-blend-mode: multiply; }
+
+.accessibility {
+  display: inline-block;
+  margin-top: 36px;
+  color: inherit;
+}
+
+@media (max-width: 720px) {
+  .contact { flex-direction: column; gap: 10px; }
+  .cell { padding: 0; }
+  .divider { display: none; }
+  .logos { gap: 32px; }
+  .accessibility { margin-top: 24px; }
+}
