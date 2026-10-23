@@ -4,6 +4,7 @@ import BeforeYouBegin from './components/BeforeYouBegin';
 import StepAccordion from './components/StepAccordion';
 import ResourceLibrary from './components/ResourceLibrary';
 import Footer from './components/Footer';
+import SiteHeader from './components/SiteHeader';
 import GlossaryModal from './components/GlossaryModal';
 import TemplateModal from './components/TemplateModal';
 import GlossaryText, { GlossaryLinkScope } from './components/GlossaryText';
@@ -46,6 +47,7 @@ export default function App() {
 
   return (
     <div className={styles.app}>
+      <SiteHeader />
       {showOrientation ? (
         <GlossaryLinkScope scopeKey="orientation">
           <Orientation
