@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Home', href: WIX_SITE_URL },
   { label: 'About', href: `${WIX_SITE_URL}/about` },
   { label: 'Blogs', href: `${WIX_SITE_URL}/blog` },
-  { label: 'Publications', href: `${WIX_SITE_URL}/projects` },
+  { label: 'Publications', href: `${WIX_SITE_URL}/publications` },
   {
     label: 'Research',
     href: `${WIX_SITE_URL}/services-4`,
