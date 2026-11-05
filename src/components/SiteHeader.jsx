@@ -5,10 +5,13 @@ import duspLogo from '../assets/dusp-logo.png';
 import styles from './SiteHeader.module.css';
 
 const WIX_SITE_URL = 'https://renewable-energy.mit.edu';
+const HOME_URL = `${WIX_SITE_URL}/`;
 const DUSP_URL = 'https://dusp.mit.edu';
 
+// The toolkit is embedded in an iframe on the Wix site, so links to Wix pages
+// need target="_top" (below) to navigate the whole window, not just the iframe.
 const navLinks = [
-  { label: 'Home', href: WIX_SITE_URL },
+  { label: 'Home', href: HOME_URL },
   { label: 'About', href: `${WIX_SITE_URL}/about` },
   { label: 'Blogs', href: `${WIX_SITE_URL}/blog` },
   { label: 'Publications', href: `${WIX_SITE_URL}/publications` },
@@ -48,7 +51,7 @@ export default function SiteHeader() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <div className={styles.logos}>
-          <a href={WIX_SITE_URL}>
+          <a href={HOME_URL} target="_top">
             <img src={mitLogo} alt="MIT Renewable Energy Clinic" className={styles.logo} />
           </a>
           <div className={styles.divider} />
@@ -62,6 +65,7 @@ export default function SiteHeader() {
             <div key={link.label} className={styles.item}>
               <a
                 href={link.href}
+                target="_top"
                 className={`${styles.link} ${link.highlighted ? styles.highlighted : ''}`}
               >
                 {link.label}
@@ -71,7 +75,7 @@ export default function SiteHeader() {
               {link.dropdown ? (
                 <div className={styles.dropdown}>
                   {link.dropdown.map((item) => (
-                    <a key={item.label} href={item.href} className={styles.dropdownLink}>
+                    <a key={item.label} href={item.href} target="_top" className={styles.dropdownLink}>
                       {item.label}
                     </a>
                   ))}
@@ -79,7 +83,7 @@ export default function SiteHeader() {
               ) : null}
             </div>
           ))}
-          <a href={WIX_SITE_URL} aria-label="Search" className={styles.search}>
+          <a href={HOME_URL} target="_top" aria-label="Search" className={styles.search}>
             <Search className={styles.searchIcon} />
           </a>
         </nav>

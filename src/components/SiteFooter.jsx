@@ -4,7 +4,7 @@ import mitLogo from '../assets/mit-logo.png';
 import duspLogo from '../assets/dusp-logo.png';
 import styles from './SiteFooter.module.css';
 
-const WIX_SITE_URL = 'https://renewable-energy.mit.edu';
+const HOME_URL = 'https://renewable-energy.mit.edu/';
 const DUSP_URL = 'https://dusp.mit.edu';
 
 export default function SiteFooter() {
@@ -24,7 +24,8 @@ export default function SiteFooter() {
       <hr className={styles.rule} />
 
       <div className={styles.logos}>
-        <a href={WIX_SITE_URL}>
+        {/* target="_top" so this leaves the Wix iframe rather than loading inside it. */}
+        <a href={HOME_URL} target="_top">
           <img src={mitLogo} alt="MIT Renewable Energy Clinic" className={styles.mitLogo} />
         </a>
         <a href={DUSP_URL}>
